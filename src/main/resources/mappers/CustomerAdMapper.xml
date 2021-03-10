@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="CustomerAdMapper">
+
+	<resultMap id="CustomerCateMap"
+		type="study.team.abuhae.model.Cus_category">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cateno" column="cateno" />
+		<result property="category" column="category"/>
+		<result property="subcateno" column="subcateno" />
+		<result property="sub_category" column="sub_category"/>
+	</resultMap>
+
+	<resultMap id="CustomerSubCateMap"
+		type="study.team.abuhae.model.Cus_sub_category">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="subcateno" column="subcateno" />
+		<result property="cateno" column="cateno"/>
+		<result property="sub_category" column="sub_category" />
+		<result property="boardnum" column="boardnum" />
+		<result property="title" column="title" />
+		<result property="text" column="text" />
+		<result property="writer" column="writer" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<result property="category" column="category"/>
+	</resultMap>
+	
+	<resultMap id="CustomerBbsMap"
+		type="study.team.abuhae.model.Cus_bbs">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cateno" column="cateno"/>
+		<result property="boardnum" column="boardnum" />
+		<result property="subcateno" column="subcateno"/>
+		<result property="subcategory" column="subcategory"/>
+		<result property="title" column="title" />
+		<result property="text" column="text" />
+		<result property="writer" column="writer" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+	
+
+	<!-- 게시글 카테고리 리스트 조회 -->
+	<select id="selectCategoryList"
+	parameterType="study.team.abuhae.model.Cus_category" resultMap="CustomerCateMap">
+		select cateno, category from cus_category;
+	</select>
+	
+	<!-- 게시글 카테고리 단일행 조회 -->
+	<select id="selectCategoryItem"
+	parameterType="study.team.abuhae.model.Cus_category" resultMap="CustomerCateMap">
+		select cateno, category from cus_category where cateno=#{cateno};
+	</select>
+	
+	<!-- 게시글 서브카테고리 조회 -->
+	<select id="selectCategorySubList"
+	parameterType="study.team.abuhae.model.Cus_sub_category" resultMap="CustomerSubCateMap">
+		select cateno,subcateno, sub_category from cus_sub_category;
+	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="addCumtomer" parameterType="study.team.abuhae.model.Cus_bbs"
+	useGeneratedKeys="true" keyProperty="boardnum">
+		insert into cus_bbs (cateno, subcateno, title, text, writer, reg_date, edit_date)
+		values (#{cateno}, #{subcateno}, #{title}, #{text}, '아부해', now(), now());
+	</insert>
+	
+	<!-- 게시글 목록 조회 -->
+	<select id="selectBoardList"
+	parameterType="study.team.abuhae.model.Cus_bbs" resultMap="CustomerBbsMap">
+		select boardnum, csb.sub_category as sub_category, title, writer, reg_date from cus_bbs cb
+		inner join cus_sub_category csb on cb.subcateno=csb.subcateno
+		where cb.cateno=#{cateno}
+	</select>
+	
+	<!-- 게시글 수 조회 -->
+	<select id="countBorad"
+	parameterType="study.team.abuhae.model.Cus_bbs" resultType="int">
+		select count(*) from cus_bbs where cateno=#{cateno}
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="study.team.abuhae.model.Cus_bbs">
+		 UPDATE cus_bbs SET
+            cateno=#{cateno}, subcateno=#{subcateno}, title=#{title},
+            text=#{text}, edit_date=now()
+        WHERE boardnum=#{boardnum}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoard" parameterType="study.team.abuhae.model.Cus_bbs">
+		delete from cus_bbs where boardnum=#{boardnum}
+	</delete>
+	
+	
+</mapper>

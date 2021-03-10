@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>아이를부탁해</title>
+    <!-- 모바일 웹 페이지 설정 -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/favicon.ico" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
+    <!-- noto Sans 웹 폰트 적용 -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/notosans.css" />
+    <!-- fontawesome(글리피콘) 적용 -->
+    <script src="https://kit.fontawesome.com/f27ac0bcc1.js" crossorigin="anonymous"></script>
+
+    <!-- animaition 적용-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+
+    <!-- ajax Helper -->
+    <script src="../plugins/ajax/ajax_helper.js"></script>
+    <link rel="stylesheet" type="text/css" href="../plugins/ajax/ajax_helper.css" />
+    <link rel="stylesheet" type="text/css" href="css/mom_modal.css" />
+  </head>
+
+  <!--grid 사용시 col-xs-nn 사용-->
+  <body>
+    <div id="app">
+      <a data-toggle="modal" href="#mom_join_modal">테스트용</a>
+      <!-- mom_join_modal -->
+      <div id="mom_join_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mom_join_modal_Label" aria-hidden="true">
+        <!--modal header-->
+        <div class="modal_header">
+          <div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!--modal header end-->
+
+        <!--modal content-->
+        <div class="modal_content">
+          <div class="title"><b>3분</b>안에 회원가입하고</div>
+          <div class="content_line_group">
+            <div class="content_line">
+              <div class="img_group">
+                <img src="img/noun_degree_520672.png" />
+              </div>
+              <div>
+                <p>시터의 다양한 인증을</p>
+                <p>쉽고 빠르게 확인!</p>
+              </div>
+            </div>
+            <div class="content_line">
+              <div class="img_group">
+                <img src="img/noun_on time_1455740.png" />
+              </div>
+              <div>
+                <p>시터의 활동 가능 시간을</p>
+                <p>쏙쏙 확인!</p>
+              </div>
+            </div>
+            <div class="content_line">
+              <div class="img_group">
+                <img src="img/noun_balloon love_2277316.png" />
+              </div>
+              <div>
+                <p>부모 회원이 작성한</p>
+                <p>리얼 후기 확인!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end modal content -->
+        <!--modal footer-->
+        <div class="modal_footer">
+          <p class="join">회원가입</p>
+        </div>
+        <!--modal footer end-->
+      </div>
+      <!-- mom_join_modal end -->
+    </div>
+    <!--row end-->
+
+    <!-- Javascript -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- jquery 파일명 수정 -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $(".modal_footer").click(function (e) {
+          location.replace("http://localhost:8080/ezen-android2020-2/join/join.html");
+        });
+      });
+    </script>
+  </body>
+</html>

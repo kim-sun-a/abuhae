@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+/* 초기 설정 -----------------------------------------------------*/
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#app > .container {
+  padding: 0;
+}
+
+/* header --------------------------------------------------------- */
+
+.header {
+  min-height: 60px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.header a {
+  color: #212121;
+}
+
+.header_wrap {
+  height: 60px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.header .flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .main_menu {
+  width: 112px;
+  margin-left: 12px;
+}
+
+.header .logo {
+  width: 117px;
+  height: auto;
+  padding-bottom: 2px;
+  margin-left: 12px;
+}
+
+.header .join {
+  outline: none;
+  border: none;
+  margin-right: 5px;
+  width: 75px;
+  height: 35px;
+  border-radius: 18px;
+  background: rgb(255, 121, 40);
+  color: rgb(255, 255, 255);
+  font-size: 0.9em;
+  font-weight: bold;
+  display: none;
+}
+
+.header .header_search_btn {
+  width: 20px;
+  height: 22px;
+  margin-left: 18px;
+  margin-right: 10px;
+  display: none;
+}
+
+.header p {
+  margin: 0;
+}
+
+.header .fa-bars {
+  font-size: 1.5em;
+}
+
+/* header end ---------------------------------------------------------*/
+
+/* modal -------------------------------------------------------------------------------------*/
+
+#menu_modal {
+  padding: 0;
+}
+
+#menu_modal p {
+  padding: 0;
+  margin: 0;
+}
+
+#menu_modal .modal_body a,
+#menu_modal .modal_footer a {
+  display: flex;
+}
+
+#menu_modal .col-xs-9 {
+  padding: 0;
+  margin: 0;
+}
+
+#menu_modal .modal_group {
+  padding: 40px 28px 28px;
+}
+
+#menu_modal .modal_content {
+  background-color: #fff;
+  height: 100%;
+  margin: 0;
+  box-shadow: 10px 0px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* modal header ---------------------------------------------------------*/
+
+#menu_modal button {
+  padding: 1px 6px;
+}
+
+#menu_modal button p {
+  line-height: 1.375;
+  color: rgb(102, 102, 102);
+  letter-spacing: -0.2px;
+  font-weight: bold;
+  font-size: 0.85em;
+}
+
+#menu_modal .modal_btn {
+  background-color: #fff;
+  border: 0;
+}
+
+#menu_modal .join_btn {
+  margin-left: 10px;
+}
+
+/* modal header end ---------------------------------------------------------*/
+
+/* modal body ---------------------------------------------------------*/
+
+#menu_modal .modal_body {
+  margin-top: 30px;
+}
+
+#menu_modal .modal_body p {
+  font-size: 1.15em;
+  font-weight: 1000;
+  color: rgb(68, 68, 68);
+  margin-top: 7px;
+}
+
+#menu_modal img {
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+}
+
+#menu_modal .sitter_search,
+.job_search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#menu_modal .job_search {
+  margin-top: 16px;
+}
+
+#menu_modal .divider {
+  width: 100%;
+  height: 1px;
+  opacity: 0.5;
+  background: rgb(221, 221, 221);
+}
+
+/* modal body end ---------------------------------------------------------*/
+
+/* footer ---------------------------------------------------------**/
+
+#menu_modal .modal_footer p {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: rgb(68, 68, 68);
+  letter-spacing: -0.2px;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 22px;
+}
+#menu_modal .modal_footer a {
+  margin-top: 32px;
+}
+#menu_modal .modal_footer a:first-child {
+  margin-top: 0;
+}
+
+/* footer end ---------------------------------------------------------**/
+
+/* modal end -------------------------------------------------------------------------------------*/
+
+        .nav li {
+            display: inline-block;
+            height: 50px;
+        }
+        li a {
+            color: #757575;
+            font-size: 1em;
+        }
+        .footer {
+            border-top: 1px solid #ddd;
+            margin-top: 60px;
+            padding: 30px 0;
+        }
+        #query {
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            box-sizing: border-box;
+            color: #666;
+            height: 40px;
+            padding-left: 40px;
+            padding-right: 20px;
+            -webkit-appearance: none;
+            width: 100%;
+            margin-bottom: 45px;
+		}
+		#glyphicon {
+            position: relative;
+            top: 23%;
+            transform: translateY(-50%);
+            position: absolute;
+            left: 30px;
+            z-index: 1;
+            width: 18px;
+            height: 11px;
+            color: #777;
+        }
+        .section {
+            height: 100%;
+        }
+        .section_header h1 {
+            font-size: 2.3em;
+        }
+        .section_middle {
+            padding: 0;
+        }
+        .section_middle h2 {
+            font-size: 1.3em;
+        }
+        .section_title {
+            padding: 15px 0;
+            font-size: 1em;
+        }
+        .section_title a, .section_middle a {
+            color: #424242;
+        }
+        .section_title_2 {
+            padding: 15px 0;
+            font-size: 0.8em;
+        }
+        .section_title_2 a {
+            color: #888887;
+        }

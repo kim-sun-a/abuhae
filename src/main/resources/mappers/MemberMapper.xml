@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 데이터 대량 주입용 Mapper 2021-02-04 하리 -->
+<mapper namespace="MemberMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="MemberMap"
+		type="study.team.abuhae.model.Member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="memberno" column="memberno" />
+		<result property="type" column="type" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="birthdate" column="birthdate" />
+		<result property="job_opening" column="job_opening" />
+		<result property="subscribe" column="subscribe" />
+		<result property="signup_date" column="signup_date" />
+	</resultMap>
+
+	<resultMap id="MomMap"
+		type="study.team.abuhae.model.Mom_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="momno" column="momno" />
+		<result property="want_act" column="want_act" />
+		<result property="want_age" column="want_age" />
+		<result property="kids_num" column="kids_num" />
+		<result property="kids_age" column="kids_age" />
+		<result property="kids_nai" column="kids_nai" />
+		<result property="kids_nai2" column="kids_nai2" />
+		<result property="payment" column="payment" />
+		<result property="payment_ok" column="payment_ok" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="schedule_ok" column="schedule_ok" />
+		<result property="sitter_gender" column="sitter_gender" />
+		<result property="interview_type" column="interview_type" />
+		<result property="care_type" column="care_type" />
+		<result property="openingdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+		<result property="subscribe" column="subscribe" />
+	</resultMap>
+
+	<resultMap id="SitterMap"
+		type="study.team.abuhae.model.Sitter_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="sitterno" column="sitterno" />
+		<result property="sitter_type" column="sitter_type" />
+		<result property="want_act1" column="want_act1" />
+		<result property="want_act2" column="want_act2" />
+		<result property="want_act3" column="want_act3" />
+		<result property="want_age" column="want_age" />
+		<result property="payment" column="payment" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="schedule_set" column="schedule_set" />
+		<result property="introduce" column="introduce" />
+		<result property="cctv" column="cctv" />
+		<result property="openingdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+		<result property="subscribe" column="subscribe" />
+	</resultMap>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+
+	<!-- 멤버(공통) -->
+	<insert id="insertMember"
+		parameterType="study.team.abuhae.model.Member" useGeneratedKeys="true"
+		keyProperty="memberno">
+		INSERT INTO Member (type, id, password, name, email,
+		phone, birthdate, gender, job_opening, subscribe, signup_date)
+		VALUES (#{type}, #{id}, md5(#{password}), #{name}, #{email}, #{phone},
+		#{birthdate},#{gender}, #{job_opening}, #{subscribe}, now());
+	</insert>
+
+
+	<!-- 맘 회원 가입 -->
+	<insert id="insertMom"
+		parameterType="study.team.abuhae.model.Mom_info"
+		useGeneratedKeys="true" keyProperty="momno">
+		INSERT INTO Mom_info (want_act1, want_act2, want_act3,
+		want_age, kids_num, kids_age, kids_age2, kids_nai, kids_nai2,
+		payment, payment_ok, si, gu, dong,
+		schedule,
+		schedule_ok, description, sitter_gender,
+		interview_type,
+		care_type,
+		openingdate, memberno) VALUES (#{want_act1},#{want_act2},#{want_act3}, #{want_age},
+		#{kids_num}, #{kids_age}, #{kids_age2},#{kids_nai},#{kids_nai2},
+		#{payment}, #{payment_ok}, #{si}, #{gu},
+		#{dong}, #{schedule},
+		#{schedule_ok}, #{description},
+		#{sitter_gender},#{interview_type},#{care_type},#{openingdate},
+		#{memberno});
+	</insert>
+
+	<!-- 시터 회원 가입 -->
+	<insert id="insertSitter"
+		parameterType="study.team.abuhae.model.Sitter_info"
+		useGeneratedKeys="true" keyProperty="sitterno">
+		INSERT INTO Sitter_info
+		(sitter_type,
+		want_act1, want_act2,want_act3, want_age, si, gu, dong, 
+		schedule, payment, cctv, isprofile, introduce, openingdate, memberno)
+		VALUES
+		(#{sitter_type}, #{want_act1}, #{want_act2}, #{want_act3}, #{want_age}, #{si}, #{gu}, #{dong},
+		#{schedule},#{payment}, #{cctv}, 'N', #{introduce},
+		#{openingdate}, #{memberno});
+	</insert>
+
+
+	<!-- 가입시 중복 체크 -->
+	<select id="getIdCheck"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		SELECT
+		count(*) from member where id=#{id};
+	</select>
+
+	<select id="getEmailCheck"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		SELECT
+		count(*) from member where email=#{email};
+	</select>
+
+	<select id="getPhoneCheck"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		SELECT
+		count(*) from member where phone=#{phone};
+	</select>
+
+	<!-- 특정 아이디에 대한 단일행 조회 - 추후 암호화-->
+	<select id="selectIDItem"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select m.memberno as memberno, mi.momno as momno, si.sitterno as sitterno, type, name
+		from member m
+		left outer join sitter_info si on m.memberno=si.memberno
+		left outer join mom_info mi on m.memberno=mi.memberno
+		
+		where id=#{id} and password=md5(#{password});
+	</select>
+	
+	<!-- 특정 아이디에 대한 단일행 조회 - 추후 암호화-->
+	<select id="selectId"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select m.memberno as memberno, mi.momno as momno, si.sitterno as sitterno, type, name, email
+		from member m
+		left outer join sitter_info si on m.memberno=si.memberno
+		left outer join mom_info mi on m.memberno=mi.memberno
+		
+		where id=#{id};
+	</select>
+	
+	<!-- 특정 아이디에 대한 단일행 조회-->
+	<select id="selectIdItem"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select m.memberno as memberno, mi.momno as momno, si.sitterno as sitterno, type, id
+		from member m
+		left outer join sitter_info si on m.memberno=si.memberno
+		left outer join mom_info mi on m.memberno=mi.memberno
+		
+		where id=#{id};
+	</select>
+
+
+
+	<!-- 맘 회원 목록 다중행 조회를 위한 기능 정의 // 회원명 검색 // 페이징 기능 @선아 02/08 -->
+	<select id="selectListMom"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select m.type, m.memberno, m.id, m.name, m.email, m.phone,
+		m.job_opening,
+		mi.si, mi.gu, mi.dong, momno
+		from member m
+		inner join mom_info mi on m.memberno = mi.memberno
+
+		ORDER BY
+		m.memberno ASC
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+	<!-- 시터 회원 목록 다중행 조회를 위한 기능 정의 // 회원명 검색 // 페이징 기능 @선아 02/08 -->
+	<select id="selectListSitter"
+		parameterType="study.team.abuhae.model.Member" resultMap="SitterMap">
+		select m.type, m.memberno, m.id, m.name, m.email, m.phone,
+		m.job_opening,
+		si.si, si.gu, si.dong, sitterno
+		from member m
+		inner join sitter_info
+		si on m.memberno = si.memberno
+
+		ORDER BY memberno ASC
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+	<!-- 부모회원수 조회 -->
+	<select id="selectCountMom"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		select
+		count(*) from member m inner join mom_info mi on
+		m.memberno=mi.memberno
+
+	</select>
+
+	<!-- 시터회원수 조회 -->
+	<select id="selectCountSitter"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		select
+		count(*) from member m inner join sitter_info si on
+		m.memberno=si.memberno
+
+	</select>
+
+	<!-- 아이디 찾기 -->
+	<select id="findID"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select id
+		from member where name=#{name} and birthdate=#{birthdate} and
+		phone=#{phone};
+	</select>	
+	
+	<!-- 맘회원번호로 회원 정보 조회  -->
+	<select id="selectMomItem" resultMap="MomMap">
+		SELECT subscribe, m.momno 
+		FROM mom_info m
+		INNER JOIN member b ON m.memberno=b.memberno
+		<where>
+			m.momno=#{momno}
+		</where>
+	</select>
+	
+	<!-- 시터회원번호로 회원 정보 조회  -->
+	<select id="selectSitterItem" resultMap="SitterMap">
+		SELECT subscribe, s.sitterno, s.memberno as memberno
+		FROM sitter_info s
+		INNER JOIN member b ON s.memberno=b.memberno
+		<where>
+			s.sitterno=#{sitterno}
+		</where>
+	</select>
+	
+	<!-- 임시비밀번호로 업데이트 -->
+	<update id="updatePw" parameterType="study.team.abuhae.model.Member">
+		update member set password = #{password} where id = #{id}
+	</update>
+	
+	<!-- 회원 탈퇴에 의한 info 삭제 -->
+	<delete id="mominfoDelete" parameterType="study.team.abuhae.model.Mom_info">
+		delete from mom_info where memberno=#{memberno}
+	</delete>
+	<!-- 회원 탈퇴에 의한 info 삭제 -->
+	<delete id="sitterinfoDelete" parameterType="study.team.abuhae.model.Sitter_info">
+		delete from sitter_info where memberno=#{memberno}
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 찜하기 삭제 -->
+	<delete id="heartDelete">
+		delete from heart
+		<if test="type == 'M'">
+			where momno=#{momno}
+		</if>
+		<if test="type == 'S'">
+			where sitterno=#{sitterno}
+		</if>
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 신고 삭제 -->
+	<delete id="reportDelete">
+		delete from report
+		<if test="type == 'M'">
+			where momno=#{momno}
+		</if>
+		<if test="type == 'S'">
+			where sitterno=#{sitterno}
+		</if>
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 지원하기 삭제 -->
+	<delete id="connectDelete">
+		delete from connect
+		<if test="type == 'M'">
+			where momno=#{momno}
+		</if>
+		<if test="type == 'S'">
+			where sitterno=#{sitterno}
+		</if>
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 리뷰 삭제 -->
+	<delete id="reviewtDelete">
+		delete from review
+		<if test="type == 'M'">
+			where momno=#{momno}
+		</if>
+		<if test="type == 'S'">
+			where sitterno=#{sitterno}
+		</if>
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 쿠폰 삭제 -->
+	<delete id="couponDelete">
+		delete from coupon where memberno=#{memberno}
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 프로필이미지 삭제 -->
+	<delete id="profimgDelete">
+		delete from profile_file where memberno=#{memberno}
+	</delete>
+	
+	<!-- 회원 탈퇴에 의한 참조 시터 인증 삭제 -->
+	<delete id="resicertDelete">
+		delete from resi_cert where sitterno=#{sitterno}
+	</delete>
+	
+	<!-- 최종 삭제 -->
+	<delete id="memberDelete" parameterType="study.team.abuhae.model.Member">
+		delete from member where memberno=#{memberno}
+	</delete>
+	
+	<!-- 3개월 지난 회원 완전탈퇴 -->
+	<delete id="member3MonthDelete" parameterType="study.team.abuhae.model.Member">
+		<![CDATA[
+		DELETE FROM leave_member 
+		WHERE
+		DATE_ADD(NOW(), INTERVAL -3 MONTH) > leaveok_date]]>
+	</delete>
+	
+	<!-- 이용권 null 업데이트 -->
+	<update id="updateEnddate" parameterType="study.team.abuhae.model.Member">
+	<![CDATA[
+		UPDATE member set enddate = NULL 
+		WHERE
+		enddate < NOW()]]>
+	</update>
+	
+	
+</mapper>

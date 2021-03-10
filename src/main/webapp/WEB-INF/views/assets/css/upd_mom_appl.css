@@ -1,0 +1,736 @@
+/* 초기 설정 -----------------------------------------------------*/
+.body,
+html,
+* {
+  margin: 0;
+  padding: 0;
+
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+/** header --------------------------------------------------------------------*/
+
+.mp_detail_tl {
+  width: 100%;
+}
+
+.mp_detail_tl .mp_detail_tl_in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.mp_detail_tl .mp_detail_tl_in a i {
+  text-decoration: none;
+  color: black;
+  font-size: 1.6em;
+  margin-top: 5px;
+}
+
+.mp_detail_tl .mp_detail_tl_in h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.mp_detail_tl button {
+  background-color: rgb(255, 112, 0);
+  width: 70px;
+  height: 30px;
+  border: 0;
+  border-radius: 15px;
+  color: #ffffff;
+}
+
+.point {
+  font-style: normal;
+  color: #ff7000;
+  font-weight: bold;
+}
+
+.desc {
+  color: #858585;
+  margin: 0;
+}
+
+.now_selected {
+  background-color: #faebd7;
+  border: 1px solid #ff7000;
+  padding: 8px;
+  margin: 5px 0;
+}
+/** end header -----------------------------------------------------*/
+
+/** 신청서 내용 수정 -----------------------------------------------------*/
+.wrap_upd_profile_cont {
+  padding: 20px 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/** content1 fot 신청서 내용 수정 */
+.wrap_upd_profile_cont .group_upd_img {
+  padding: 20px 0 0;
+}
+
+.upd_img_tl {
+  font-weight: bold;
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.wrap_upd_profile_cont .upd_img_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wrap_upd_profile_cont .upd_img_cont {
+  padding: 40px;
+}
+
+.wrap_upd_profile_cont .upd_img_cont input[type="file"] {
+  display: none;
+}
+
+.wrap_upd_profile_cont .upd_img_cont input[type="file"] + label i {
+  background-color: #eee;
+  color: #838383;
+  font-size: 3em;
+  padding: 20px;
+  border-radius: 56px;
+}
+
+.wrap_upd_profile_cont .guide_user_img {
+  text-align: center;
+}
+
+/** content2 for 신청서 내용 수정 */
+.wrap_upd_profile_cont .group2_unp_img {
+  padding: 20px 0 0;
+}
+
+.wrap_upd_profile_cont .choice_title select {
+  width: 100%;
+  margin-top: 15px;
+  min-height: 36px;
+  padding: 0 15px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.wrap_upd_profile_cont .mom_appl_title_text input[type="text"] {
+  margin-top: 15px;
+  width: 100%;
+  min-height: 36px;
+  border: 0;
+  border-bottom: 2px solid #eee;
+}
+
+/** content3 for 신청서 내용 수정 */
+.wrap_upd_profile_cont .group3_unp_img {
+  padding: 20px 0;
+}
+
+.wrap_upd_profile_cont .group3_unp_img textarea {
+  width: 100%;
+  padding: 20px;
+  margin-top: 15px;
+  border: 0;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.wrap_upd_profile_cont .mom_appl_ban {
+  margin: 20px 0;
+  font-size: 0.9em;
+  color: #838383;
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_upd_profile_cont .mom_appl_ban i {
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.wrap_upd_profile_cont .upload_prof {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-x: auto;
+  vertical-align: middle;
+}
+
+.wrap_upd_profile_cont .user_img {
+  padding: 30px 10px;
+}
+
+.wrap_upd_profile_cont .user_img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.wrap_upd_profile_cont .user_img input[type="file"] {
+  display: none;
+}
+
+/** 원하는 시터나이 수정 ---------------------------------------------------*/
+.wrap_upd_sage {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_upd_sage .age_box_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.wrap_upd_sage .want_age_box input[type="checkbox"] {
+  display: none;
+}
+
+.wrap_upd_sage .want_age_box input[type="checkbox"] + label {
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.wrap_upd_sage .want_age_box input[type="checkbox"] + label div {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: #eee;
+}
+
+.wrap_upd_sage .want_age_box input[type="checkbox"]:checked + label div {
+  background-color: #ff7000;
+}
+/** end 원하는 시터나이 수정 -----------------------------------------------*/
+
+/** 돌봄장소 수정 ----------------------------------------------------------*/
+.wrap_upd_loc {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_upd_loc .upd_loc_cont1 {
+  display: flex;
+  flex-direction: row;
+  height: 450px;
+  margin-bottom: 20px;
+}
+
+.wrap_upd_loc .location_group {
+  flex-basis: 33%;
+  border: 1px solid #d9d9d9;
+  overflow-y: scroll;
+}
+
+.wrap_upd_loc .location_group button {
+  height: 45px;
+  width: 100%;
+  background-color: #fff;
+  color: #646464;
+  font-weight: 600;
+  border: 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.wrap_upd_loc .location_group button:hover {
+  height: 45px;
+  width: 100%;
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #646464;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.wrap_upd_loc .select_loaction {
+  color: #ff7000 !important;
+  background-color: #fff8f2 !important;
+}
+
+/*선택 전까지 숨기기*/
+.wrap_upd_loc .hide_content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+/*선택 후 보여주기*/
+.wrap_upd_loc .show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+/** end 돌봄장소 수정 ------------------------------------------------------*/
+
+/** 돌봄 기간 / 시간 변경 --------------------------------------------------*/
+
+/** 공통 */
+.wrap_upd_ct {
+  padding: 20px 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/** content1 */
+/** 탭 버튼 */
+.wrap_upd_ct .upd_ct_tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.wrap_upd_ct .upd_ct_tab .upd_ct_tab_item_link {
+  width: 49%;
+  text-align: center;
+  line-height: 36px;
+  background-color: #eee;
+  color: #838383;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.change_box {
+  margin: 20px 0;
+}
+
+#regular,
+#short {
+  width: 100%;
+}
+#regular .calc_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#regular .regu_title {
+  font-weight: 600;
+  font-size: 1em;
+  color: #646464;
+}
+
+#regular .date_box {
+  display: block;
+  border: 1px solid #ffcfb8;
+  background-color: #fff0e8;
+  border-radius: 2px;
+  width: 130px;
+  height: 37px;
+  text-align: center;
+  color: #ff7000;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+#regular .day_btn_group {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin: 13px 0;
+}
+
+#regular .day_btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+  background-color: #eee;
+  color: #646464;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.wrap_upd_ct .upd_ct_tab .upd_ct_tab_item_link.selected {
+  background-color: #ff7000;
+  color: #ffffff;
+}
+
+.selected {
+  background-color: #ff7000;
+  color: #ffffff;
+}
+
+.wrap_upd_ct .time_select_box {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.wrap_upd_ct .middle_bar {
+  border-right: 1px solid #efefef;
+}
+
+.wrap_upd_ct .select_time {
+  width: 133px;
+  height: 38px;
+  border: 1px solid #ffcfb8;
+  background-color: #fff0e8;
+  margin-top: 6px;
+  color: #ff7000;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wrap_upd_ct .jojung_box {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f1f3f5;
+  margin: 15px 0;
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.wrap_upd_ct .box_check {
+  background-color: #fff9f5;
+}
+
+.wrap_upd_ct .jojung_check {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 22px;
+  border-radius: 22px;
+  background-color: #cfcfcf;
+  transition: background-color 0.3s;
+  padding: 0;
+  margin-right: 8px;
+}
+
+.wrap_upd_ct .check_check {
+  background-color: #ff7000;
+}
+
+.wrap_upd_ct .jojung_check::after {
+  content: "";
+  width: 10px;
+  height: 5px;
+  position: absolute;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  left: 6px;
+  top: 7px;
+  transform: rotate(315deg);
+}
+
+.wrap_upd_ct .jojung_text {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #9d9d9d;
+}
+
+/*선택 전까지 숨기기*/
+.hide_content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+/*선택 후 보여주기*/
+.show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.calen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+/** 아이정보 / 희망시급 수정 --------------------------------------------------*/
+.wrap_want_wage {
+  padding: 20px 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.number_children_wrap {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.btn_children_off {
+  width: calc(50% - 3px);
+  height: 50px;
+  background-color: #f1f3f5;
+  border: 0;
+  color: #646464;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.btn_children_on {
+  width: calc(50% - 3px);
+  height: 50px;
+  background-color: #ff7000;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+#select_title p {
+  font-weight: 600;
+  line-height: 18px;
+  color: #949494;
+  letter-spacing: -0.2px;
+  font-size: 1em;
+  margin: 0;
+}
+
+.children_age_block {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 375px;
+  padding: 0 23px;
+  box-sizing: border-box;
+}
+
+.title_block {
+  margin: 28px 0 8px;
+  text-align: left;
+}
+
+.select_children_age_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.select_list {
+  width: calc(50% - 4px);
+  height: 50px;
+}
+
+.select_list select {
+  width: 100%;
+  padding: 0.8em 0.5em;
+  border: 1px solid #999;
+  font-family: inherit;
+  background: url("../img/arrow.jpg") no-repeat 95% 50%;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.payment_wrap {
+  margin: auto;
+}
+
+.show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out 0s;
+}
+
+.help_box {
+  display: inline-block;
+}
+
+.help_btn {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.payment_input_wrap {
+  border: 1px solid #d5d5d5;
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.payment_input {
+  border: none;
+  text-align: right;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.payment_fix {
+  display: inline-block;
+  margin: 3px 20px 5px 8px;
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.disc_box {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.disc_box label {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-left: 10px;
+}
+/** end 아이정보 /희망시급 수정 -----------------------------------------------*/
+
+/** 그 외 요청사항 ------------------------------------------------------------*/
+.sub_title {
+  color: #ff5400;
+  font-size: 1em;
+  text-align: center;
+}
+
+.wrap_upd_request {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.upd_care_age_in {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.request_box {
+  padding: 20px 0;
+  width: 100%;
+}
+
+.request_box h4 {
+  font-weight: bold;
+}
+
+.request_box i {
+  color: #aaaaaa;
+  font-size: 1.1em;
+}
+
+.choice_gender {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.choice_gender input[type="radio"] {
+  display: none;
+}
+
+.choice_gender input[type="radio"] + label {
+  width: 33.33%;
+  line-height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.choice_gender input[type="radio"]:checked + label {
+  background-color: #ff7000;
+  color: #ffffff;
+  border: 0;
+}
+
+.choice_interview {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.choice_interview input[type="radio"] {
+  display: none;
+}
+
+.choice_interview input[type="radio"] + label {
+  width: 33.33%;
+  line-height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.choice_interview input[type="radio"]:checked + label {
+  background-color: #ff7000;
+  color: #ffffff;
+  border: 0;
+}
+
+.choice_care {
+  padding-top: 10px;
+}
+
+choice_care input[type="radio"] + label {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+/** modal */
+#interview_modal .modal-body h4 {
+  margin-bottom: 15px;
+  color: #ff7000;
+  font-weight: bold;
+}
+
+#interview_modal .modal-body p {
+  margin-bottom: 30px;
+  color: #4d4d4d;
+  font-weight: bold;
+}
+/** end 그 외 요청사항 --------------------------------------------------------*/

@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+.container {
+				margin: 0 auto;
+				padding: 0;
+			}
+			.tab_area {
+				display: block;
+			}
+			.col-xs-4 {
+				text-align: center;
+			}
+			#default {
+				background-color: #fff;
+				color: #ff7000;
+				
+			}
+			#default, #tab02, #tab03 {
+				font-weight: bold;
+				border-radius: 8px;
+				font-size: 0.9em;
+			}
+			#tab02, #tab03 {
+				color: #ccc;
+			}
+			h4 {
+			 font-weight: bold;
+			}
+			a {
+				left: 0;
+				top: 9px;
+				position: absolute;
+			}
+			.fixeBox {
+			text-align: center;
+			height: 45px;
+			background-color: #fff;
+			position: fixed;
+			z-index: 100;
+			} 
+			.talk_area {
+				padding-top: 50px;
+			}
+			 p {
+			height: 40px;
+			margin: 0;
+			}
+			.talk_box {
+				margin-bottom: 25px;
+			}
+			.talk_area {
+				position: relative;
+				padding: 15px;
+				border-radius: 3px;
+				background-color: #fff;
+			}
+			.talk_main {
+				width: 100%;
+			}
+			.talk_menu {
+				display: flex;
+				width: 100%;
+				-webkit-box-pack: justify;
+				-webkit-box-align: center;
+				justify-content: space-between;
+			}
+			
+			.talk_menu_ok_title {
+				color: rgb(255, 112, 0);
+				letter-spacing: -0.2px;
+				font-weight: bold;
+				line-height: 19px;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				font-size: 0.9em;
+			}
+			.talk_menu_review {
+				margin-left: 6px;
+			}
+			.talk_menu_review_title {
+				margin: 0px;
+				padding: 0px;
+				color: rgb(170, 170, 170);
+				letter-spacing: -0.2px;
+				line-height: 19px;
+				font-size: 0.9em;
+				width: 100%;
+				font-wwight: bold;
+			}
+			.talk_box_ea {
+				margin: 10px 0px;
+				padding: 5px 10px;
+			}
+			.talk_box_line {
+				display: flex;
+				margin-bottom: 15px;
+				align-items: flex-start;
+			}
+			.talk_box_line > img {
+				border-radius: 100%;
+			}
+			.talk_box_line_text {
+				padding-left: 15px;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.talk_box_line_date_name {
+				flex-direction: row;
+				align-items: center;
+				display: flex;
+			}
+			.talk_box_line_name {
+				font-size: 0.9em;
+				margin-right: 5px;
+				font-weight: bold;
+				color: #5c5c5c;
+			}
+			.talk_box_line_date {
+				color: #b6b6b6;
+				margin-left: 5px;
+				font-size: 0.8em;
+			}
+			.star_area {
+				margin-right: 10px;
+			}
+			.talk_box_talk {
+				display: flex;
+				align-items: center;
+				flex-direction: row;
+			}

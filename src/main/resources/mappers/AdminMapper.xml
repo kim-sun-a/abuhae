@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Admin mapper - 0216 - 선아 -->
+<mapper namespace="AdminMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="AdminMap"
+		type="study.team.abuhae.model.Admin_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="adminid" column="adminid" />
+		<result property="adminpw" column="adminpw" />
+	</resultMap>
+	
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="LeaveMap"
+		type="study.team.abuhae.model.Leave_member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="leav_mem" column="leav_mem" />
+		<result property="type" column="type" />
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="reason" column="reason" />
+		<result property="leave_date" column="leave_date" />
+		<result property="leaveok_date" column="leaveok_date" />
+	</resultMap>
+	
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="CouponMap"
+		type="study.team.abuhae.model.Coupon">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="coupno" column="coupno" />
+		<result property="coup_name" column="coup_name" />
+		<result property="coup_condition" column="coup_condition" />
+		<result property="coup_price" column="coup_price" />
+		<result property="reg_date" column="reg_date" />
+		<result property="exp_date" column="exp_date" />
+		<result property="memberno" column="memberno" />
+	</resultMap>
+	
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="MemberMap"
+		type="study.team.abuhae.model.Member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="memberno" column="memberno" />
+		<result property="type" column="type" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="birthdate" column="birthdate" />
+		<result property="job_opening" column="job_opening" />
+		<result property="r_type" column="r_type" />
+		<result property="contents" column="contents" />
+		<result property="reg_date" column="reg_date" />
+	</resultMap>
+
+	<resultMap id="MomMap"
+		type="study.team.abuhae.model.Mom_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="momno" column="momno" />
+		<result property="want_act" column="want_act" />
+		<result property="want_age" column="want_age" />
+		<result property="kids_num" column="kids_num" />
+		<result property="kids_age" column="kids_age" />
+		<result property="payment" column="payment" />
+		<result property="payment_ok" column="payment_ok" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="schedule_ok" column="schedule_ok" />
+		<result property="sitter_gender" column="sitter_gender" />
+		<result property="interview_type" column="interview_type" />
+		<result property="care_type" column="care_type" />
+		<result property="openingdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+	</resultMap>
+
+	<resultMap id="SitterMap"
+		type="study.team.abuhae.model.Sitter_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="sitterno" column="sitterno" />
+		<result property="sitter_type" column="sitter_type" />
+		<result property="want_act" column="want_act" />
+		<result property="want_age" column="want_age" />
+		<result property="payment" column="payment" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="schedule_set" column="schedule_set" />
+		<result property="introduce" column="introduce" />
+		<result property="cctv" column="cctv" />
+		<result property="openingdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+	</resultMap>
+
+	<!-- ========== 관리자 로그인 ============== -->
+	<!-- 특정 아이디에 대한 단일행 조회 -->
+	<select id="selectIDItem"
+		parameterType="study.team.abuhae.model.Admin_info" resultMap="AdminMap">
+		select * from admin_info where adminid=#{adminid};
+	</select>
+	<!-- ========== 관리자 로그인 ============== -->
+	
+	<!-- ========== 신고 회원 관리 ============== -->
+	<!-- 신고 수 조회 -->
+	<select id="selectCountReport"
+		parameterType="study.team.abuhae.model.Report" resultType="int">
+		select count(*) from report where who=#{who};
+	</select>
+	
+	<!-- 신고자 구분에 따라 신고리스트 출력  -->
+	<select id="selectSingoList"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select m.memberno, m.id, m.name, m.email, m.phone, m.job_opening, rp.type as r_type, rp.contents, rp.reg_date as reg_date 
+		from member m
+		
+		<if test="who == 'M'">
+			inner join mom_info mi on mi.memberno = m.memberno
+			inner join report rp on mi.momno = rp.momno
+		</if>
+		<if test="who == 'S'">
+			inner join sitter_info si on si.memberno = m.memberno
+			inner join report rp on si.sitterno = rp.sitterno
+		</if>
+		where who  =#{who}
+		
+		order by
+			<if test="recent != null and recent == 'new'">
+				rp.reg_date desc
+			</if>
+			<if  test="recent != null and recent == 'old'">
+				rp.reg_date asc
+			</if>
+
+	</select>
+	
+	<!-- 신고된 회원 job_opening 비공개 처리 -->
+	<update id="updateSingoMember" parameterType="study.team.abuhae.model.Member">
+		update member set job_opening='N' where memberno=#{memberno};
+	</update>
+	
+	<!-- ========== 신고 회원 관리 ============== -->
+	
+	<!-- ========== 탈퇴 회원 관리 ============== -->
+	<!-- 탈퇴회원수 조회 -->
+	<select id="selectCountLeaveMember"
+		parameterType="study.team.abuhae.model.Leave_member" resultType="int">
+		select count(*) from leave_member where id=#{id}
+	</select>
+	
+	<!-- 탈퇴회원 리스트 조회 -->
+	<select id="selectLeaveMember"
+		parameterType="study.team.abuhae.model.Leave_member" resultMap="LeaveMap">
+		select * from leave_member
+	</select>
+	
+	<!-- 탈퇴 처리 날짜 업데이트 -->
+	<update id="updateLeaveDate" parameterType="study.team.abuhae.model.Leave_member">
+		update leave_member set leaveok_date=now() where id=#{id};
+	</update>
+
+	
+	<!-- ========== 탈퇴 회원 관리 ============== -->
+	
+	<!-- ========== 이용권 사용중인 회원 관리 / 쿠폰 발급 ============== -->
+	<select id="selectSubMember"
+		parameterType="study.team.abuhae.model.Member" resultMap="MomMap">
+		select m.memberno, name, id, startdate, enddate, reg_date from member m
+		left outer join coupon cp on m.memberno=cp.memberno
+		where startdate is not null and enddate is not null
+		
+		order by
+			<if test="recent != null and recent == 'startdate'">
+				startdate asc
+			</if>
+			<if  test="recent != null and recent == 'enddate'">
+				enddate asc
+			</if>
+		
+		
+	</select>
+	
+	<!-- 이용권 사용중인 회원수 조회 -->
+	<select id="selectCountSubMember"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		select count(*) from coupon
+	</select>
+	
+	<!-- 특정 회원 쿠폰 발급 여부 -->
+	<select id="selectCountHasCopItem"
+		parameterType="study.team.abuhae.model.Member" resultType="int">
+		select count(*) from coupon where memberno=#{memberno}
+	</select>
+	
+	
+	<!-- 쿠폰 발급 / 재구매 쿠폰-->
+	<insert id="addCoupon"
+		parameterType="study.team.abuhae.model.Coupon"
+		useGeneratedKeys="true" keyProperty="coupno">
+		insert into coupon (coup_name, coup_condition, coup_price, reg_date, exp_date, memberno) 
+		values ('재구매 쿠폰(30%)', '이용권만료 일주일전', 30, now(), date_add(now(), INTERVAL 7 DAY), #{memberno}); 
+	</insert>
+	
+	<!-- 쿠폰 발급 / 첫인증 쿠폰 -->
+	<insert id="addCoupon2"
+		parameterType="study.team.abuhae.model.Coupon"
+		useGeneratedKeys="true" keyProperty="coupno">
+		insert into coupon (coup_name, coup_condition, coup_price, reg_date, exp_date, memberno) 
+		values ('첫 인증 쿠폰(30%)', '첫인증시 발급', 30, now(), date_add(now(), INTERVAL 7 DAY), #{memberno}); 
+	</insert>
+	<!-- ========== 이용권 사용중인 회원 관리 / 쿠폰 발급 ============== -->
+
+</mapper>

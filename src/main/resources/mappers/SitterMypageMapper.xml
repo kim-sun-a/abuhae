@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="SitterMypageMapper">
+
+   <!-- Member -->
+   <resultMap id="MemberSMap"
+      type="study.team.abuhae.model.Member">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="memberno" column="memberno" />
+      <result property="type" column="type"/>
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="phone" column="phone" />
+      <result property="birthdate" column="birthdate" />
+      <result property="gender" column="gender" />
+      <result property="startdate" column="startdate" />
+      <result property="enddate" column="enddate" />
+      <result property="profile_img" column="profile_img" />
+      <result property="job_opening" column="job_opening" />
+      <result property="subscribe" column="subscribe" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="ticket_type" column="ticket_type" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="signup_date" column="signup_date" />
+      <result property="reg_date" column="reg_date" />
+   </resultMap>
+
+   <!-- mom_info -->
+   <resultMap id="SitterInfoMap"
+   type="study.team.abuhae.model.Sitter_info">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="sitterno" column="sitterno" />
+      <result property="sitter_type" column="sitter_type" />
+      <result property="want_act1" column="want_act1" />
+      <result property="want_act2" column="want_act2" />
+      <result property="want_act3" column="want_act3" />
+      <result property="want_age" column="want_age" />
+      <result property="si" column="si" />
+      <result property="gu" column="gu" />
+      <result property="dong" column="dong" />
+      <result property="memberno" column="memberno" />
+      
+      <result property="payment" column="payment" />
+      <result property="cctv" column="cctv" />
+      <result property="schedule" column="schedule" />
+      <result property="introduce" column="introduce" />
+      <result property="answer" column="answer" />
+      <result property="openingdate" column="openingdate" />
+      <result property="days" column="days" />
+   </resultMap>
+   
+   <!-- heart -->
+   <resultMap type="study.team.abuhae.model.Heart" id="SitterHeartMap">
+      <result property="heartno" column="heartno"/>   
+      <result property="reg_date" column="reg_date"/>   
+	 <result property="who" column="who"/>   
+      <result property="momno" column="momno"/>   
+      <result property="sitterno" column="sitterno"/>   
+      
+      <result property="type" column="type"/>
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="phone" column="phone" />
+      <result property="birthdate" column="birthdate" />
+      <result property="gender" column="gender" />
+      <result property="startdate" column="startdate" />
+      <result property="enddate" column="enddate" />
+      <result property="profile_img" column="profile_img" />
+      <result property="job_opening" column="job_opening" />
+      <result property="subscribe" column="subscribe" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="ticket_type" column="ticket_type" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="signup_date" column="signup_date" />
+      <result property="reg_date" column="reg_date" />   
+      
+      <result property="want_act1" column="want_act1" />
+      <result property="want_act2" column="want_act2" />
+      <result property="want_act3" column="want_act3" />
+      <result property="kids_num" column="kids_num" />
+      <result property="payment" column="payment" />
+      <result property="si" column="si" />
+      <result property="gu" column="gu" />
+      <result property="dong" column="dong" />
+      <result property="memberno" column="memberno" />
+
+      <result property="schedule_ok" column="schedule_ok" />
+      <result property="description" column="description" />
+      <result property="sitter_gender" column="sitter_gender" />
+      <result property="care_type" column="care_type" />
+      <result property="openingdate" column="openingdate" />
+      <result property="apply_title" column="apply_title" />
+      <result property="apply_content" column="apply_content" />
+      <result property="kids_age2" column="kids_age2" />
+      <result property="payment_ok" column="payment_ok" />
+      <result property="schedule" column="schedule" />
+      <result property="frequency" column="frequency" />
+      <result property="days" column="days" />      
+      
+      <result property="fileUrl" column="fileUrl" />
+      <result property="isProfile" column="isProfile" />      
+   </resultMap>
+   
+   <resultMap type="study.team.abuhae.model.Connect" id="SitterConnectMap">
+      <result property="cntno" column="cntno"/>   
+      <result property="applydate" column="applydate"/>   
+      <result property="who" column="who"/>   
+      <result property="momno" column="momno"/>   
+      <result property="sitterno" column="sitterno"/>   
+      <result property="accept" column="accept"/>   
+      <result property="deny_type" column="deny_type"/>
+   
+      <result property="type" column="type"/>
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="phone" column="phone" />
+      <result property="birthdate" column="birthdate" />
+      <result property="gender" column="gender" />
+      <result property="startdate" column="startdate" />
+      <result property="enddate" column="enddate" />
+      <result property="profile_img" column="profile_img" />
+      <result property="job_opening" column="job_opening" />
+      <result property="subscribe" column="subscribe" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="ticket_type" column="ticket_type" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="signup_date" column="signup_date" />
+      
+      <result property="want_act1" column="want_act1" />
+      <result property="want_act2" column="want_act2" />
+      <result property="want_act3" column="want_act3" />
+      <result property="kids_num" column="kids_num" />
+      <result property="payment" column="payment" />
+      <result property="si" column="si" />
+      <result property="gu" column="gu" />
+      <result property="dong" column="dong" />
+      <result property="memberno" column="memberno" />
+
+      <result property="schedule_ok" column="schedule_ok" />
+      <result property="description" column="description" />
+      <result property="sitter_gender" column="sitter_gender" />
+      <result property="care_type" column="care_type" />
+      <result property="openingdate" column="openingdate" />
+      <result property="apply_title" column="apply_title" />
+      <result property="apply_content" column="apply_content" />
+      <result property="kids_age2" column="kids_age2" />
+      <result property="payment_ok" column="payment_ok" />
+      <result property="schedule" column="schedule" />
+      <result property="frequency" column="frequency" />
+      <result property="days" column="days" />   
+      
+      <result property="fileUrl" column="fileUrl" />
+      <result property="isProfile" column="isProfile" />
+   </resultMap>
+   
+   <resultMap type="study.team.abuhae.model.Report" id="SitterReportMap">
+      <result property="reportno" column="reportno"/>   
+      <result property="who" column="who"/>   
+      <result property="type" column="type"/>   
+      <result property="contents" column="contents"/>   
+      <result property="momno" column="momno"/>   
+      <result property="sitterno" column="sitterno"/>   
+      <result property="reg_date" column="reg_date"/>      
+      
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="phone" column="phone" />
+      <result property="birthdate" column="birthdate" />
+      <result property="gender" column="gender" />
+      <result property="startdate" column="startdate" />
+      <result property="enddate" column="enddate" />
+      <result property="profile_img" column="profile_img" />
+      <result property="job_opening" column="job_opening" />
+      <result property="subscribe" column="subscribe" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="ticket_type" column="ticket_type" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="signup_date" column="signup_date" />
+      
+      <result property="want_act1" column="want_act1" />
+      <result property="want_act2" column="want_act2" />
+      <result property="want_act3" column="want_act3" />
+      <result property="kids_num" column="kids_num" />
+      <result property="payment" column="payment" />
+      <result property="si" column="si" />
+      <result property="gu" column="gu" />
+      <result property="dong" column="dong" />
+      <result property="memberno" column="memberno" />
+
+      <result property="schedule_ok" column="schedule_ok" />
+      <result property="description" column="description" />
+      <result property="sitter_gender" column="sitter_gender" />
+      <result property="care_type" column="care_type" />
+      <result property="openingdate" column="openingdate" />
+      <result property="apply_title" column="apply_title" />
+      <result property="apply_content" column="apply_content" />
+      <result property="kids_age2" column="kids_age2" />
+      <result property="payment_ok" column="payment_ok" />
+      <result property="schedule" column="schedule" />
+      <result property="frequency" column="frequency" />
+      <result property="days" column="days" />      
+      
+      <result property="fileUrl" column="fileUrl" />
+      <result property="isProfile" column="isProfile" />
+   </resultMap>
+
+   <resultMap type="study.team.abuhae.model.Coupon" id="SitterCouponMap">
+      <result property="coupno" column="coupno"/>   
+      <result property="coup_name" column="coup_name"/>   
+      <result property="coup_condition" column="coup_condition"/>   
+      <result property="coup_price" column="coup_price"/>   
+      <result property="reg_date" column="reg_date"/>   
+      <result property="exp_date" column="exp_date"/>   
+      <result property="memberno" column="memberno"/>      
+      
+      <result property="momno" column="momno"/>   
+      <result property="sitterno" column="sitterno"/>   
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="phone" column="phone" />
+      <result property="birthdate" column="birthdate" />
+      <result property="gender" column="gender" />
+      <result property="startdate" column="startdate" />
+      <result property="enddate" column="enddate" />
+      <result property="profile_img" column="profile_img" />
+      <result property="job_opening" column="job_opening" />
+      <result property="subscribe" column="subscribe" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="ticket_type" column="ticket_type" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="signup_date" column="signup_date" />
+      
+      <result property="want_act1" column="want_act1" />
+      <result property="want_act2" column="want_act2" />
+      <result property="want_act3" column="want_act3" />
+      <result property="kids_num" column="kids_num" />
+      <result property="payment" column="payment" />
+      <result property="si" column="si" />
+      <result property="gu" column="gu" />
+      <result property="dong" column="dong" />
+      <result property="memberno" column="memberno" />
+
+      <result property="schedule_ok" column="schedule_ok" />
+      <result property="description" column="description" />
+      <result property="sitter_gender" column="sitter_gender" />
+      <result property="care_type" column="care_type" />
+      <result property="openingdate" column="openingdate" />
+      <result property="apply_title" column="apply_title" />
+      <result property="apply_content" column="apply_content" />
+      <result property="kids_age2" column="kids_age2" />
+      <result property="payment_ok" column="payment_ok" />
+      <result property="schedule" column="schedule" />
+      <result property="frequency" column="frequency" />
+      <result property="days" column="days" />      
+   </resultMap>
+   
+   
+   <!-- 로그인한 회원정보 조회 조회 -->
+   <select id="selectSitterItem" 
+   parameterType="study.team.abuhae.model.Sitter_info" resultMap="SitterInfoMap">
+      SELECT m.memberno, m.name, m.type, m.id, m.password, m.email, m.phone, m.birthdate, m.job_opening, s.sitterno,
+      favorite_act, want_age, want_act1, want_act2, want_act3, payment, introduce, si, gu, dong, 
+      json_extract(schedule, '$.startdate') AS schedule,
+		REPLACE(json_extract(schedule, '$.workterm'),'"','') AS workterm,
+		REPLACE(json_extract(schedule, '$.startdate'),'"','') AS schedule_start_date,
+		REPLACE(json_extract(schedule, '$.day'),'"','') AS days
+      FROM sitter_info s
+      INNER JOIN member m ON m.memberno=s.memberno
+      where s.sitterno = #{sitterno};
+      
+   </select>
+   
+   <select id="selectSitterMemberItem"
+   parameterType="study.team.abuhae.model.Sitter_info" resultMap="SitterInfoMap">
+      select m.memberno, type, id, password, name, phone, email, s.sitterno as sitterno
+      from member m
+      inner join sitter_info s on s.memberno=m.memberno
+      where m.memberno=#{memberno};
+   </select>
+   
+   <!-- 구인중 버튼 클릭 시 지원 시간 업데이트 -->
+   <update id="updateSitterOpeningDate" parameterType="study.team.abuhae.model.Sitter_info">
+		update sitter_info set openingdate=now() where sitterno=#{sitterno};
+	</update>
+   
+   <!-- 찜하기 목록 조회 -->
+   <select id="selectSitterHeartList"
+   parameterType="study.team.abuhae.model.Heart" resultMap="SitterHeartMap">
+       select m.name, mi.apply_title, mi.si, mi.gu, mi.dong, mi.payment, mi.kids_num, 
+      FLOOR((CAST(REPLACE(current_date,'-','') AS unsigned) -
+		CAST(REPLACE(birthdate,'-','') as unsigned)) / 10000 ) + 2 as birthdate, 
+	  m.job_opening, h.momno, h.sitterno, heartno, reg_date, who, h.sitterno,
+	  (SELECT p.isProfile FROM profile_file p WHERE p.memberno = mi.memberno) AS isProfile, 
+	  (SELECT p.fileUrl FROM profile_file p WHERE p.memberno = mi.memberno) AS fileUrl
+	  from heart h
+	  inner join mom_info mi on h.momno = mi.momno
+	  inner join member m on m.memberno = mi.memberno
+      <where>
+         h.sitterno=#{sitterno} and who = 'S'
+      </where>
+   </select>
+   
+   <!-- 찜한 횟수 조회 --> 
+   <select id="selectSitterHeartCount"
+   parameterType="study.team.abuhae.model.Heart" resultType="int">
+   		select count(*) from heart 
+		where sitterno=#{sitterno} and who='S';
+   </select>
+   
+   <!-- 내 채용내역 -->
+   <select id="selectSitterWorkList"
+      parameterType="study.team.abuhae.model.Connect" resultMap="SitterConnectMap">
+     	select cntno, TIMESTAMPDIFF(day, applydate, now()) as applydate, who, c.momno, c.sitterno, accept, m.name,
+		mi.kids_num, mi.apply_title, mi.si, mi.gu, mi.dong, mi.payment,
+		FLOOR((CAST(REPLACE(current_date,'-','') AS unsigned) -
+		CAST(REPLACE(birthdate,'-','') as unsigned)) / 10000 ) + 2 as birthdate,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = mi.memberno) AS isProfile, 
+	    (SELECT p.fileUrl FROM profile_file p WHERE p.memberno = mi.memberno) AS fileUrl
+		from connect c
+		inner join mom_info mi on c.momno = mi.momno
+		inner join sitter_info s on c.sitterno = s.sitterno
+		inner join member m on m.memberno = mi.memberno
+      <where>
+         accept = 'Y' and c.sitterno=#{sitterno} 
+      </where>
+   </select>
+   
+   <select id="selectSitterWorkCount"
+   parameterType="study.team.abuhae.model.Connect" resultType="int">
+   		select count(*) from connect
+		where sitterno=#{sitterno} and accept='Y';
+   </select>
+   
+   <!-- 신고 내역 조회 -->
+   <select id="selectSitterReportList"
+      parameterType="study.team.abuhae.model.Report" resultMap="SitterReportMap">
+       select reportno, who, r.type, contents, r.momno, r.sitterno, r.reg_date as reg_date,
+       (SELECT p.isProfile FROM profile_file p WHERE p.memberno = mi.memberno) AS isProfile, 
+	   (SELECT p.fileUrl FROM profile_file p WHERE p.memberno = mi.memberno) AS fileUrl
+		from report r
+		inner join mom_info mi on r.momno = mi.momno
+		inner join sitter_info s on r.sitterno = s.sitterno
+		inner join member m on m.memberno = mi.memberno
+      <where>
+         r.sitterno = #{sitterno} and who = 'S'
+      </where>
+   </select>
+   
+   <!-- 신고횟수 조회 -->
+   <select id="selectSitterReportCount"
+   parameterType="study.team.abuhae.model.Report" resultType="int">
+	   	select count(*) from report
+		where sitterno=#{sitterno} and who='S';
+   </select>
+   
+   <!-- 쿠폰 조회 -->
+   <select id="selectSitterCouponList"
+   parameterType="study.team.abuhae.model.Coupon" resultMap="SitterCouponMap">
+     	select coupno, coup_name, coup_condition, coup_price, date_format(reg_date, '%Y.%m.%d') as reg_date, date_format(exp_date, '%Y.%m.%d') as exp_date, c.memberno, s.sitterno
+		from coupon c
+		inner join sitter_info s on c.memberno = s.memberno
+		where s.sitterno=#{sitterno} and TIMESTAMPDIFF(day, now(), exp_date) > 0;
+   </select>
+   
+ 	<!-- 비밀번호 비교 -->
+   <select id="bigyoSitterPassword" parameterType="study.team.abuhae.model.Member" resultType="int">
+      select count(*) from member where memberno=#{memberno} and password=md5(#{password});
+   </select>
+   <!-- 비밀번호 변경 -->
+   <update id="updateSitterPw"  parameterType="study.team.abuhae.model.Member">
+      update member set password=md5(#{password}) where memberno=#{memberno};
+   </update>
+   
+    <select id="selectSitter"
+   	parameterType="study.team.abuhae.model.Sitter_info" resultMap="SitterInfoMap">
+      select m.memberno, type, id, password, name, phone, email, ticket_type,ticket_price, s.sitterno as sitterno
+      from member m
+      inner join sitter_info s on s.memberno=m.memberno
+      where m.memberno=#{memberno};
+   </select>
+   
+   <!-- 신청서 수정 -->
+   <update id="updateFavoriteact" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set favorite_act=#{favorite_act}, openingdate=now() where sitterno=#{sitterno}
+   </update>
+   
+   <update id="updateWantage" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set want_age=#{want_age}, openingdate=now() where sitterno=#{sitterno}
+   </update>
+   
+   <update id="updateWantact" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set want_act1=#{want_act1},want_act2=#{want_act2},want_act3=#{want_act3}, openingdate=now()
+   	where sitterno=#{sitterno}
+   </update>
+   
+   <update id="updateSchedule" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set schedule=#{schedule}, openingdate=now()
+   	where sitterno=#{sitterno}
+   </update>
+   
+   <update id="updatePayment" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set payment=#{payment}, openingdate=now()
+   	where sitterno=#{sitterno}
+   </update>
+   
+   <update id="updateIntroduce" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set introduce=#{introduce}, openingdate=now()
+   	where sitterno=#{sitterno}
+   </update>
+   
+   <update id="updateLocation" parameterType="study.team.abuhae.model.Sitter_info">
+   	update sitter_info set si=#{si},gu=#{gu},dong=#{dong}, openingdate=now()
+   	where sitterno=#{sitterno}
+   </update>
+</mapper>
+

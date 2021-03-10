@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+.select_box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.select_list {
+  text-align: right;
+  margin-right: 25px;
+  margin-bottom: 10px;
+}
+
+.filter {
+  padding: 0 30px 0 10px;
+  background: #fff url(../img/select.png) no-repeat right 10px center;
+  display: inline;
+  height: 32px;
+  margin: 0;
+  border: 1px solid #d4d4d4;
+  color: #2e3039;
+  font-size: 14px;
+  line-height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+option {
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+  padding: 0 2px 1px;
+}
+
+.page {
+  text-align: center;
+}
+
+.bbs_btn {
+  text-align: right;
+  padding: 10px 0;
+}
+
+.btn_nomal,
+.btn_warning {
+  height: 28px;
+  padding: 0 10px;
+  color: #1c1c1c;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 26px;
+  border: 1px solid #98989b;
+  background-color: #fff;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.state {
+  margin: 10px 0;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  float: left;
+  margin: 0 8px 0 0;
+  color: #97989b;
+}
+
+.state strong {
+  color: #ff4311;
+}
+
+.gright {
+  margin-right: 20px;
+}
+
+.mTab.typeTab > ul {
+  position: relative;
+  height: 32px;
+  border: 1px solid #dadcdd;
+  padding: 0;
+}
+.mTab.typeTab {
+  background-color: #f8f8f8;
+}
+.mTab.typeTab > ul > li.selected {
+  height: 33px;
+  margin: -1px 0 -1px -1px;
+  border: 1px solid #1c1c1c;
+  border-bottom: 0;
+  background-color: #fff;
+}
+.mTab.typeTab > ul > li,
+.mTab.typeTab > ul > li > ul > li {
+  float: left;
+}
+.mTab.typeTab > ul > li.selected a {
+  color: #1c1c1c;
+}
+.mTab.typeTab > ul > li a {
+  float: left;
+  min-width: 40px;
+  height: 32px;
+  padding: 0 15px;
+  font-size: 12px;
+  color: #898989;
+  text-align: center;
+  line-height: 32px;
+  text-decoration: none;
+}
+.mTab.typeTab > ul > li {
+  border-right: 1px solid #dadcdd;
+}
+li {
+  list-style: none;
+}
+.mBoard.gScroll {
+  position: relative;
+  overflow: auto;
+  border-right: 1px solid #d9dadc;
+  border-left: 1px solid #d9dadc;
+  border-bottom: 1px solid #d9dadc;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.mBoard.gScroll th,
+.mBoard.gScroll td {
+  border-right-width: 0;
+  border-left-width: 0;
+  border-right: 1px solid #d9dadc;
+}
+.mBoard th,
+.mBoard td {
+  padding: 9px 9px 7px;
+  vertical-align: top;
+}
+.mBoard thead th {
+  border: 1px solid #bbc0c4;
+  color: #80878d;
+  text-align: center;
+  vertical-align: middle;
+}
+.mBoard tbody td {
+  border: 1px solid #bbc0c4;
+  color: #80878d;
+  text-align: center;
+  vertical-align: middle;
+}
+.mBoard th {
+  font-weight: normal;
+  background-color: #f5f4f4;
+}
+.Title {
+  margin-bottom: 20px;
+  padding-left: 255px;
+  display: flex;
+  justify-content: space-between;
+}
+.Title h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+.button {
+  float: right;
+  margin-right: 10px;
+  margin-top: 3px;
+  background-color: #ffffff;
+  border: 1px solid gray;
+  width: auto;
+}
+.tabCont {
+  margin-left: 150px;
+  padding-left: 110px;
+  padding-right: 30px;
+}
+.dropdown {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+.filter {
+  margin-right: 10px;
+}
+.breadcrumb {
+  margin-top: 20px;
+  margin-right: 30px;
+  font-size: 12px;
+  top: 15px;
+  right: 10px;
+  background: transparent;
+}
+.breadcrumb > .active {
+  color: #444;
+}
+.breadcrumb > li > a {
+  color: #444;
+  text-decoration: none;
+}
+
+#write .gleft {
+  margin-left: 220px;
+  height: 70px;
+  line-height: 25px;
+}
+
+.bbs_content {
+  margin-top: 20px;
+  margin-left: 220px;
+}
+
+.btn_button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-left: 220px;
+}
+
+.btn_warning {
+	margin-right: 15px;
+}
+
+.gleft {
+	margin-left: 220px;
+}

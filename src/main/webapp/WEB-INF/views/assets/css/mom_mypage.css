@@ -1,0 +1,311 @@
+/* 초기 설정 -----------------------------------------------------*/
+.body,
+html,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/** 마이페이지 공통 --------------------------------------------*/
+.wrap_mpm {
+  padding: 20px 20px;
+  font-size: 1em;
+  font-weight: 900;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 첫번째 항목 */
+.wrap_mpm .group1_mpm {
+  font-weight: bold;
+}
+
+.wrap_mpm .group1_mpm .mpm_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px;
+}
+
+.wrap_mpm .group1_mpm .mpm_title h3 {
+  font-size: 1.5em;
+}
+
+.wrap_mpm .group1_mpm .mpm_title .mpm_title_cont a {
+  font-size: 0.8em;
+  color: #696969;
+}
+
+/* 두번째 항목 --------------------------------------------------*/
+
+.wrap_mpm .group2_mpm .mpm_profile {
+  background-color: #e6f1ee;
+  padding: 20px 20px 15px;
+}
+
+.wrap_mpm .group2_mpm .mpm_prof_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap_mpm .group2_mpm .mpm_info_left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wrap_mpm .group2_mpm .mpm_info_left img {
+  width: 52px;
+  height: 52px;
+  border-radius: 56px;
+}
+
+.wrap_mpm .group2_mpm .prof_info_cont {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.wrap_mpm .group2_mpm .prof_info_cont p {
+  font-size: 0.8em;
+}
+
+.wrap_mpm .group2_mpm .mom_info_dt {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_mpm .group2_mpm .info_mom {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.wrap_mpm .group2_mpm .info_mom:last-child {
+  margin-top: 14px;
+  margin-left: 5px;
+  font-size: 0.85em;
+  font-weight: normal;
+}
+
+.wrap_mpm .group2_mpm .mpm_profile a button {
+  min-width: 69px;
+  min-height: 30px;
+  padding: 0 10px;
+  background-color: rgb(34, 172, 135);
+  box-shadow: 1px 3px 3px rgb(141, 206, 189);
+  border: 0;
+  border-radius: 17px;
+  font-size: 0.857em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.buy_title {
+	display: felx;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+}
+
+.buy_title_left {
+	display: flex;
+	flex-direction: row;	
+}
+
+.buy_title_right {
+	display: felx;
+	position: absolute;
+    right: 0;
+    bottom: 5px;
+}
+
+.buy_tl_switch {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 4px;
+	margin-left: 9px;
+}
+
+.switch_p {
+	color: eee;
+}
+
+/** 토글 버튼 */
+#check {
+	display: none;
+}
+
+label {
+	display: inline-block;
+	width: 45px;
+	height: 20px;
+	cursor: pointer;
+	position: relative;
+	background-color: #ccc;
+	border-radius: 30px;
+}
+
+label::before {
+	content: '';
+	display: block;
+	width: 17px;
+	height: 17px;
+	left: 4px;
+	bottom: 2px;
+	position: absolute;
+	background-color: #fff;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input:checked + label {
+	background-color: rgb(34, 172, 135);
+}
+
+input:checked + label:before {
+ 	-webkit-transform: translateX(20px);
+	-ms-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+
+/* 세번째 항목 --------------------------------------------------*/
+
+/** 공통 */
+.wrap_mpm .group3_mpm {
+  padding: 10px 10px;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu a:hover {
+  background-color: #eee;
+}
+/** end 공통 */
+
+/** 내용 3개일 경우 */
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu3_list1 {
+  width: 7%;
+  font-size: 1.7em;
+  color: rgb(34, 172, 135);
+  text-align: left;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu3_list2 {
+  width: 88%;
+  margin: 8px 10px 10px 10px;
+  font-size: 1.071em;
+  color: #000;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu3_list3 {
+  width: 5%;
+  text-align: right;
+  font-size: 1.2em;
+  color: #838383;
+}
+
+/** 내용 4개일 경우 */
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu_list1 {
+  width: 7%;
+  font-size: 1.7em;
+  color: rgb(34, 172, 135);
+  text-align: left;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu_list2 {
+  width: 68%;
+  margin: 8px 10px 10px 10px;
+  font-size: 1.071em;
+  color: #000;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu_list3 {
+  width: 20%;
+  text-align: right;
+  color: rgb(48, 132, 132);
+  margin-top: 7px;
+}
+
+.wrap_mpm .group3_mpm .mpm_menu .mps_menu_list4 {
+  width: 5%;
+  text-align: right;
+  font-size: 1.2em;
+  color: #838383;
+}
+
+/** for line */
+.wrap_mpm .line_bold {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 15px;
+  background-color: rgb(243, 241, 241);
+}
+
+/* 네번째 항목 --------------------------------------------------*/
+.wrap_mpm .group4_mps .mps_bottom {
+  background-color: rgb(243, 241, 241);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.wrap_mpm .group4_mps .mps_bottom .bottom_con_in {
+  font-size: 1em;
+  color: #000;
+  margin-top: 10px;
+}
+
+.wrap_mpm .group4_mps .mps_bottom .bottom_con_in.bt_cash {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap_mpm .group4_mps .mps_bottom .bt_cash_p {
+  width: 8%;
+  color: rgb(48, 132, 132);
+  text-align: center;
+}
+
+.wrap_mpm .group4_mps .mps_bottom .bottom_con_in:first-child {
+  margin: 0;
+}
+
+.wrap_mpm .group4_mps .mps_bottom .bottom_con_in .bt_cash_p {
+  margin-right: 17px;
+}

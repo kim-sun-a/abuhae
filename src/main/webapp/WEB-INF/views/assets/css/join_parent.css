@@ -1,0 +1,1158 @@
+/*초기 설정*/
+html,
+body {
+  color: #222;
+  font-weight: 100;
+  font-size: 1em;
+  line-height: 1.375;
+  padding: 0;
+  margin: 0;
+}
+button {
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.col-xs-12 {
+  margin: 27px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*선택 전까지 숨기기*/
+.hide_content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+/*선택 후 보여주기*/
+.show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/*선택 전까지 숨기기*/
+#act_age .hide_content {
+  opacity: 0;
+  pointer-events: none;
+}
+/*선택 후 보여주기*/
+#act_age .show_content {
+  opacity: 1;
+}
+/*선택 전까지 숨기기*/
+#children .hide_content {
+  opacity: 0;
+  pointer-events: none;
+}
+/*선택 후 보여주기*/
+#children .show_content {
+  opacity: 1;
+}
+
+/*선택 전까지 숨기기*/
+#location .hide_content {
+  opacity: 0;
+  pointer-events: none;
+}
+/*선택 후 보여주기*/
+#location .show_content {
+  opacity: 1;
+}
+
+/*join/join.html -----------------------------------------------------------------------*/
+#join .join_box {
+  padding: 10px 20px 30px;
+}
+
+.join_button {
+  text-align: center;
+}
+
+#join .join_button button {
+  text-decoration: none;
+  outline: none;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  position: relative;
+  height: 200px;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  line-height: 36px;
+  color: #000;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+#join .join_button button:hover {
+  background-color: #f1f1f1;
+}
+
+#join hr {
+  margin: 0;
+}
+
+#join .join_button img {
+  width: 133px;
+  height: 133px;
+  vertical-align: middle;
+}
+
+#join .join_group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  width: 375px;
+}
+
+#join .join_text {
+  text-align: left;
+  padding-left: 15px;
+}
+
+#join .join_text > h3 {
+  line-height: 1.43;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+#join .join_mom span {
+  color: #007e62;
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 2.25;
+}
+#join .join_siter span {
+  color: #ff5400;
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 2.25;
+}
+
+#join .already_join {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#join .already_join span {
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.69;
+}
+
+#join .already_join a {
+  color: #000;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.69;
+  text-decoration: underline;
+}
+
+/*join/parent/start.html-----------------------------------------------------------------------*/
+
+#start .col-xs-12 {
+  margin-top: 100px;
+}
+
+#start .join_title {
+  text-align: center;
+}
+
+#start h3 {
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+#start button {
+  display: block;
+}
+
+#start a:hover {
+  display: block;
+  text-decoration: none;
+}
+
+#start .start_join_btn {
+  background-color: #ff7000;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  margin: 40px auto;
+  width: 220px;
+  height: 51px;
+  border-radius: 25px;
+  line-height: 36px;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+}
+
+#start .already_join_btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+  text-decoration: underline;
+  color: #222;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin: auto;
+  height: 36px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+#start .already_join_btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*join/parent/actitity_age.html -------------------------------------------------------------------*/
+
+/*회원 가입 페이지에서 페이지 위치 알리기 위해 쓰임*/
+.page_dots {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin: 5px;
+  border-radius: 11px;
+  background-color: #e8e8e8;
+}
+
+.now_dots {
+  background-color: #ff7000 !important;
+}
+/*회원 가입 페이지에서 페이지 위치 알리기 위해 쓰임*/
+
+.what_want {
+  display: block;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+#act_age .help_box {
+  display: inline-block;
+  margin: 5px;
+}
+
+#act_age .help_btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+  font-size: 0;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  vertical-align: middle;
+}
+
+#act_age .help_btn img {
+  width: 100%;
+}
+
+/*modal 디자인 --------------------------------------*/
+
+#help_modal h4 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#help_modal .act_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+#help_modal .act_name {
+  font-weight: 600;
+  width: 100px;
+  font-size: 0.9em;
+}
+
+#help_modal .act_desc {
+  color: #777;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+#help_modal .min_payment_box {
+  color: #858585;
+  font-size: 0.9em;
+  line-height: 1.7;
+  align-items: center;
+  margin: 15px 0;
+}
+
+#help_modal .min_payment_box strong {
+  color: #222;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 1.7;
+  align-items: center;
+  margin: 15px 0;
+}
+
+/*end modal--------------------------------------------*/
+
+#act_age .sub_title {
+  color: #ff5400;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#act_age .upd_care_age_in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#act_age .care_age_btn {
+  text-align: center;
+  margin: 10px 0;
+  box-sizing: content-box;
+  position: relative;
+}
+
+#act_age .care_age_btn input[type="checkbox"] + label {
+  position: relative;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  line-height: 36px;
+  color: #d9d9d9;
+  background-color: #efefef;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  text-align: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+}
+
+#act_age .care_age_btn input[type="checkbox"] + label img {
+  width: 38px;
+  height: 38px;
+}
+
+#act_age .care_age_btn input[type="checkbox"]:checked + label {
+  background-color: #ff7000;
+  position: relative;
+  color: #fff;
+}
+
+#act_age .care_age_text {
+  color: #878787;
+  font-weight: 600;
+  margin-top: 17px;
+  text-align: center;
+}
+
+#act_age .care_age_btn input[type="checkbox"] {
+  display: none;
+}
+
+#act_age .care_age_cont_in {
+  color: #919191;
+}
+
+#act_age .want_act_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#act_age .want_btn {
+  width: 25%;
+  text-align: center;
+  margin: 10px 0;
+  box-sizing: content-box;
+  position: relative;
+}
+
+#act_age .want_btn button {
+  position: relative;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  line-height: 36px;
+  color: #f1f3f5;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  text-align: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+}
+
+/*버튼 클릭시 적용될 클래스-------------------------------------*/
+.select_btn {
+  background-color: #ff7000 !important;
+  position: relative !important;
+  color: #fff !important;
+}
+
+.select_text {
+  color: #ff7000 !important;
+}
+/*end 버튼 클릭시 적용될 클래스-------------------------------------*/
+
+#act_age .want_btn button img {
+  width: 38px;
+  height: 38px;
+}
+
+#act_age .want_text {
+  color: #878787;
+  font-weight: 600;
+  margin-top: 11px;
+  text-align: center;
+}
+
+/*어느 나이대의 시터를 찾으시나요? ------------------------------------*/
+
+#act_age .want_age_box {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+#act_age .want_age_box label {
+  font-size: 1.1em;
+  margin: 0 10px;
+}
+
+/*check box 커스터마이징 by suna 201216-------------------------------------------------*/
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 26px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.upd_care_age_in input[type="checkbox"] + label:before {
+  width: 0px;
+  height: 0px;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+input[type="checkbox"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background-color: #ff7000;
+}
+
+.upd_care_age_in input[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  background: rgba(0, 0, 0, 0);
+}
+
+/*end check box 커스터마이징 by suna 201216--------------------------------------------*/
+
+.next_btn {
+  background-color: #ff7000;
+  width: 100%;
+  height: 51px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/*join/parent/children.html-------------------------------------------------------------*/
+#children .number_children_wrap {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+#children .btn_children_off {
+  width: calc(50% - 3px);
+  height: 50px;
+  background-color: #f1f3f5;
+  color: #646464;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.btn_children_on {
+  width: calc(50% - 3px);
+  height: 50px;
+  background-color: #ff7000;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.title {
+  margin: 30px auto 37px;
+  text-align: center;
+}
+
+.title .noselect_title {
+  font-weight: 600;
+  line-height: 18px;
+  color: #949494;
+  letter-spacing: -0.2px;
+  font-size: 0.9em;
+}
+
+.title .select_title p {
+  font-weight: 600;
+  line-height: 18px;
+  color: #949494;
+  letter-spacing: -0.2px;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+#children .children_age_block {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 375px;
+  padding: 0 23px;
+  box-sizing: border-box;
+}
+
+#children .title_block {
+  margin: 28px 0 8px;
+  text-align: left;
+}
+
+#children .select_children_age_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#children .select_list {
+  width: calc(50% - 4px);
+  height: 50px;
+}
+
+#children .select_list select {
+  width: 100%;
+  padding: 0.8em 0.5em;
+  border: 1px solid #999;
+  font-family: inherit;
+  background: url("../img/arrow.jpg") no-repeat 95% 50%;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#children .payment_wrap {
+  margin: auto;
+}
+
+#children .show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out 0s;
+}
+
+#children h4 {
+  display: block;
+  text-align: left;
+  font-size: 0.9em;
+  color: #666;
+  margin: 34px 0 11px;
+}
+
+#children .help_box {
+  display: inline-block;
+}
+
+#children .help_btn {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#children .payment_input_wrap {
+  border: 1px solid #d5d5d5;
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+#children .payment_input {
+  border: none;
+  text-align: right;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+#children .payment_fix {
+  display: inline-block;
+  margin: 3px 20px 5px 8px;
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+#children .disc_box {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+#children .disc_box label {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/*join/parent/location.html---------------------------------------------------------------------*/
+#location .location_box {
+  overflow: hidden;
+  height: 65vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
+
+#location .location_group {
+  flex-basis: 33%;
+  border: 1px solid #d9d9d9;
+  overflow-y: scroll;
+}
+
+#location .location_group button {
+  height: 45px;
+  width: 100%;
+  background-color: #fff;
+  color: #646464;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+#location .location_group button:hover {
+  height: 45px;
+  width: 100%;
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #646464;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.select_location {
+  color: #ff7000 !important;
+  background-color: #fff8f2 !important;
+}
+
+/*join/parent/schedule.html---------------------------------------------------------------------*/
+#schedule .when_btn_box {
+  margin: 40px auto;
+}
+
+#schedule .when_btn {
+  display: block;
+  margin: 8px auto;
+  width: 221px;
+  height: 44px;
+  border-radius: 22px;
+  background-color: #f1f3f5;
+  color: #646464;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+#schedule .when_btn:hover {
+  text-decoration: none;
+}
+
+/*join/parent/description.html-----------------------------------------------------------------*/
+#description .no_require {
+  font-weight: 500;
+  text-align: center;
+  width: 105px;
+  height: 27px;
+  border: 1px solid #dadada;
+  border-radius: 13px;
+  font-size: 0.9em;
+  color: #949494;
+  margin: 33px auto 8px;
+}
+
+#description .desc_textarea {
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 6px 16px;
+  margin: 0 16px;
+  border-radius: 5px;
+  background-color: #f1f3f5;
+  width: calc(100% - 32px);
+  border: none;
+  min-height: 148px;
+  resize: none;
+}
+
+#description .warning {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #797979;
+  margin: 16px;
+  line-height: 1.54;
+}
+
+#description .fa-times {
+  color: #ff5400;
+}
+
+/*radio 버튼 커스텀*/
+input[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+input[type="radio"]:hover + label:before {
+  border-color: #999;
+}
+
+input[type="radio"]:active + label:before {
+  transition-duration: 0;
+  filter: brightness(0.2);
+}
+
+input[type="radio"] + label {
+  position: relative;
+  padding-left: 35px;
+  font-weight: normal;
+}
+
+input[type="radio"] + label:before,
+input[type="radio"] + label:after {
+  box-sizing: content-box;
+  position: absolute;
+  content: "";
+  display: block;
+  left: 0;
+}
+
+input[type="radio"] + label:before {
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -10px;
+  border: 2px solid #d9d9d9;
+  text-align: center;
+}
+
+input[type="radio"] + label:after {
+  background-color: #ff7000;
+  top: 50%;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  transform: scale(0);
+  transform-origin: 50%;
+  transition: transform 200ms ease-out;
+}
+
+input[type="radio"]:checked + label:before {
+  -moz-animation: borderscale 300ms ease-in;
+  -webkit-animation: borderscale 300ms ease-in;
+  animation: borderscale 300ms ease-in;
+  background-color: #fff;
+}
+input[type="radio"]:checked + label:after {
+  transform: scale(1);
+}
+input[type="radio"] + label:before,
+input[type="radio"] + label:after {
+  border-radius: 50%;
+}
+
+/*end radio 커스텀 --------------------------------------------------*/
+
+/*join/parent/account.html-----------------------------------------------------------------------*/
+#account .account_header {
+  text-align: center;
+  display: block;
+  margin-bottom: 25px;
+}
+
+#account .account_header img {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}
+
+#account .account_title {
+  font-size: 0.9em;
+  color: #616161;
+  line-height: 1.71;
+  font-weight: 700;
+}
+
+#account .input_box {
+  margin: 25px;
+}
+
+#account .input_group {
+  margin: 12px 0;
+}
+#account .input_group label {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #222;
+}
+
+#account .input_elem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#account .acco_input {
+  height: 50px;
+  padding: 14px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: #000;
+  transition: border 0.3s ease;
+  width: 100%;
+}
+
+#acount .radgender {
+  display: inline-block;
+}
+
+/*join/parent/agreement.html----------------------------------------------------------------*/
+
+#agree .agree_group {
+  padding: 15px 20px;
+  background-color: #f3f3f3;
+}
+
+#agree .agree_box {
+  font-size: 0.8em;
+}
+
+#agree .agree_box p {
+  line-height: 22px;
+  font-weight: 500;
+  margin: 2px 0;
+}
+
+#agree .agree_box span {
+  color: #ff7000;
+}
+
+#agree .agree_box {
+  width: 100%;
+  overflow: hidden;
+}
+
+#agree .agree_check {
+  background-color: #fff;
+  border-bottom: 1px solid #f3f3f3;
+  padding: 12px 0 12px 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  display: table;
+  height: auto;
+  width: 100%;
+}
+
+#agree .all_check {
+  padding-bottom: 5px;
+  background-color: #f3f3f3;
+}
+
+#agree .agree_box h4 {
+  font-weight: 600;
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+/*join/parent/success.html------------------------------------------------------------*/
+#success .img_box {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  line-height: 100px;
+  margin: 20px 0;
+}
+
+#success .img_box img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+#success .success_title {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/*join/parent/regular.html
+  join/parent/shortTerm.html
+-------------------------------------------------------------*/
+#regular .calc_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#regular .regu_title {
+  font-weight: 600;
+  font-size: 1em;
+  color: #646464;
+}
+
+#regular .date_box {
+  display: block;
+  border: 1px solid #ffcfb8;
+  background-color: #fff0e8;
+  border-radius: 2px;
+  width: 130px;
+  height: 37px;
+  text-align: center;
+  color: #ff7000;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+#regular .day_btn_group {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin: 13px 0;
+}
+
+#regular .day_btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+  background-color: #eee;
+  color: #646464;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.time_select_box {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.middle_bar {
+  border-right: 1px solid #efefef;
+}
+
+.select_time {
+  width: 133px;
+  height: 38px;
+  border: 1px solid #ffcfb8;
+  background-color: #fff0e8;
+  margin-top: 6px;
+  color: #ff7000;
+  font-weight: 600;
+  text-align: center;
+}
+
+.select_time select {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  border: none;
+  font-family: inherit;
+  background: url("../img/arrow.png") no-repeat 95% 50%;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.select_time option {
+  color: #222;
+}
+
+.jojung_box {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f1f3f5;
+  margin: 15px 0;
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
+.box_check {
+  background-color: #fff9f5;
+}
+
+.jojung_check {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 22px;
+  border-radius: 22px;
+  background-color: #cfcfcf;
+  transition: background-color 0.3s;
+  padding: 0;
+  margin-right: 8px;
+}
+.check_check {
+  background-color: #ff7000;
+}
+
+.jojung_check::after {
+  content: "";
+  width: 10px;
+  height: 5px;
+  position: absolute;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  left: 6px;
+  top: 7px;
+  transform: rotate(315deg);
+}
+
+.jojung_text {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #9d9d9d;
+}
+/*join/parent/noplan.html-------------------------------------------------------------------------*/
+.noplan_text {
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.64;
+}
+.noplan_grey {
+  font-size: 12px;
+  line-height: 0.83;
+  color: #888;
+}
+.noplan_orange {
+  color: #ff7000;
+}
+
+.noplan_wrap {
+  margin: 0 auto;
+  max-width: 375px;
+  width: 100%;
+  padding: 0 16px;
+}
+.noplan_schedule {
+  width: 260px;
+  margin: 50px auto 40px;
+  display: flex;
+  align-items: flex-end;
+}
+.noplan_schedule img {
+  width: 29px;
+  height: 228px;
+}
+.noplan_check_box {
+  margin: 0 30px;
+  width: 60px;
+}
+
+.noplan_check_box .title {
+  margin-bottom: 23px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 0.85;
+}
+.noplan_check_box .time_box {
+  position: relative;
+  margin-top: 13px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.noplan_check_box .time_btn {
+  background-color: #f1f3f5;
+  width: 100%;
+  height: 100%;
+  color: #9d9d9d;
+  font-weight: 600;
+  border-radius: 60px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}

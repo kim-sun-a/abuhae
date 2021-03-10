@@ -1,0 +1,705 @@
+/* 초기 설정 -----------------------------------------------------*/
+.body,
+html,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-size: 1em;
+  font-weight: bold;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/** header --------------------------------------------------------------------*/
+
+.mp_detail_tl {
+  width: 100%;
+  padding: 15px 0 20px;
+}
+
+.mp_detail_tl .mp_detail_tl_in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mp_detail_tl .mp_detail_tl_in a i {
+  text-decoration: none;
+  color: black;
+  font-size: 1.4em;
+  margin-top: 7px;
+}
+
+.mp_detail_tl .mp_detail_tl_in h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/** 내 구인 현황 ------------------------------------------------------------------ */
+.wrap_get_sitter {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/** content 1 */
+
+/** 탭 버튼 */
+
+.wrap_get_sitter .group1_get_sitter .gs_tab_button {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_tab_item {
+  width: 49%;
+  height: 48px;
+  background-color: #eee;
+  border: 2px solid #eee;
+  border-bottom: 0;
+  z-index: 10;
+  border-radius: 18px 18px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_tab_item.fi_selected {
+  background-color: #fff;
+}
+
+.wrap_get_sitter .group1_get_sitter .tab_button_item_link {
+  color: rgb(148, 148, 148);
+  font-size: 1.1em;
+  width: 100%;
+}
+
+.wrap_get_sitter .group1_get_sitter .tab_button_item_link.selected {
+  color: black;
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_tab_panel {
+  border-top: 2px solid #eee;
+  position: relative;
+  top: -1px;
+}
+
+/** 탭 내용 */
+
+.wrap_get_sitter .group1_get_sitter .gs_appl {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding: 20px 10px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.wrap_get_sitter .group1_get_sitter .appl_img img {
+margin-right: 10px
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_appl_cont {
+  width: 100%;
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_appl .si_name {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_appl p {
+  font-size: 0.8em;
+  margin-bottom: 1px;
+}
+
+.wrap_get_sitter .group1_get_sitter .gs_appl .gm_endtime {
+  margin-top: 15px;
+  color: #e93c3c;
+  font-size: 1em;
+}
+
+.wrap_get_sitter .group1_get_sitter .deny {
+  background-color: #eee;
+  margin-top: 15px;
+  font-size: 1em;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+.wrap_get_sitter .group1_get_sitter .success {
+  background-color: #dcf0ef;
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.wrap_get_sitter .group1_get_sitter .success .si_phone {
+  margin-top: 5px;
+}
+
+.wrap_get_sitter .group1_get_sitter .success span {
+  color: #e93c3c;
+  font-size: 0.8em;
+}
+
+.wrap_get_sitter .group1_get_sitter .success mark {
+  background-color: rgb(245, 245, 184);
+}
+
+.agree_btn {
+	display: flex;
+	margin-top: 10px;
+}
+
+.agree_btn button {
+	width: 70px;
+	border: 0;
+	background-color: rgb(34, 172, 135);
+	color: #fff; 
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.agree_btn .interview_no {
+	margin-left: 10px;
+}
+
+#denyForm {
+	background-color: #eee;
+	margin-top: 20px;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+#denyForm h4 {
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.deny_radio {
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+.deny_radio div {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+input[type=radio]+label {
+	margin-left: 10px;
+}
+
+.ok_btn {
+	width: 70%;
+	background-color: #696969;
+	border: 0;
+	border-radius: 3px;
+	color: #fff;
+	padding: 8px;
+	margin-top: 30px;
+}
+
+/** end 내 구직 현황 --------------------------------------------------------------*/
+
+/** 찜한 맘시터 --------------------------------------------------------------------*/
+/** 공통 */
+.wrap_like_sitter {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/** content1 */
+.wrap_like_sitter .grouop1_like_sitter {
+  background-color: #eee;
+  min-height: 600px;
+  padding: 20px 10px;
+}
+
+/** 전체 / 구직 중인 일자리만 탭 버튼 */
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_button {
+  padding: 10px;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_button li {
+  list-style: none;
+  margin-right: 13px;
+  min-height: 36px;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_button li a span {
+  font-size: 0.8em;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_button .ls_tab_button_item {
+  min-height: 36px;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_button
+  .ls_tab_button_item_link.selected {
+  color: #000;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_button
+  .ls_tab_button_item_link.selected
+  .glyphicon {
+  color: #ff7000;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_button .ls_tab_button_item_link {
+  color: #858585;
+  text-decoration: none;
+}
+
+/** 일자리 내용 영역 */
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_panel .ls_page_cont {
+  background-color: #fff;
+  position: relative;
+  top: 20px;
+  margin: 10px;
+  padding: 20px 20px;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .ls_page_box {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_panel .ls_page_cont .point {
+  color: #ff4300;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .ls_page_box_left {
+  margin-right: 20px;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .ls_page_box_left
+  .response_per {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #ff4300;
+  border-radius: 15px;
+  margin-top: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_panel .ls_page_cont .ls_certify {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .box_certify {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .box_certify
+  .text_certify {
+  background-color: #ffece5;
+  height: 26px;
+  padding: 6px 10px;
+  border-radius: 16px;
+  margin-right: 5px;
+  font-size: 0.8em;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .ls_certify
+  .count_certify {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .ls_certify
+  .count_certify
+  .count {
+  color: #ff4300;
+}
+
+/* 삭제버튼 */
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont
+  .ls_page_box
+  button {
+  position: absolute;
+  border: 0;
+  right: 20px;
+  bottom: 20px;
+  background-color: #fff;
+}
+
+/* 구직 중이 아닐 경우 프로필 */
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont.no_work
+  .ls_page_box_left
+  .response_per {
+  background-color: #848484;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont.no_work
+  .point {
+  color: #888888;
+}
+
+.wrap_like_sitter
+  .grouop1_like_sitter
+  .ls_tab_panel
+  .ls_page_cont.no_work
+  .text_certify {
+  background-color: #848484;
+  color: #ffffff;
+}
+
+/** 모달창 */
+.wrap_like_sitter .modal {
+  margin-top: 200px;
+  padding: 20px 20px 10px;
+  text-align: center;
+}
+
+.wrap_like_sitter .modal button {
+  width: 150px;
+  height: 40px;
+  border: 0;
+  background-color: #ff7000;
+  border-radius: 3px;
+  color: #ffffff;
+}
+
+/** end 찜한 일자리 -----------------------------------------------------------------*/
+
+/** 리뷰 관리  ----------------------------------------------------------------------*/
+
+/** 공통 영역 */
+.wrap_review {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/** 탭메뉴 for 후기 관리 */
+.wrap_review .group1_review .rev_tab_button {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.wrap_review .group1_review .rev_tab_button .tab_button_item {
+  width: 50%;
+  height: 48px;
+  border-bottom: 3px solid rgb(237, 237, 237);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrap_review .group1_review .rev_tab_button .tab_button_item.fi_selected {
+  border-bottom: 3px solid #ff7000;
+}
+
+.wrap_review .group1_review .rev_tab_button .tab_button_item_link {
+  color: rgb(148, 148, 148);
+  font-size: 1.1em;
+  width: 100%;
+}
+
+.wrap_review .group1_review .rev_tab_button .tab_button_item_link.selected {
+  color: #ff7000;
+}
+
+/** 리뷰 내용 영역 */
+
+.wrap_review .group1_review .rev_tab_panel {
+  padding: 10px 15px;
+}
+
+.wrap_review .group1_review .rev_tab_panel .rev_tab_panel_con {
+  min-height: 300px;
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.wrap_review .group1_review .rev_tab_panel .rev_tab_panel_con h4 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.wrap_review .group1_review .rev_tab_panel .rev_tab_panel_con h5 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.wrap_review .group1_review .rev_tab_panel .si_rev_no {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.wrap_review .group1_review .rev_tab_panel .si_rev_no:last-child {
+	margin-bottom: 0;
+}
+
+.wrap_review .group1_review .rev_tab_panel .si_rev_no .si_rev_no_tl {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  
+}
+
+.wrap_review .group1_review .rev_tab_panel .si_rev_no_tl .si_rev_no_info {
+  margin-left: 15px;
+}
+
+.wrap_review .group1_review .rev_tab_panel .rev_no_btn {
+  height: 36px;
+  width : 70%;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 15px;
+  background-color: rgb(255, 95, 0);
+  color: #fff;
+}
+
+#check_rev p {
+	color: #696969;
+}
+
+#check_rev mark {
+	background-color: #ffffa0;
+	color: #2d2d2d;
+}
+
+/** 별점 */
+/**.wrap_review .modal-content .modal-body .rev_rate .rate_radio {
+	display: none;
+}
+
+.wrap_review .modal-content .modal-body .rev_rate .rate_radio+label {
+	color: #eee;
+}
+
+.wrap_review .modal-content .modal-body .rev_rate .rate_radio.select + label {
+	color: #ff7000;
+} */
+
+.rate_radio {
+	display: none;
+}
+
+.rev_rate {
+	color: #eee;
+}
+
+.rev_rate .rate_radio+label {
+	color: #ff7000;
+	margin-left: 1px;
+}
+
+.rev_rate .rate_radio:checked ~ label {
+	color: #eee;
+}
+
+.rev_rate .rate_radio:checked+label {
+	color: #ff7000;
+}
+
+/** end 리뷰 관리  ------------------------------------------------------------------*/
+
+
+/** 내 채용 내역 --------------------------------------------------------------------*/
+.wrap_count_mom {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/** content1 */
+.wrap_count_mom .group1_count_mom .total_count {
+  text-align: right;
+  margin-right: 15px;
+}
+
+.wrap_count_mom .group1_count_mom {
+  background-color: #eee;
+  min-height: 600px;
+  padding: 10px 0;
+}
+
+.wrap_count_mom .group1_count_mom .cm_page_cont {
+  position: relative;
+  top: 10px;
+  margin: 10px;
+  padding: 10px ;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont {
+	background-color: #fff;
+	margin-bottom: 10px;
+	padding: 15px;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont.no_box {
+	background-color: #f7f7f7;
+	margin-bottom: 10px;
+	padding: 15px;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .ls_page_box {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .point {
+  color: #ff4300;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .ls_page_box_left {
+  margin-right: 20px;
+}
+
+.wrap_count_mom
+  .group1_count_mom
+  .ls_page_cont
+  .ls_page_box_left
+  .response_per {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #ff4300;
+  border-radius: 15px;
+  margin-top: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .ls_certify {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .box_certify {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .box_certify .text_certify {
+  background-color: #ffece5;
+  height: 26px;
+  padding: 6px 10px;
+  border-radius: 16px;
+  margin-right: 5px;
+  font-size: 0.8em;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont .ls_certify .count_certify {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.wrap_count_mom
+  .group1_count_mom
+  .ls_page_cont
+  .ls_certify
+  .count_certify
+  .count {
+  color: #ff4300;
+}
+
+.wrap_count_mom
+  .group1_count_mom
+  .ls_page_cont.no_work
+  .ls_page_box_left
+  .response_per {
+  background-color: #848484;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont.no_work .point {
+  color: #888888;
+}
+
+.wrap_count_mom .group1_count_mom .ls_page_cont.no_work .text_certify {
+  background-color: #848484;
+  color: #ffffff;
+}
+/** end 내 채용 내역 ----------------------------------------------------------------*/

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="DetailMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="MemberMap"
+		type="study.team.abuhae.model.Member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="memberno" column="memberno" />
+		<result property="type" column="type" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="birthdate" column="birthdate" />
+		<result property="job_opening" column="job_opening" />
+		<result property="gender" column="gender" />
+		<result property="signup_date" column="signup_date" />
+		<result property="signup" column="signup" />
+	</resultMap>
+
+	<resultMap id="MomMap"
+		type="study.team.abuhae.model.Mom_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="momno" column="momno" />
+		<result property="want_act1" column="want_act1" />
+		<result property="want_act2" column="want_act2" />
+		<result property="want_act3" column="want_act3" />
+		<result property="want_age" column="want_age" />
+		<result property="kids_num" column="kids_num" />
+		<result property="kids_age" column="kids_age" />
+		<result property="payment" column="payment" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="schedule_ok" column="schedule_ok" />
+		<result property="sitter_gender" column="sitter_gender" />
+		<result property="interview_type" column="interview_type" />
+		<result property="care_type" column="care_type" />
+		<result property="openingdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+		<result property="signup_date" column="signup_date" />
+		<result property="heartno" column="heartno" />
+		<result property="schedule_start_date" column="schedule_start_date" />
+		<result property="findHt" column="findHt" />
+		<result property="subscribe" column="subscribe" />
+		<result property="wanttime" column="wanttime" />
+		<result property="kids_nai" column="kids_nai" />
+		<result property="kids_nai2" column="kids_nai2" />
+		<result property="kids_age" column="kids_age" />
+		<result property="kids_age2" column="kids_age2" />
+	</resultMap>
+
+	<resultMap id="SitterMap"
+		type="study.team.abuhae.model.Sitter_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="sitterno" column="sitterno" />
+		<result property="sitter_type" column="sitter_type" />
+		<result property="want_act1" column="want_act1" />
+		<result property="want_act2" column="want_act2" />
+		<result property="want_act3" column="want_act3" />
+		<result property="want_age" column="want_age" />
+		<result property="payment" column="payment" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="introduce" column="introduce" />
+		<result property="cctv" column="cctv" />
+		<result property="openingdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+		<result property="rev_rate" column="rev_rate" />
+		<result property="rev_count" column="rev_count" />
+		<result property="profile_img_file" column="profile_img_count" />
+		<result property="heartno" column="heartno" />
+		<result property="who" column="who" />
+		<result property="applydate" column="applydate" />
+		<result property="accept" column="accept" />
+		<result property="resino" column="resino" />
+		<result property="cntno" column="cntno" />
+		<result property="favorite_act" column="favorite_act" />
+		<result property="view" column="view" />
+		<result property="findHt" column="findHt" />
+		<result property="subscribe" column="subscribe" />
+	</resultMap>
+	
+	<resultMap type="study.team.abuhae.model.Report" id="ReportMap">
+		<result property="reportno" column="reportno"/>	
+		<result property="who" column="who"/>	
+		<result property="type" column="type"/>	
+		<result property="contents" column="contents"/>	
+		<result property="momno" column="momno"/>	
+		<result property="sitterno" column="sitterno"/>	
+		<result property="reg_date" column="reg_date"/>				
+	</resultMap>
+	
+	<resultMap type="study.team.abuhae.model.Heart" id="HeartMap">
+		<result property="heartno" column="heartno"/>	
+		<result property="reg_date" column="reg_date"/>	
+		<result property="who" column="who"/>	
+		<result property="momno" column="momno"/>	
+		<result property="sitterno" column="sitterno"/>				
+	</resultMap>
+	
+	<resultMap type="study.team.abuhae.model.Connect" id="ConnectMap">
+		<result property="cntno" column="cntno"/>	
+		<result property="applydate" column="applydate"/>	
+		<result property="who" column="who"/>	
+		<result property="momno" column="momno"/>	
+		<result property="sitterno" column="sitterno"/>	
+		<result property="accept" column="accept"/>	
+		<result property="deny_type" column="deny_type"/>					
+	</resultMap>
+	
+	<resultMap type="study.team.abuhae.model.Review" id="ReviewMap">
+		<result property="revno" column="revno"/>	
+		<result property="reg_date" column="reg_date"/>	
+		<result property="who" column="who"/>	
+		<result property="momno" column="momno"/>	
+		<result property="sitterno" column="sitterno"/>	
+		<result property="rev_rate" column="rev_rate"/>	
+		<result property="contents" column="contents"/>	
+		<result property="name" column="name"/>		
+		<result property="fileUrl" column="fileUrl" />
+    	<result property="isProfile" column="isProfile" />			
+	</resultMap>
+	
+	<!-- 시터 상세페이지 -->
+	<select id="selectItem" parameterType="study.team.abuhae.model.Sitter_info"
+		resultMap="SitterMap">
+		SELECT s.memberno, type, CONCAT(LEFT(name,1), 'O', RIGHT(name,1)) AS
+		name, email, phone, FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		unsigned) -
+		CAST(REPLACE(birthdate,'-','') as unsigned)) / 10000 ) + 2
+		AS birthdate, want_age, subscribe,
+		job_opening, s.sitterno, sitter_type, want_act1, want_act2, want_act3, gender, introduce,
+		si, gu, dong, favorite_act, signup_date, view, 
+		json_extract(schedule, '$.startdate') AS schedule,
+		REPLACE(json_extract(schedule, '$.workterm'),'"','') AS workterm,
+		REPLACE(json_extract(schedule, '$.startdate'),'"','') AS schedule_start_date,
+		REPLACE(json_extract(schedule, '$.day'),'"','') AS days,
+		<!-- CONCAT(LEFT(payment,2), ',', RIGHT(payment,3)) AS -->
+		payment, cctv, CASE
+	<![CDATA[WHEN TIMESTAMPDIFF(minute, openingdate, now()) <= 0 THEN '방금 전'
+	WHEN TIMESTAMPDIFF(minute, openingdate, now()) < 60 THEN
+	CONCAT(TIMESTAMPDIFF(minute, openingdate, now()), '분 전')
+	WHEN TIMESTAMPDIFF(hour, openingdate, now()) < 24 THEN
+	CONCAT(TIMESTAMPDIFF(hour, openingdate, now()), '시간 전')
+	WHEN TIMESTAMPDIFF(day, openingdate, now()) < 30 THEN]]>
+		CONCAT(TIMESTAMPDIFF(day, openingdate, now()), '일 전')
+		ELSE
+		CONCAT(TIMESTAMPDIFF(month, openingdate, now()), '달 전')
+		END AS
+		openingdate, (SELECT COUNT(revno) FROM review r WHERE s.sitterno=r.sitterno AND who='M') AS rev_count,
+		(SELECT COUNT(heartno) FROM heart h WHERE s.sitterno=h.sitterno AND who='M') AS heartno,
+		(SELECT COUNT(resino) FROM resi_cert rc WHERE rc.sitterno=s.sitterno AND cert='Y') AS resino,
+		(SELECT COUNT(cntno) FROM connect c WHERE c.sitterno=s.sitterno AND accept='Y') AS cntno,
+		(SELECT FLOOR(COUNT(accept)/COUNT(cntno)) * 100 FROM connect c WHERE s.sitterno=c.sitterno AND c.who='m') AS answer,
+		(SELECT FLOOR(AVG(rev_rate)) FROM review r WHERE s.sitterno=r.sitterno AND who='M') AS rev_rate,
+		(SELECT DATE_FORMAT(signup_date, "%Y년 %m월 %d일") FROM member m WHERE s.memberno=m.memberno) AS signup
+		<if test = "loginMom != 0">,
+		(SELECT COUNT(*)
+		FROM heart h WHERE s.sitterno=h.sitterno AND
+		who='M' AND h.momno=#{loginMom}) AS findHt</if>
+		FROM sitter_info s
+		INNER JOIN member m ON s.memberno=m.memberno
+		<where>
+			s.sitterno=#{sitterno}
+		</where>
+	</select>
+	
+	<!-- 맘 상세페이지 -->
+	<select id="selectItemMom" parameterType="study.team.abuhae.model.Mom_info"
+		resultMap="MomMap">
+		SELECT m.memberno, type, CONCAT(LEFT(name,1), 'O', RIGHT(name,1)) AS
+		name, email, phone, FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		unsigned) -
+		CAST(REPLACE(birthdate,'-','') as unsigned)) / 10000 ) + 2
+		AS birthdate, momno, want_age, kids_num, interview_type,
+		json_extract(schedule, '$.startdate') AS schedule,
+		REPLACE(json_extract(schedule, '$.frequency'),'"','') AS frequency,
+		REPLACE(json_extract(schedule, '$.startdate'),'"','') AS startdate,
+		REPLACE(json_extract(schedule, '$.day'),'"','') AS days,
+		<!-- REPLACE(json_extract(schedule, '$.startdate'),'"','') AS startdate, -->
+		REPLACE(json_extract(schedule, '$.wanttime'),'"','') AS wanttime,
+		job_opening, want_act1, want_act2, want_act3, apply_content, apply_title,
+		si, gu, dong, signup_date, description, sitter_gender, care_type, 
+		payment, payment_ok, kids_nai, kids_nai2,
+		(SELECT DATE_FORMAT(openingdate, "%Y년 %m월 %d일") FROM member b WHERE b.memberno=m.memberno) AS openingdate,
+		 startdate, subscribe, kids_age, kids_age2,
+		(SELECT COUNT(heartno) FROM heart h WHERE m.momno=h.momno AND who='S') AS heartno,
+		(SELECT COUNT(cntno) FROM connect c WHERE c.momno=m.momno AND who='S') AS cntno
+		<if test = "loginSt != 0">, (SELECT COUNT(*)
+		FROM heart h WHERE m.momno=h.momno AND
+		who='S'AND h.sitterno=#{loginSt}) AS findHt</if>
+		FROM mom_info m
+		INNER JOIN member b ON m.memberno=b.memberno
+		<where>
+			m.momno=#{momno}
+		</where>
+	</select>
+	
+	<!-- 조회수 -->
+	<update id="updateItem" parameterType="study.team.abuhae.model.Sitter_info">
+		UPDATE sitter_info SET view = view+1 
+		<where>
+			sitterno=#{sitterno}
+		</where>
+	</update>
+	
+	<!-- 찜하기 
+	<insert id="insertHeart" parameterType="study.team.abuhae.model.Heart"
+		useGeneratedKeys="true" keyProperty="heartno">
+		INSERT INTO heart (reg_date, who, momno, sitterno) 
+		VALUES (now(), #{who}, #{momno}, #{sitterno});
+	</insert>
+	
+	찜하기 취소 
+	<delete id="deleteHeart"
+		parameterType="study.team.abuhae.model.Heart">
+		DELETE FROM heart 
+		<where>
+		momno=#{momno} and sitterno=#{sitterno}
+		</where>
+	</delete> -->
+	
+	<!-- 맘회원번호로 회원 정보 조회  -->
+	<select id="selectHeart" resultMap="MomMap">
+		SELECT heartno, m.momno 
+		FROM mom_info m
+		INNER JOIN heart h ON m.momno=h.momno
+		<where>
+			m.momno=#{momno}
+		</where>
+	</select>
+	
+	<!-- 신고하기 -->
+	<insert id="insertReport" parameterType="study.team.abuhae.model.Report"
+		useGeneratedKeys="true" keyProperty="reportno">
+		INSERT INTO report (who, type, momno, sitterno, contents, reg_date) 
+		VALUES (#{who}, #{type}, #{momno}, #{sitterno} ,#{contents}, now());
+	</insert>
+	
+	<!-- 신고하기 -->
+	<select id="selectMonReport" parameterType="study.team.abuhae.model.Mom_info"
+		resultMap="MomMap">
+		SELECT reportno, m.momno 
+		FROM mom_info m
+		INNER JOIN report r ON m.momno=r.momno
+		<where>
+			m.momno=#{momno}
+		</where>
+	</select>
+	
+	<!-- 인터뷰 신청하기 -->
+	<insert id="insertConnect" parameterType="study.team.abuhae.model.Connect"
+		useGeneratedKeys="true" keyProperty="cntno">
+		INSERT INTO connect (applydate, who, momno, sitterno)
+		VALUES (now(), #{who}, #{momno}, #{sitterno});
+	</insert>
+	
+	<!-- 리뷰 최근날짜로 3개만 출력 -->
+	<select id="ReviewList" parameterType="study.team.abuhae.model.Review"
+		resultMap="ReviewMap">
+		select mi.si, mi.gu, mi.dong, rev_rate, reg_date, contents, r.momno as momno, r.sitterno as sitterno, r.who,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = m.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = m.memberno) AS fileUrl,
+		CONCAT(LEFT(name,1), 'O', RIGHT(name,1)) AS
+		name 
+		from review r
+		inner join sitter_info s on s.sitterno = r.sitterno
+		inner join mom_info mi on mi.momno = r.momno
+		inner join member m on m.memberno = mi.memberno	
+		where s.sitterno=#{sitterno}
+		ORDER BY reg_date DESC
+		limit 3
+	</select> 
+	
+	<!-- 리뷰 전체 출력 -->
+	<select id="ReviewListTotal" parameterType="study.team.abuhae.model.Review"
+		resultMap="ReviewMap">
+		select mi.si, mi.gu, mi.dong, rev_rate, reg_date, contents, r.momno as momno, r.sitterno as sitterno, r.who,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = m.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = m.memberno) AS fileUrl,
+		CONCAT(LEFT(name,1), 'O', RIGHT(name,1)) AS
+		name
+		from review r
+		inner join sitter_info s on s.sitterno = r.sitterno
+		inner join mom_info mi on mi.momno = r.momno
+		inner join member m on m.memberno = mi.memberno		
+		where s.sitterno=#{sitterno}
+		ORDER BY reg_date DESC
+	</select> 
+	
+	<!-- 찜중복 셀렉
+	<select id="heartSelect" parameterType="study.team.abuhae.model.Heart"
+	resultMap="HeartMap">
+		SELECT 
+	</select>  -->
+	
+	<!-- 찜하기 -->
+	<insert id="insertHeart"
+		parameterType="study.team.abuhae.model.Heart" useGeneratedKeys="true"
+		keyProperty="heartno">
+		INSERT INTO heart (reg_date, who, momno, sitterno)
+		VALUES (now(), #{who}, #{momno}, #{sitterno});
+	</insert>
+
+
+	<!-- 찜하기 취소 -->
+	<delete id="deleteHeart"
+		parameterType="study.team.abuhae.model.Heart">
+		DELETE FROM heart
+		WHERE
+		momno=#{momno} and sitterno=#{sitterno} and who=#{who}
+
+	</delete>
+		
+</mapper>

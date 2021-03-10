@@ -1,0 +1,711 @@
+/* 초기 설정 -----------------------------------------------------*/
+.body,
+html,
+* {
+  margin: 0;
+  padding: 0;
+
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+/** header --------------------------------------------------------------------*/
+.wrap_upd {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.mp_detail_tl {
+  width: 100%;
+}
+
+.mp_detail_tl .mp_detail_tl_in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.mp_detail_tl .mp_detail_tl_in a i {
+  text-decoration: none;
+  color: black;
+  font-size: 1.6em;
+  margin-top: 5px;
+}
+
+.mp_detail_tl .mp_detail_tl_in h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.mp_detail_tl button {
+  background-color: rgb(255, 112, 0);
+  width: 70px;
+  height: 30px;
+  border: 0;
+  border-radius: 15px;
+  color: #ffffff;
+}
+
+.point {
+  font-style: normal;
+  color: #ff7000;
+  font-weight: bold;
+}
+
+.desc {
+  color: #858585;
+  margin: 0;
+}
+
+.now_selected {
+  background-color: #faebd7;
+  border: 1px solid #ff7000;
+  padding: 8px;
+  margin: 5px 0;
+}
+/** end header -----------------------------------------------------*/
+
+/** 내 사진 수정 ----------------------------------------------------*/
+.wrap_img {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_img .update_img_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wrap_img .upload_prof {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-x: auto;
+  vertical-align: middle;
+}
+
+.wrap_img .user_img {
+  padding: 30px 10px;
+}
+
+.wrap_img .user_img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.wrap_img .user_img input[type="file"] {
+  display: none;
+}
+
+.wrap_img .example_img p {
+  font-size: 0.9em;
+}
+
+.wrap_img .example_img a button {
+  width: 100%;
+  height: 48px;
+  padding: 0 25px;
+  border: 1px solid #dac68c;
+  border-radius: 36px;
+  background-color: #fcf2d4;
+  margin-top: 50px;
+  font-size: 0.9em;
+}
+
+/** mocal */
+.way_upd_img_cont {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20%;
+}
+
+.way_upd_img_cont div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.way_upd_img_text {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #e9f2f1;
+}
+
+.way_upd_img_text p {
+  padding: 20px;
+  color: #007e62;
+  font-size: 0.9em;
+}
+/** end 내 사진 수정 ------------------------------------------------*/
+
+/** 돌봄유형 선택 ---------------------------------------------------*/
+.wrap_choice_care {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_choice_care .choice_care_cont {
+  padding: 10px 20px;
+}
+
+.wrap_choice_care .care_form_in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap_choice_care .care_form_in h4 {
+  margin-bottom: 25px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.wrap_choice_care .care_box {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 112, 0, 0.1);
+  margin-bottom: 10px;
+  width: 100%;
+  min-height: 61px;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.wrap_choice_care .care_box input[type="radio"] {
+  margin-right: 10px;
+}
+.wrap_choice_care .care_box label {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.wrap_choice_care .care_box p {
+  margin-left: 15px;
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: #666666;
+}
+
+.care_button button {
+  width: 100%;
+  height: 60px;
+  border: 0;
+  background-color: #ff7000;
+  color: #fff;
+}
+
+/** end  돌봄유형 선택 ----------------------------------------------*/
+
+/** 활동 가능 시간 변경 ----------------------------------------------*/
+
+.wrap_upd_regular {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_upd_regular .regular_tl {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.wrap_upd_regular .start_job {
+  padding-top: 20px;
+}
+
+.wrap_upd_regular .startdate {
+  display: block;
+  border: 1px solid #ffcfb8;
+  background-color: #fff0e8;
+  border-radius: 2px;
+  height: 43px;
+  text-align: center;
+  color: #ff7000;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.wrap_upd_regular .available_time_in {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrap_upd_regular .available_time_in h4 {
+  font-size: 0.95em;
+  margin-bottom: 10px;
+}
+
+.wrap_upd_regular .timelist {
+  padding: 20px 30px;
+}
+
+.wrap_upd_regular .timelist select {
+  width: 135px;
+  height: 35px;
+  margin-top: 6px;
+  border: 1px solid rgb(255, 207, 184);
+  background-color: rgb(255, 240, 232);
+  color: #ff7000;
+}
+
+.wrap_upd_regular .available_days_in {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+.wrap_upd_regular .available_days_in input[type="checkbox"] {
+  display: none;
+}
+
+.wrap_upd_regular .available_days_in input[type="checkbox"] + label {
+  background-color: #eee;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  padding-top: 6px;
+  border-radius: 50px;
+}
+
+.wrap_upd_regular .available_days_in input[type="checkbox"]:checked + label {
+  background-color: #ff7000;
+  color: #ffffff;
+}
+
+.wrap_upd_regular .term_list {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.wrap_upd_regular .term_list input[type="radio"] {
+  display: none;
+}
+
+.wrap_upd_regular .term_list input[type="radio"] + label {
+  min-height: 36px;
+  width: 25%;
+  text-align: center;
+  padding-top: 6px;
+  border: 1px solid #d1d1d1;
+}
+
+.wrap_upd_regular .term_list input[type="radio"]:checked + label {
+  background-color: #ff7000;
+  border: 0;
+  color: #fff;
+}
+/** end 활동 가능 시간 변경 ------------------------------------------*/
+
+/** 돌봄 가능 연령 수정 -----------------------------------------------*/
+.wrap_age {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_age .upd_care_age_in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 30px;
+  width: 100%;
+}
+
+.wrap_age .care_age_btn {
+  text-align: center;
+  margin: 10px 0;
+  box-sizing: content-box;
+  position: relative;
+}
+
+.wrap_age .care_age_btn input[type="checkbox"] + label i {
+  position: relative;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  line-height: 36px;
+  color: #d9d9d9;
+  background-color: #efefef;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  text-align: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+}
+
+.wrap_age .care_age_btn input[type="checkbox"]:checked + label i {
+  background-color: #ff7000;
+  position: relative;
+  color: #fff;
+}
+
+.wrap_age .care_age_text {
+  color: #878787;
+  font-weight: 600;
+  margin-top: 17px;
+  text-align: center;
+}
+
+.wrap_age .care_age_btn input[type="checkbox"] {
+  display: none;
+}
+
+.wrap_age .care_age_cont_in {
+  color: #919191;
+}
+
+.wrap_age.care_age_cont_in i {
+  color: #919191;
+}
+/** end 돌봄 가능 연령 수정 -------------------------------------------*/
+
+/** 원하는 활동 수정 --------------------------------------------------*/
+.wrap_update_activity {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_update_activity .upd_care_age_in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 30px;
+  width: 100%;
+}
+
+.wrap_update_activity .care_age_btn {
+  text-align: center;
+  margin: 10px 0;
+  box-sizing: content-box;
+  position: relative;
+}
+
+.wrap_update_activity .care_age_btn input[type="checkbox"] + label {
+  position: relative;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  line-height: 36px;
+  color: #d9d9d9;
+  background-color: #efefef;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  text-align: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+}
+
+.wrap_update_activity .care_age_btn input[type="checkbox"] + label img {
+  width: 38px;
+  height: 38px;
+}
+
+.wrap_update_activity .care_age_btn input[type="checkbox"]:checked + label {
+  background-color: #ff7000;
+  position: relative;
+  color: #fff;
+}
+
+.wrap_update_activity .care_age_text {
+  color: #878787;
+  font-weight: 600;
+  margin-top: 17px;
+  text-align: center;
+}
+
+.wrap_update_activity .care_age_btn input[type="checkbox"] {
+  display: none;
+}
+
+.wrap_update_activity .care_age_cont_in {
+  padding-top: 30px;
+  color: #919191;
+}
+
+/** end 원하는 활동 수정 ----------------------------------------------*/
+
+/** 희망 시급 ---------------------------------------------------------*/
+.wrap_want_wage {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_want_wage .want_wage_in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap_want_wage .wage_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.wrap_want_wage .wage_box.one {
+  padding: 50px 0;
+}
+
+.wrap_want_wage .wage_box i {
+  font-size: 3em;
+  padding: 15px;
+  color: #ff9340;
+  background-color: #fccca7;
+  border-radius: 56px;
+}
+
+.wrap_want_wage .wage_box input[type="text"] {
+  text-align: right;
+  border: 0;
+  border-bottom: 4px solid #ccc;
+  width: 120px;
+  min-height: 50;
+  font-size: 2em;
+}
+
+.wrap_want_wage .wage_box span {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.wrap_want_wage .wage_box input[type="checkbox"] {
+  display: none;
+}
+
+.wrap_want_wage .wage_box input[type="checkbox"] + label {
+  display: flex;
+}
+
+.wrap_want_wage .wage_box input[type="checkbox"] + label {
+  margin-top: 10px;
+  margin-left: 5px;
+  color: rgb(75, 156, 210);
+}
+
+.wrap_want_wage .wage_box input[type="checkbox"]:checked + label div {
+  background-color: rgb(75, 156, 210);
+}
+
+.wrap_want_wage .wage_box input[type="checkbox"] + label div {
+  border: 3px solid rgb(75, 156, 210);
+  border-radius: 3px;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  margin-top: 3px;
+}
+
+.wrap_want_wage .guide_wage {
+  padding: 20px 10px;
+}
+
+.guide_wage ul li {
+  margin: 20px 0;
+  list-style: none;
+  color: #717171;
+  font-size: 1em;
+}
+/** end 희망 시급 -----------------------------------------------------*/
+
+/** 관련 경험 수정 ------------------------------------------------------------------*/
+.wrap_care_age {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_care_age #exp_btn {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #ff7000;
+  color: #ff7000;
+}
+
+.wrap_care_age .con p {
+  font-size: 0.95em;
+  color: #666666;
+}
+
+.wrap_care_age .exp_list {
+  padding: 10px 0;
+}
+
+.wrap_care_age .exp_cont {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.wrap_care_age .exp_cont input[type="text"] {
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  line-height: 30px;
+  padding: 5px 15px;
+  font-size: 1em;
+}
+
+.wrap_care_age .exp_cont input::placeholder {
+  font-size: 0.9em;
+  color: #ccc;
+}
+/** end 관련 경험 수정 --------------------------------------------------------------*/
+
+/** 자기소개 수정 -------------------------------------------------------------------*/
+.wrap_experience {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_experience .introduce_text textarea {
+  width: 100%;
+  padding: 20px;
+  background-color: #f1f3f5;
+  border: 0;
+}
+
+.wrap_experience .introduce_text textarea::placeholder {
+  font-size: 0.9em;
+}
+
+.wrap_experience .introduce_text .intro_ban {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.wrap_experience .introduce_text .intro_ban p {
+  color: #717171;
+  font-size: 0.9em;
+}
+
+.wrap_experience .introduce_text .intro_ban div {
+  margin-right: 10px;
+  color: #fcdd81;
+}
+
+.wrap_experience .introduce_text a span {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  color: #ff7000;
+  text-decoration: underline;
+}
+
+/** modal-body */
+.wrap_experience #introduce_modal .modal-body {
+  background-color: #eee;
+}
+/** end 자기소개 수정 ---------------------------------------------------------------*/
+
+/** 활동 가능 지역 수정 -------------------------------------------------------------*/
+.wrap_upd_loc {
+  padding: 20px 10px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.wrap_upd_loc .upd_loc_cont1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap_upd_loc .location_group {
+  flex-basis: 33%;
+  border: 1px solid #d9d9d9;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.wrap_upd_loc .location_group button {
+  height: 45px;
+  width: 100%;
+  background-color: #fff;
+  color: #646464;
+  font-weight: 600;
+  border: 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.wrap_upd_loc .location_group button:hover {
+  height: 45px;
+  width: 100%;
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #646464;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.wrap_upd_loc .select_loaction {
+  color: #ff7000 !important;
+  background-color: #fff8f2 !important;
+}
+
+/*선택 전까지 숨기기*/
+.wrap_upd_loc .hide_content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+/*선택 후 보여주기*/
+.wrap_upd_loc.show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/** end 활동 가능 지역 수정 ---------------------------------------------------------*/

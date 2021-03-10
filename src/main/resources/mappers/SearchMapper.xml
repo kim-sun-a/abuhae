@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 검색페이지용 Mapper 2021-02-06 하리 -->
+<mapper namespace="SearchMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="MemberMap"
+		type="study.team.abuhae.model.Member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="memberno" column="memberno" />
+		<result property="type" column="type" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="birthdate" column="birthdate" />
+		<result property="job_opening" column="job_opening" />
+	</resultMap>
+
+	<resultMap id="SitterMap"
+		type="study.team.abuhae.model.Sitter_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="sitterno" column="sitterno" />
+		<result property="sitter_type" column="sitter_type" />
+		<result property="want_act1" column="want_act1" />
+		<result property="want_act2" column="want_act2" />
+		<result property="want_act3" column="want_act3" />
+		<result property="want_age" column="want_age" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="payment" column="payment" />
+		<result property="cctv" column="cctv" />
+		<result property="schedule" column="schedule" />
+		<result property="introduce" column="introduce" />
+		<result property="answer" column="answer" />
+		<result property="openingdate" column="opening" />
+		<result property="orderdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+		<result property="rev_rate" column="rev_rate" />
+		<result property="rev_count" column="rev_count" />
+		<result property="resino" column="resino" />
+		<result property="days" column="days" />
+		<result property="findHt" column="findHt" />
+		<result property="fileUrl" column="fileUrl" />
+		<result property="isProfile" column="isProfile" />
+		<result property="accept" column="accept"/>
+		<result property="cntno" column="cntno" />
+	</resultMap>
+
+	<resultMap id="MomMap"
+		type="study.team.abuhae.model.Mom_info">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="momno" column="momno" />
+		<result property="want_act1" column="want_act1" />
+		<result property="want_act2" column="want_act2" />
+		<result property="want_act3" column="want_act3" />
+		<result property="kids_num" column="kids_num" />
+		<result property="kids_age" column="kids_age" />
+		<result property="kids_age2" column="kids_age2" />
+		<result property="kids_nai" column="kids_nai"/>
+		<result property="kids_nai2" column="kids_nai2"/>
+		<result property="payment" column="payment" />
+		<result property="payment_ok" column="payment_ok" />
+		<result property="si" column="si" />
+		<result property="gu" column="gu" />
+		<result property="dong" column="dong" />
+		<result property="schedule" column="schedule" />
+		<result property="schedule_ok" column="schedule_ok" />
+		<result property="sitter_gender" column="sitter_gender" />
+		<result property="interview_type" column="interview_type" />
+		<result property="care_type" column="care_type" />
+		<result property="openingdate" column="opening" />
+		<result property="orderdate" column="openingdate" />
+		<result property="memberno" column="memberno" />
+		<result property="applySt" column="applySt" />
+		<result property="days" column="days" />
+		<result property="findHt" column="findHt" />
+		<result property="fileUrl" column="fileUrl" />
+		<result property="isProfile" column="isProfile" />
+	</resultMap>
+
+
+
+	<!-- 데이터 검색을 위한 기능 정의 -->
+	<!-- 시터 회원 -->
+	<select id="searchSitter" parameterType="study.team.abuhae.model.Sitter_info" resultMap="SitterMap">
+		SELECT s.memberno, type, CONCAT(LEFT(name,1), 'O', RIGHT(name,2)) AS name, email, phone, 
+		FLOOR((CAST(REPLACE(current_date,'-','') AS unsigned) - CAST(REPLACE(birthdate,'-','') as unsigned)) / 10000 ) + 2 AS birthdate,
+		job_opening, s.sitterno, sitter_type, want_act1, want_act2,
+		want_act3, want_age, si, gu, dong, payment, cctv,
+		CASE <![CDATA[WHEN TIMESTAMPDIFF(minute, openingdate, now()) <= 0 THEN '방금 전'
+		WHEN TIMESTAMPDIFF(minute, openingdate, now()) < 60 THEN
+		CONCAT(TIMESTAMPDIFF(minute, openingdate, now()), '분 전')
+		WHEN TIMESTAMPDIFF(hour, openingdate, now()) < 24 THEN
+		CONCAT(TIMESTAMPDIFF(hour, openingdate, now()), '시간 전')
+		WHEN TIMESTAMPDIFF(day, openingdate, now()) < 30 THEN]]>
+		CONCAT(TIMESTAMPDIFF(day, openingdate, now()), '일 전')
+		ELSE
+		CONCAT(TIMESTAMPDIFF(month, openingdate, now()), '달 전')
+		END AS opening,
+		REPLACE(json_extract(schedule, '$.day'),'"','') AS days,
+		openingdate,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = s.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = s.memberno) AS fileUrl,
+		(SELECT COUNT(revno) FROM review r WHERE s.sitterno=r.sitterno AND who='M') AS rev_count,
+		(SELECT FLOOR(AVG(rev_rate)) FROM review r WHERE s.sitterno=r.sitterno AND who='M') AS rev_rate,
+		(SELECT COUNT(resino) FROM resi_cert rc WHERE s.sitterno=rc.sitterno AND cert='Y') AS resino,
+		(SELECT FLOOR(COUNT(accept)/COUNT(cntno)) * 100 FROM connect c WHERE s.sitterno=c.sitterno AND c.who='m') AS answer
+		<if test = "loginMom != 0">,
+		(SELECT COUNT(*) FROM heart h WHERE s.sitterno=h.sitterno AND who='M' AND h.momno=#{loginMom}) AS findHt
+		</if>
+		FROM sitter_info s
+		INNER JOIN member m ON s.memberno=m.memberno
+
+		<!-- 활동 유형 && 상세 검색 && 주소 -->
+		<where>
+			<if test="actList != null">
+				CONCAT(want_act1,want_act2,want_act3)
+				<foreach item="item1" collection="actList"
+					separator="AND CONCAT(want_act1,want_act2,want_act3)">
+					LIKE '%${item1}%'
+				</foreach>
+			</if>
+			<if test="kidsAge != null">
+				AND want_age IN
+				<foreach item="item2" collection="kidsAge" open="("
+					close=")" separator=",">
+					#{item2}
+				</foreach>
+			</if>
+			<if test="caredays != null">
+				AND JSON_CONTAINS(schedule->'$.day',CAST('
+				<foreach item="item3" collection="caredays" open="["
+					close="]" separator=",">
+					"${item3}"
+				</foreach>
+				' AS JSON))
+			</if>
+			<if test="sitterType != null">
+				AND sitter_type IN
+				<foreach item="item5" collection="sitterType" open="("
+					close=")" separator=",">
+					#{item5}
+				</foreach>
+			</if>
+			<if test="sitterAge != null">
+				AND SUBSTRING(year(now()) - year(birthdate), 1,1)
+				IN
+				<foreach item="item6" collection="sitterAge" open="("
+					close=")" separator=",">
+					left(#{item6},1)
+				</foreach>
+			</if>
+			<if test="loc1 != null and loc1 !=''">
+				AND si = #{loc1}
+			</if>
+			<if test="loc2 != null and loc2 !=''">
+				AND gu = #{loc2}
+			</if>
+			<if test="loc3 != null and loc3 !=''">
+				AND dong = #{loc3}
+			</if>
+			
+			AND job_opening = 'Y'
+		</where>
+	
+
+		ORDER BY
+
+		<choose>
+			<when test="order != null and order == 'update'">
+				openingdate DESC
+			</when>
+			<when test="order != null and order == 'review'">
+				rev_rate DESC
+			</when>
+			<when test="order != null and order == 'response'">
+				answer DESC
+			</when>
+			<when test="order != null and order == 'lowpay'">
+				payment
+			</when>
+			<when test="order != null and order == 'highpay'">
+				payment DESC
+			</when>
+			<otherwise>
+				rev_rate DESC
+			</otherwise>
+		</choose>
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+
+	<!-- 맘 회원 -->
+	<select id="searchMom" parameterType="study.team.abuhae.model.Mom_info" resultMap="MomMap">
+		SELECT m.memberno, type, CONCAT(LEFT(name,1), 'O', RIGHT(name,2)) AS name,
+		job_opening, m.momno, want_act1, want_act2, want_act3,want_age, kids_num, kids_age, kids_nai, kids_nai2, si, gu, 
+		json_extract(schedule, '$.startdate') AS schedule,
+		REPLACE(json_extract(schedule, '$.frequency'),'"','') AS frequency,
+		REPLACE(json_extract(schedule, '$.day'),'"','') AS days,
+		schedule_ok, payment, payment_ok, care_type, 
+		CASE <![CDATA[WHEN TIMESTAMPDIFF(minute, openingdate, now()) <= 0 THEN '방금 전'
+		WHEN TIMESTAMPDIFF(minute, openingdate, now()) < 60 THEN
+		CONCAT(TIMESTAMPDIFF(minute, openingdate, now()), '분 전')
+		WHEN TIMESTAMPDIFF(hour, openingdate, now()) < 24 THEN
+		CONCAT(TIMESTAMPDIFF(hour, openingdate, now()), '시간 전')
+		WHEN TIMESTAMPDIFF(day, openingdate, now()) < 30 THEN]]>
+		CONCAT(TIMESTAMPDIFF(day, openingdate, now()), '일 전')
+		ELSE
+		CONCAT(TIMESTAMPDIFF(month, openingdate, now()), '달 전')
+		END AS opening, openingdate,  
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = m.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = m.memberno) AS fileUrl,
+		(SELECT COUNT(cntno) FROM Connect c WHERE c.momno=m.momno AND who='s') AS applySt 
+		<if test = "loginSt != 0">, 
+		(SELECT COUNT(*) FROM heart h WHERE m.momno=h.momno AND who='S'AND h.sitterno=#{loginSt}) AS findHt
+		</if>
+		FROM mom_info m
+		INNER JOIN member mb ON m.memberno=mb.memberno
+
+		<!-- 활동 유형 && 상세 검색 && 주소 -->
+		<where>
+			<if test="actList != null">
+				CONCAT(want_act1,want_act2,want_act3)
+				<foreach item="item1" collection="actList"
+					separator="AND CONCAT(want_act1,want_act2,want_act3)">
+					LIKE '%${item1}%'
+				</foreach>
+			</if>
+			<if test="kidsAge != null">
+				AND CONCAT(kids_nai,kids_nai2)
+				<foreach item="item2" collection="kidsAge"
+					separator="AND CONCAT(kids_nai,kids_nai2)">
+					LIKE '%${item2}%'
+				</foreach>
+			</if>
+			<if test="caredays != null">
+				AND JSON_CONTAINS(schedule->'$.day',CAST('
+				<foreach item="item3" collection="caredays" open="["
+					close="]" separator=",">
+					"${item3}"
+				</foreach>
+				' AS JSON))
+			</if>
+			<if test="min_pay != 0 and max_pay == 0">
+				AND payment BETWEEN 8720 AND #{min_pay}
+			</if>
+			<if test="min_pay == 0 and max_pay != 0">
+				AND payment BETWEEN #{max_pay} AND 2000000
+			</if>
+			<if test="min_pay != 0 and max_pay != 0">
+				AND payment BETWEEN
+				#{min_pay} AND #{max_pay}
+			</if>
+			<if test="kids_cnt != 0 and kids_cnt==1 or kids_cnt==2">
+				AND kids_num = #{kids_cnt}
+			</if>
+			<if test="loc1 != null and loc1 !=''">
+				AND si = #{loc1}
+			</if>
+			<if test="loc2 != null and loc2 !=''">
+				AND gu = #{loc2}
+			</if>
+			<if test="loc3 != null and loc3 !=''">
+				AND dong = #{loc3}
+			</if>
+			
+			AND job_opening = 'Y'
+		</where>
+
+		ORDER BY
+
+		<choose>
+			<when test="order != null and order == 'lowpay'">
+				payment
+			</when>
+			<when test="order != null and order == 'highpay'">
+				payment DESC
+			</when>
+			<otherwise>
+				openingdate DESC
+			</otherwise>
+		</choose>
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+	<!-- 총 회원 수 세기 -->
+	
+	<!-- 시터 -->
+	<select id="selectCountAllSitter"
+		parameterType="study.team.abuhae.model.Sitter_info" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM sitter_info s
+		INNER JOIN member m ON
+		s.memberno=m.memberno
+		<!-- 활동 유형 && 상세 검색 && 주소 -->
+		<where>
+			<if test="actList != null">
+				CONCAT(want_act1,want_act2,want_act3)
+				<foreach item="item1" collection="actList"
+					separator="AND CONCAT(want_act1,want_act2,want_act3)">
+					LIKE '%${item1}%'
+				</foreach>
+			</if>
+			<if test="kidsAge != null">
+				AND want_age IN
+				<foreach item="item2" collection="kidsAge" open="("
+					close=")" separator=",">
+					#{item2}
+				</foreach>
+			</if>
+			<if test="caredays != null">
+				AND JSON_CONTAINS(schedule->'$.day',CAST('
+				<foreach item="item3" collection="caredays" open="["
+					close="]" separator=",">
+					"${item3}"
+				</foreach>
+				' AS JSON))
+			</if>
+			<if test="sitterType != null">
+				AND sitter_type IN
+				<foreach item="item5" collection="sitterType" open="("
+					close=")" separator=",">
+					#{item5}
+				</foreach>
+			</if>
+			<if test="sitterAge != null">
+				AND SUBSTRING(year(now()) - year(birthdate), 1,1)
+				IN
+				<foreach item="item6" collection="sitterAge" open="("
+					close=")" separator=",">
+					left(#{item6},1)
+				</foreach>
+			</if>
+			<if test="loc1 != null and loc1 !=''">
+				AND si = #{loc1}
+			</if>
+			<if test="loc2 != null and loc2 !=''">
+				AND gu = #{loc2}
+			</if>
+			<if test="loc3 != null and loc3 !=''">
+				AND dong = #{loc3}
+			</if>
+			AND job_opening = 'Y'
+		</where>
+	</select>
+
+	<!-- 맘 -->
+	<select id="selectCountAllMom"
+		parameterType="study.team.abuhae.model.Mom_info" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM Mom_info m
+		INNER JOIN member mb ON
+		m.memberno=mb.memberno 
+		<!-- 활동 유형 && 상세 검색 && 주소 -->
+		<where>
+			<if test="actList != null">
+				CONCAT(want_act1,want_act2,want_act3)
+				<foreach item="item1" collection="actList"
+					separator="AND CONCAT(want_act1,want_act2,want_act3)">
+					LIKE '%${item1}%'
+				</foreach>
+			</if>
+			<if test="kidsAge != null">
+				AND CONCAT(kids_nai,kids_nai2)
+				<foreach item="item2" collection="kidsAge"
+					separator="AND CONCAT(kids_nai,kids_nai2)">
+					LIKE '%${item2}%'
+				</foreach>
+			</if>
+			<if test="caredays != null">
+				AND JSON_CONTAINS(schedule->'$.day',CAST('
+				<foreach item="item3" collection="caredays" open="["
+					close="]" separator=",">
+					"${item3}"
+				</foreach>
+				' AS JSON))
+			</if>
+			<if test="min_pay != 0 and max_pay == 0">
+				AND payment BETWEEN 8720 AND #{min_pay}
+			</if>
+			<if test="min_pay == 0 and max_pay != 0">
+				AND payment BETWEEN #{max_pay} AND 2000000
+			</if>
+			<if test="min_pay != 0 and max_pay != 0">
+				AND payment BETWEEN
+				#{min_pay} AND #{max_pay}
+			</if>
+			<if test="kids_cnt != 0 and kids_cnt==1 or kids_cnt==2">
+				AND kids_num = #{kids_cnt}
+			</if>
+			<if test="loc1 != null and loc1 !=''">
+				AND si = #{loc1}
+			</if>
+			<if test="loc2 != null and loc2 !=''">
+				AND gu = #{loc2}
+			</if>
+			<if test="loc3 != null and loc3 !=''">
+				AND dong = #{loc3}
+			</if>
+			AND job_opening = 'Y'
+		</where>
+	</select>
+
+	<!-- 일자리 찾기 맘에게 지원한 시터 수 -->
+	<select id="CountApplyToMom"
+		parameterType="study.team.abuhae.model.Mom_info" resultType="int">
+		SELECT
+		COUNT(*) AS applySt FROM mom_info m
+		INNER JOIN connect c ON
+		m.momno=c.momno
+		WHERE who='s'
+	</select>
+
+	<!-- 시터 인증 여부 -->
+	<select id="CountSitterResi"
+		parameterType="study.team.abuhae.model.Sitter_info" resultType="int">
+		SELECT
+		COUNT(*) AS resino FROM sitter_info s
+		INNER JOIN resi_cert r ON
+		s.sitterno=r.sitterno
+		WHERE cert='Y'
+	</select>
+
+	<!-- 찜하기 -->
+	<insert id="insertHeart"
+		parameterType="study.team.abuhae.model.Heart" useGeneratedKeys="true"
+		keyProperty="heartno">
+		INSERT INTO heart (reg_date, who, momno, sitterno)
+		VALUES (now(), #{who}, #{momno}, #{sitterno});
+	</insert>
+
+
+	<!-- 찜하기 취소 -->
+	<delete id="deleteHeart"
+		parameterType="study.team.abuhae.model.Heart">
+		DELETE FROM heart
+		WHERE
+		momno=#{momno} and sitterno=#{sitterno} and who=#{who}
+
+	</delete>
+
+
+</mapper>

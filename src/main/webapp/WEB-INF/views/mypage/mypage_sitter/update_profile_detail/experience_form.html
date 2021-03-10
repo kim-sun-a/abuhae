@@ -1,0 +1,42 @@
+
+<div class="con1" id="con1">
+    <div class="exp_cont">
+        <label for="type_exp" style="font-size: 1.2em; margin-bottom: 10px;">
+            경험 내용</label>
+         <input type="text" id="type_exp" name="type_exp" placeholder="예) 키즈카페, 교육기관, 봉사활동">
+    </div>
+    <div class="exp_list">
+        <h4 style="font-size: 1.2em; font-weight: bold;">경험 기간</h4>
+        <div class="datepicker">
+            <input type="text" name="startdate" class="startDate" required />
+            <span><i class="fas fa-long-arrow-alt-right"></i></span>
+            <input type="text" name="enddate" class="endDate" required>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+                /** $(document).on('click','#exp_btn', function(e) {
+                    var item = $(this).prev(".con1");
+                    var clone = item.clone();
+                    clone.find('input[name="type_exp"]').val('');
+                    clone.find('input[name=startdate]').val('');
+                    clone.find('input[name=startdate]').addClass("startDate");
+                    clone.insertAfter(item);
+                }); **/
+
+                $('.startDate').flatpickr({
+                dateFormat: "Y.m.d",
+                maxDate: new Date().fp_incr(30),
+                defaultDate: new Date(),
+                });
+
+                $('.endDate').flatpickr({
+                dateFormat: "Y.m.d",
+                maxDate: new Date().fp_incr(30),
+                defaultDate: new Date(),
+                });
+
+            });
+</script>

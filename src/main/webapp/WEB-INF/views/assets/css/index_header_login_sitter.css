@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+/* 초기 설정 -----------------------------------------------------*/
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#app > .container {
+  padding: 0;
+}
+
+/* header --------------------------------------------------------- */
+
+.header {
+  min-height: 60px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.header a {
+  color: #212121;
+}
+
+.header_wrap {
+  height: 60px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  background-color: #fff;
+}
+
+.header .flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .main_menu {
+  width: 112px;
+}
+
+.header .logo {
+  width: 117px;
+  height: auto;
+  padding-bottom: 2px;
+  margin-left: 12px;
+}
+
+.header .header_search_btn {
+  font-size: 1.6em;
+  color: #999;
+  margin-left: 18px;
+  margin-right: 10px;
+}
+
+.header p {
+  margin: 0;
+}
+
+.header .fa-bars {
+  font-size: 1.5em;
+}
+
+#menu {
+  border-bottom: 1px solid #d8d8d8;
+}
+.searchbar_wrap {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  cursor: pointer;
+}
+.search_sitter {
+  border-right: 1px solid #d8d8d8;
+}
+
+.search_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.search_block img {
+  width: 28px;
+  height: 28px;
+}
+
+/* header end ---------------------------------------------------------*/
+
+/* modal -------------------------------------------------------------------------------------*/
+
+#menu_modal {
+  padding: 0;
+}
+
+#menu_modal p {
+  padding: 0;
+  margin: 0;
+}
+
+#menu_modal .modal_body a,
+#menu_modal .modal_footer a {
+  display: flex;
+}
+
+#menu_modal .col-xs-9 {
+  padding: 0;
+  margin: 0;
+}
+
+#menu_modal .modal_group {
+  padding: 40px 28px 28px;
+}
+
+#menu_modal .modal_content {
+  background-color: #fff;
+  height: 100%;
+  margin: 0;
+  box-shadow: 10px 0px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* modal header ---------------------------------------------------------*/
+
+#menu_modal .modal_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#menu_modal .welcome {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: rgb(68, 68, 68);
+  letter-spacing: -0.2px;
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 18px;
+}
+
+#menu_modal .cus_name {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: rgb(68, 68, 68);
+  letter-spacing: -0.2px;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 14px;
+}
+
+#menu_modal button {
+  padding: 1px 6px;
+}
+
+#menu_modal button p {
+  line-height: 1.375;
+  color: rgb(102, 102, 102);
+  letter-spacing: -0.2px;
+  font-weight: bold;
+  font-size: 0.85em;
+}
+
+#menu_modal .modal_btn {
+  background-color: #fff;
+  border: 0;
+}
+
+#menu_modal .sitter_search {
+  margin: 20px auto 36px;
+  width: 100%;
+}
+
+#menu_modal #jobsc_btn {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 50px;
+  background: rgb(255, 112, 0);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#menu_modal #jobsc_btn .jobsc_txt {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  letter-spacing: -0.2px;
+  font-weight: bold;
+  font-size: 0.9em;
+  line-height: 14px;
+}
+
+#menu_modal .icon_link_group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menu_modal .user_menu {
+  cursor: pointer;
+}
+
+#menu_modal .user_menu .img_bg {
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  margin: 0 0 10px 0;
+  border-radius: 10px;
+}
+
+#menu_modal .user_menu img {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+}
+
+#menu_modal .user_menu .um_txt {
+  marign: 0;
+  padding: 0px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  letter-spacing: -0.2px;
+  font-weight: 400;
+  font-size: 0.85em;
+  line-height: 18px;
+}
+
+/* modal header end ---------------------------------------------------------*/
+
+/* modal body ---------------------------------------------------------*/
+
+#menu_modal .modal_body {
+  margin-top: 30px;
+}
+
+#menu_modal .modal_body p {
+  font-size: 1.15em;
+  font-weight: 1000;
+  color: rgb(68, 68, 68);
+  margin-top: 7px;
+}
+
+#menu_modal img {
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+}
+
+#menu_modal .sitter_search,
+.job_search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#menu_modal .job_search {
+  margin-top: 16px;
+}
+
+#menu_modal .divider {
+  width: 100%;
+  height: 1px;
+  opacity: 0.5;
+  background: rgb(221, 221, 221);
+}
+
+/* modal body end ---------------------------------------------------------*/
+
+/* footer ---------------------------------------------------------**/
+
+#menu_modal .modal_footer p {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: rgb(68, 68, 68);
+  letter-spacing: -0.2px;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 22px;
+}
+#menu_modal .modal_footer a {
+  margin-top: 32px;
+}
+#menu_modal .modal_footer a:first-child {
+  margin-top: 0;
+}
+
+/* footer end ---------------------------------------------------------**/
+
+/* modal end -------------------------------------------------------------------------------------*/

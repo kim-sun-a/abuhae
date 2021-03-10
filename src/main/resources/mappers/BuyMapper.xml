@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 결제페이지용 Mapper 2021-02-19 하리 -->
+<mapper namespace="BuyMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="CouponMap"
+		type="study.team.abuhae.model.Coupon">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="memberno" column="memberno" />
+		<result property="coupno" column="coupno" />
+		<result property="coup_name" column="coup_name" />
+		<result property="coup_condition" column="coup_condition" />
+		<result property="coup_price" column="coup_price" />
+		<result property="reg_date" column="reg_date"/>
+		<result property="exp_date" column="exp_date" />
+	</resultMap>
+
+	<!-- 신규로 결제하는 회원 -->
+	<update id="NewBuyMember" parameterType="study.team.abuhae.model.Member" useGeneratedKeys="false">
+		UPDATE member SET startdate=now(),
+		enddate=date_add(now(),
+		<if test="ticket_type==1">
+			INTERVAL 1 MONTH
+		</if>
+		<if test="ticket_type==3">
+			INTERVAL 3 MONTH
+		</if>
+		<if test="ticket_type==6">
+			INTERVAL 6 MONTH
+		</if>
+		), subscribe='Y',
+		ticket_type=#{ticket_type},
+		ticket_price=#{ticket_price} WHERE
+		memberno=#{memberno}
+	</update>
+	
+	<!-- 재결제하는 회원 -->
+	<update id="ReBuyMember" parameterType="study.team.abuhae.model.Member" useGeneratedKeys="false">
+		UPDATE member SET
+		enddate=date_add(enddate,
+		<if test="ticket_type==1">
+			INTERVAL 1 MONTH
+		</if>
+		<if test="ticket_type==3">
+			INTERVAL 3 MONTH
+		</if>
+		<if test="ticket_type==6">
+			INTERVAL 6 MONTH
+		</if>
+		),
+		ticket_type=#{ticket_type}, ticket_price=#{ticket_price} WHERE
+		memberno=#{memberno}
+	</update>
+	
+	<!-- 쿠폰 조회 -->
+	<select id="FindCoupon"
+		parameterType="study.team.abuhae.model.Coupon"
+		resultMap="CouponMap">
+			SELECT m.memberno, coupno, coup_name, coup_condition, coup_price FROM coupon c
+			INNER JOIN member m ON m.memberno=c.memberno WHERE c.memberno=#{memberno}
+		</select>
+
+<!-- 쿠폰 삭제 -->
+<delete id="UseCoupon" parameterType="study.team.abuhae.model.Coupon">
+	DELETE FROM coupon WHERE memberno=#{memberno}
+</delete>
+
+</mapper>

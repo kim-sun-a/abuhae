@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+		* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #222;
+}
+ul, ol {
+	list-style: none;
+}
+/* 전체 박스 크기*/
+.container {
+	height: 100%;
+}
+/* 왼쪽 사이드 바 */
+.sidebar {
+	padding-top: 80px;
+	height: 500px;
+}
+/* 게시판 관리 글씨 위치 */
+.middle {
+    padding-top: 45px;
+    padding-left: 300px;
+}
+/* 게시판 크기 */
+.text_box {
+	height: 100px;
+	margin-top: 10px;
+}
+/* admin 위치 */
+#connect {
+	float: right;
+}
+#middle_yunjae {
+	padding-left: 300px;
+}

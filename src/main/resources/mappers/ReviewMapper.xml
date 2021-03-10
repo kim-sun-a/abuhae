@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ReviewMapper">   
+   <resultMap id="ReviewMap"
+      type="study.team.abuhae.model.Review">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="revno" column="revno" />
+      <result property="who" column="who"/>
+      <result property="rev_rate" column="rev_rate" />
+      <result property="reg_date" column="reg_date" />
+      <result property="contents" column="contents" />
+      <result property="momno" column="momno" />
+      <result property="sitterno" column="sitterno" />
+      
+      <result property="cntno" column="cntno" />
+      <result property="applydate" column="applydate" />
+      <result property="accept" column="accept" />
+      <result property="deny_type" column="deny_type" />
+      
+      <result property="sitter_type" column="sitter_type" />
+      <result property="want_act1" column="want_act1" />
+      <result property="want_act2" column="want_act2" />
+      <result property="want_act3" column="want_act3" />
+      <result property="want_age" column="want_age" />
+      <result property="si" column="si" />
+      <result property="gu" column="gu" />
+      <result property="dong" column="dong" />
+      <result property="payment" column="payment" />
+      <result property="cctv" column="cctv" />
+      <result property="schedule" column="schedule" />
+      <result property="schedule_set" column="schedule_set" />
+      <result property="introduce" column="introduce" />
+      <result property="openingdate" column="openingdate" />
+      <result property="days" column="days" />
+      <result property="kids_num" column="kids_num" />
+      <result property="kids_age" column="kids_age" />
+      <result property="schedule_ok" column="schedule_ok" />
+      <result property="description" column="description" />
+      <result property="sitter_gender" column="sitter_gender" />
+      <result property="interview_type" column="interview_type" />
+      <result property="care_type" column="care_type" />
+      <result property="apply_title" column="apply_title" />
+      <result property="apply_content" column="apply_content" />
+      <result property="kids_age2" column="kids_age2" />
+      <result property="frequency" column="frequency" />
+      
+      <result property="memberno" column="memberno" />
+      <result property="type" column="type" />
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="phone" column="phone" />
+      <result property="birthdate" column="birthdate" />
+      <result property="gender" column="gender" />
+      <result property="startdate" column="startdate" />
+      <result property="enddate" column="enddate" />
+      <result property="job_opening" column="job_opening" />
+      <result property="subscribe" column="subscribe" />
+      <result property="ticket_type" column="ticket_type" />
+      <result property="ticket_price" column="ticket_price" />
+      <result property="signup_date" column="signup_date" />
+      
+      <result property="fileUrl" column="fileUrl" />
+      <result property="isProfile" column="isProfile" />
+   </resultMap>
+   
+   <!--mom 회원 리뷰남기기 -->
+   <update id="editReview" parameterType="study.team.abuhae.model.Review">
+   
+      update review set who='M', rev_rate=#{rev_rate}, reg_date=now(), contents = #{contents} 
+      where who is null and revno=#{revno};
+      
+   </update>
+   
+   <!-- 후기 남길 수 있는 회원 조회(맘회원에게 지원하거나 맘회원이 지원) ~~~ 부모회원 -->
+   <!-- review의 who가 null일 경우 후기 남기기 가능 (후기 남기기는 한번만 가능함) -->
+   <select id="selectMReviewMemberList" 
+   parameterType="study.team.abuhae.model.Review" resultMap="ReviewMap">
+      select revno, c.accept as accept, s.si, s.gu, s.dong, m.name, mi.momno as momno, s.sitterno as sitterno, r.who, rev_rate,
+      (SELECT p.isProfile FROM profile_file p WHERE p.memberno = s.memberno) AS isProfile, 
+	  (SELECT p.fileUrl FROM profile_file p WHERE p.memberno = s.memberno) AS fileUrl,
+	  FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		signed) -
+		CAST(REPLACE(birthdate,'-','') as signed)) / 10000 ) + 2 as birthdate
+      from review r
+      inner join connect c on r.cntno = c.cntno
+      inner join sitter_info s on s.sitterno = c.sitterno
+      inner join mom_info mi on mi.momno = c.momno
+      inner join member m on m.memberno = s.memberno
+      where mi.momno=#{momno} and r.who is null;
+   </select>
+   
+   <!-- 남긴 후기 조회 ~~~ 부모회원 -->
+   <!-- 부모 회원만 후기 남기기가 가능하기 때문에 who='M' 조건이 충족되어야 함 -->
+   <select id="selectReviewList"
+   parameterType="study.team.abuhae.model.Review" resultMap="ReviewMap">
+		select revno, rev_rate, reg_date, contents, r.momno, r.sitterno, r.cntno, r.who,
+		m.name, s.si, s.gu, s.dong,FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		signed) -
+		CAST(REPLACE(birthdate,'-','') as signed)) / 10000 ) + 2 as birthdate,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = s.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = s.memberno) AS fileUrl
+		from review r 
+		inner join connect c on r.cntno = c.cntno
+		inner join sitter_info s on r.sitterno = s.sitterno
+		inner join mom_info mi on mi.momno = r.momno
+		inner join member m on s.memberno = m.memberno
+		where r.momno = #{momno} and r.who is not null; 
+   </select>
+   
+   
+   <!-- 시터에게 남겨진 리뷰 조회 -->
+   <select id="selectSitterReviewList"
+   parameterType="study.team.abuhae.model.Review" resultMap="ReviewMap">
+      select mi.si, mi.gu, mi.dong, rev_rate, reg_date, contents, m.name, r.momno as momno, r.sitterno as sitterno, r.who,
+      (SELECT p.isProfile FROM profile_file p WHERE p.memberno = mi.memberno) AS isProfile, 
+	  (SELECT p.fileUrl FROM profile_file p WHERE p.memberno = mi.memberno) AS fileUrl
+      from review r
+      inner join sitter_info s on s.sitterno = r.sitterno
+      inner join mom_info mi on mi.momno = r.momno
+      inner join member m on m.memberno = mi.memberno
+      where s.sitterno=#{sitterno};
+   </select>
+</mapper>

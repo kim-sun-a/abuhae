@@ -1,0 +1,227 @@
+@charset "UTF-8";
+html,
+		body {
+			color: #222;
+			font-weight: 100;
+			font-size: 1em;
+			line-height: 1.375;
+			padding: 0;
+			margin: 0;
+		}
+		.mom_buy_area {
+			box-sizing: inherit;
+			margin: 30px 0px 0px;
+			box-sizing: border-box;
+		}
+		.mom_buy_title {
+			display: flex;
+			flex-direction: column;
+			-webkit-box-align: center;
+			align-items: center;
+			margin-bottom: 30px;
+			font-size: 0.9em;
+			color: #000;
+			text-align: center;
+		}
+		.mom_title {
+			color: #058ee2;
+			font-weight: bold;
+			font-size: 1.2em;
+			letter-spacing: -0.2px;
+			line-height: 1;
+			margin-bottom: 10px;
+		}
+		.mom_buy_title_text {
+			color: #000;
+			font-size: 0.9em;
+			margin-top: 26px;
+			text-align: center;
+			letter-spacing: -0.2px;
+		}
+		.mom_buy_box {
+			display: flex;
+			width: 100%;
+			padding: 10px 18px 0px;
+		}
+		.mom_buy_box_left, .mom_buy_box_center, .mom_buy_box_right {
+			cursor: pointer;
+		}
+		.mom_buy_main {
+			border: 1px solid #ccc;
+			box-shadow: rgba(0,0,0,0.43) 0px 3px 3px;
+			border-radius: 4px;
+			box-sizing: border-box;
+			text-align: center;
+			padding: 18px 0px;
+			height: 170px;
+			
+		}
+		.mom_buy_month {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			color: #000;
+			letter-spacing: -0.2px;
+			font-weight: bold;
+			line-height: 24px;
+			font-size: 1em;
+		}
+		.mom_buy_before_price {
+			text-decoration: line-through;
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			color: #ccc;
+			letter-spacing: -0.2px;
+			font-size: 0.85em;
+			line-height: 18px;
+		}
+		.mom_buy_price {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			color: #000;
+			letter-spacing: -0.2px;
+			font-size: 0.8em;
+			font-weight: bold;
+			line-height: 21px;
+		}
+		.save_box {
+			display: flex;
+			-webkit-box-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			align-items: center;
+			margin: 9px auto 0px;
+			width: 65px;
+			height: 24px;
+			border-radius: 11px;
+			background: #69bbee;
+		}
+		.mom_buy_save {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			color: #fff;
+			font-size: 0.8em;
+			letter-spacing: -0.2px;
+			line-height: 18px;
+		}
+		.mom_buy_box_center, .mom_buy_box_right {
+			margin-left: 8px;
+		}
+		.save_box_bad {
+			display: flex;
+			-webkit-box-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			align-items: center;
+			margin: 9px auto 0px;
+			width: 65px;
+			height: 24px;
+			border-radius: 11px;
+			background: #b8b8b8;
+		}
+		.buy_btn {
+			outline: none;
+			border: none;
+			margin: 28px auto 43px;
+			display: block;
+			height: 60px;
+			cursor: pointer;
+			border-radius: 6px;
+			background: #058ee2;
+			width: 340px;
+		}
+		.buy_btn_style {
+			color: #fff;
+			line-height: 24px;
+			font-weight: bold;
+			font-size: 1.1em;
+			letter-spacing: -0.2px;
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+		}
+		.mom_buy_desc_area {
+			margin: 0 auto;
+			width: 100%;
+			padding: 27px 18px 0px;
+			width: 375px;
+		}
+		.mom_desc_title {
+			margin: 0 auto;
+			width: 140px;
+			height: 24px;
+			border-radius: 12px;
+			border: 1px solid #ff7000;
+			font-size: 0.75em;
+			letter-spacing: -0.2px;
+			line-height: 24px;
+			text-align: center;
+			color: #ff7000;
+		}
+		.desc_title {
+			margin-top: 14px;
+			font-size: 1em;
+			line-height: 1.33;
+			letter-spacing: -0.2px;
+			color: #000;
+			text-align: center;
+		}
+		.desc_text {
+			margin-top: 8px;
+			font-size: 0.8em;
+			line-height: 1.42;
+			letter-spacing: -0.2px;
+			color: #7c7c7c;
+			text-align: center;
+		}
+		.desc_style {
+			padding-bottom: 15px;
+		}
+		.line {
+			margin-bottom: 40px;
+			width: 100%;
+		}
+		.refund_box {
+			width: 100%;
+		}
+		.refund_title {
+			font-size: 1em;
+			font-weight: bold;
+			text-align: center;
+		}
+		.refund_text {
+			margin-top: 8px;
+			font-size: 0.8em;
+			line-height: 0.82;
+			color: #ccc;
+			letter-spacing: -0.2px;
+			font-weight: bold;
+		}
+		.refund_style {
+			background-color: #fbf1c5;
+		}
+		.mom_buy_box_left, .mom_buy_box_center, .mom_buy_box_right {
+			padding: 0px;
+		}
+		#button_3month {
+			border: 2px solid #79ccff;
+			border-radius: 8px;
+		}
+		.title_6month, .title_1month {
+			padding-top: 25px;
+		}
+		.price_6month {
+			padding-top: 10px;
+		}
+		.price_1month {
+			padding-top: 27px;
+		}
+		#title_3month {
+			color: #058ee2;
+		}
+		.desc_style {
+			padding-bottom: 40px;
+		}

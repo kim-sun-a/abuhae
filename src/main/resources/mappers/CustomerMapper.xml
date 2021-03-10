@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="CustomerMapper">
+
+	<resultMap id="CustomerCateMap"
+		type="study.team.abuhae.model.Cus_category">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cateno" column="cateno" />
+		<result property="category" column="category"/>
+	</resultMap>
+
+	<resultMap id="CustomerSubCateMap"
+		type="study.team.abuhae.model.Cus_sub_category">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="subcateno" column="subcateno" />
+		<result property="cateno" column="cateno"/>
+		<result property="sub_category" column="sub_category" />
+		<result property="category" column="category" />
+	</resultMap>
+	
+	<resultMap id="CustomerBbsMap"
+		type="study.team.abuhae.model.Cus_bbs">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cateno" column="cateno"/>
+		<result property="boardnum" column="boardnum" />
+		<result property="subcateno" column="subcateno"/>
+		<result property="title" column="title" />
+		<result property="text" column="text" />
+		<result property="writer" column="writer" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<result property="sub_category" column="sub_category" />
+		<result property="category" column="category" />
+	</resultMap>
+	
+	<!-- 카테고리 조회 -->
+	<select id="selectCateItem"
+	parameterType="study.team.abuhae.model.Cus_sub_category" resultMap="CustomerSubCateMap">
+		select cs.cateno, cs.subcateno, cc.category, cs.sub_category
+		from cus_sub_category cs
+		inner join cus_category cc on cs.cateno = cc.cateno
+	</select>
+	
+	<!-- 게시글 목록 조회 -->
+	<select id="selectCusList"
+	parameterType="study.team.abuhae.model.Cus_bbs" resultMap="CustomerBbsMap">
+		select cb.boardnum, cb.cateno, cb.subcateno, cb.title, cb.text, cb.writer, cb.reg_date, 
+		TIMESTAMPDIFF(DAY , cb.edit_date, now()) as edit_date, cs.sub_category, cc.category
+		from cus_bbs cb 
+		inner join cus_sub_category cs 
+		on cb.subcateno = cs.subcateno
+		inner join cus_category cc
+		on cs.cateno = cc.cateno
+		
+		<where>	
+			<if test="title != null and title != ''">
+				cb.title like concat('%', #{title}, '%')
+			</if>
+		</where>
+		
+	</select>
+	
+	<!-- 게시글 데이터 조회 -->
+	<select id="selectCusItem"
+	parameterType="study.team.abuhae.model.Cus_bbs" resultMap="CustomerBbsMap">
+		select cb.boardnum as boardnum, cb.cateno as cateno, cb.subcateno as subcateno, cb.title, cb.text, cb.writer, cb.reg_date, 
+		TIMESTAMPDIFF(DAY , cb.edit_date, now()) as edit_date, cs.sub_category as sub_category, cc.category as category
+		from cus_bbs cb 
+		inner join cus_sub_category cs 
+		on cb.subcateno = cs.subcateno
+		inner join cus_category cc
+		on cs.cateno = cc.cateno
+		
+		<where>
+			boardnum=#{boardnum}
+		</where>   
+		                                 
+	</select>
+	
+	<!-- 데이터 수 조회를 위한 기능 -->
+	<select id="selectCountAll" 
+	parameterType="study.team.abuhae.model.Cus_bbs" resultType="int">
+		select count(*) 
+		from cus_bbs cb
+		inner join cus_sub_category cs on cb.subcateno = cs.subcateno 
+		inner join cus_category cc on cb.cateno = cc.cateno
+		
+		<where>
+			cb.subcateno=#{subcateno}
+		</where>
+	</select>
+	
+</mapper>

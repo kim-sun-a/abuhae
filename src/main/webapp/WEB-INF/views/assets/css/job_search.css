@@ -1,0 +1,903 @@
+/* 초기 설정 ----------------------------------------------------------*/
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#app > .container-fluid {
+  padding: 0;
+}
+
+#search .container-fluid {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(240, 240, 240);
+}
+#search .search_wrap {
+  min-height: 100vh;
+  width: 100%;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+/* 전체 설정 end----------------------------------------------------------*/
+
+/* search_filter_group ----------------------------------------------------------*/
+
+#search .search_filter_wrap {
+  display: flex;
+  padding: 10px 0px;
+}
+
+#search .search_filter_group {
+  flex: 1 1 0%;
+  width: 50%;
+  text-align: center;
+}
+
+.location_filter div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border: 1px solid rgb(220, 220, 220);
+  margin: auto;
+  padding: 12px 0px;
+  outline: none;
+  font-size: inherit;
+  font-weight: inherit;
+  position: relative;
+  z-index: 1;
+  width: 95%;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+}
+
+.location_filter a {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.location_filter i {
+  font-size: 1.4em;
+  margin-right: 13px;
+  color: #999;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.location_filter p {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: rgb(68, 70, 74);
+  margin-bottom: 0;
+}
+
+/* search_filter_group end ----------------------------------------------------------*/
+
+/* order_selector_group ----------------------------------------------------------*/
+
+.order_selector_group {
+  margin: 6px 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  line-height: 30px;
+  color: #797979;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: -30%;
+  top: 0%;
+  z-index: 1000;
+}
+
+.dropdown {
+  text-align: center;
+}
+
+#orderby {
+  display: inline-block;
+}
+
+#orderby #text {
+  padding-right: 24px;
+}
+
+.dropdown-menu a {
+  padding: 2px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  min-height: 32px;
+}
+
+.dropdown-menu .active a {
+  color: rgb(255, 64, 129);
+  background: #fff;
+}
+
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: #ddd;
+}
+
+.order_dropdown {
+  padding: 0;
+  text-decoration: none;
+  letter-spacing: 0.00938em;
+}
+
+.order_dropdown a {
+  color: #797979;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* order_selector_group end ----------------------------------------------------------*/
+
+/* job_item_group  ----------------------------------------------------------*/
+
+.job_item_group {
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  padding: 15px;
+  position: relative;
+  margin: 9px;
+  cursor: pointer;
+}
+/* body ----------------------------------------*/
+
+.item_body {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 15px;
+}
+
+.profile_img_group {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  text-align: center;
+  width: 25%;
+  max-width: 100px;
+  position: relative;
+}
+
+.profile_img_group img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  width: 64px;
+  height: 64px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  border-radius: 90px;
+}
+
+.applicant_group {
+  width: 70px;
+  padding: 5px 2px;
+  margin-bottom: 0 !important;
+  background-color: #f6f6f6;
+  border-radius: 15px;
+  color: #666;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.profile_info_group {
+  flex: 3 1 0%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-left: 5%;
+  width: calc(100% - 100px);
+}
+
+.profile_info_group .content_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.content_row:first-child {
+  justify-content: space-between;
+}
+
+.content_row div {
+  display: flex;
+  align-items: center;
+}
+
+.content_row .kids_count {
+  margin-right: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #ff7000;
+}
+
+.last_update {
+  font-size: 1em;
+  font-weight: bold;
+  color: #585858;
+}
+
+.find_text {
+  color: #3b3b3b;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.job_item_group .location,
+.user_name {
+  font-size: 1em;
+  font-weight: 400;
+  color: #585858;
+}
+
+.start_date {
+  color: #bdbdbd;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.fa-won-sign {
+  font-size: 0.5em;
+  margin-right: 5px;
+  opacity: 0.5;
+  background-color: #ffd6b6;
+  border-radius: 30px;
+}
+
+.wanted_pay {
+  color: #585858;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.text_sep {
+  width: 1px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+}
+
+.divider {
+  margin: 0 0 0.5em 0;
+}
+
+/* body end ----------------------------------------*/
+/* footer ----------------------------------------*/
+.item_footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.time_info_group {
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.time_text_group {
+  overflow: visible;
+  flex-basis: 25%;
+  justify-content: center;
+  width: 100%;
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+.frequency {
+  font-size: 1em;
+  font-weight: bold;
+  color: #ff7000;
+  text-align: center;
+}
+
+.care_days_group {
+  float: left;
+}
+
+.care_days_sel {
+  width: 23px;
+  border-radius: 1px;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 1px;
+  padding: 3px 0;
+  text-align: center;
+  background-color: #ff7000 !important;
+  color: #fff;
+}
+
+.care_days {
+  width: 23px;
+  border-radius: 1px;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 1px;
+  padding: 3px 0;
+  text-align: center;
+  background-color: #ddd;
+  color: #fff;
+}
+
+.jim_btn {
+  border: solid 1px #ddd;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.jim {
+  display: flex;
+  justify-content: center;
+}
+
+.swapHeart {
+  border: 10px;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  font-size: 0px;
+  font-weight: inherit;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  width: 28px;
+  height: 28px;
+  background: none;
+}
+
+.btn-default:hover {
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 1);
+}
+
+.swal-button {
+  background-color: #ff7000;
+}
+
+#modal_ok {
+  border-color: #fff;
+  color: #ff7000;
+  font-weight: bold;
+  height: 50px;
+  width: 160px;
+  border-right-color: 1px solid #ccc;
+}
+
+/* footer end ----------------------------------------*/
+/* sitter_item_group end ----------------------------------------------------------*/
+
+/* app_banner -----------------------------------------------------------*/
+
+.app_banner {
+  margin: 0px auto;
+  width: calc(100% - 18px);
+  background: rgb(255, 112, 0);
+  box-sizing: border-box;
+  border-radius: 3px;
+  text-align: center;
+}
+
+/* app_banner end -----------------------------------------------------------*/
+
+.detail_btn {
+  border: 10px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  height: 41px;
+  line-height: 36px;
+  width: 150px;
+  border-radius: 24px;
+  background-color: rgb(255, 112, 0);
+  text-align: center;
+  box-shadow: rgba(133, 133, 133, 0.5) 0px 1px 4px;
+  position: fixed;
+  bottom: 45px;
+  left: calc(50% - 75px);
+}
+
+/* modal ---------------------------------------------------------- */
+
+/*  sitter_search_detail_modal ---------------------------------------------------------- */
+
+#job_search_detail_modal {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+
+#job_search_detail_modal hr {
+  margin: 20px 20px 20px 0px;
+  height: 1px;
+  border: none;
+  background-color: rgb(232, 232, 232);
+}
+
+#job_search_detail_modal .modal_header {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e6e7e8;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+#job_search_detail_modal .modal_header h2 {
+  font-size: 1.7rem;
+  color: #2b2b2b;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  line-height: 1.375;
+}
+
+#job_search_detail_modal .apply_btn {
+  background-color: #ff7000 !important;
+  width: 70px;
+  height: 35px;
+  border-radius: 18px;
+  color: #fff;
+}
+
+#job_search_detail_modal .close {
+  opacity: 1;
+  padding: 12px;
+}
+
+#job_search_detail_modal .modal_content {
+  margin: 70px 0;
+  padding: 0 20px;
+}
+
+#job_search_detail_modal .modal_content h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* 요일 --------------------------------------- */
+
+#job_search_detail_modal .modal_content .care_day_group {
+  margin: 10px 0px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+#job_search_detail_modal .modal_content .care_day {
+  border: 1px solid rgb(211, 211, 211);
+  width: 38px;
+  height: 38px;
+  line-height: 36px;
+  min-width: 38px;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 100px;
+  background-color: white;
+  text-align: center;
+  padding: 0;
+}
+
+/* 요일 end--------------------------------------- */
+
+/* 시간대 --------------------------------------- */
+
+#job_search_detail_modal .modal_content .time_range_group {
+  display: flex;
+  justify-content: center;
+  margin: 10 0;
+}
+
+#job_search_detail_modal .modal_content .time_range {
+  border: 1px solid rgb(222, 222, 222);
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  height: 36px;
+  line-height: 36px;
+  background-color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+/* 시간대 end --------------------------------------- */
+
+/* 아이 나이 --------------------------------------- */
+
+#job_search_detail_modal .modal_content .age_line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#job_search_detail_modal .modal_content .ages {
+  min-width: 0 !important;
+  max-width: 80px !important;
+  margin: 0 4px !important;
+  width: calc(25% - 8px) !important;
+  height: 88px !important;
+  text-align: center !important;
+  border-radius: 5px !important;
+}
+
+#job_search_detail_modal .modal_content .ages i {
+  color: #ccc;
+  font-size: 2em;
+}
+
+#job_search_detail_modal .modal_content .ages span {
+  color: #aaa;
+}
+
+/* 아이 나이 end--------------------------------------- */
+
+#job_search_detail_modal .care_type_group div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#job_search_detail_modal .activity_type_btn {
+  width: calc(33% - 10px);
+  margin: 5px;
+  background-color: #f5f5f5;
+  color: #434343;
+  padding: 10px 0;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+#job_search_detail_modal .pay_range {
+  margin-right: 10px;
+}
+
+#job_search_detail_modal #min_pay,
+#job_search_detail_modal #max_pay {
+  width: 90px;
+  border: 1px solid #ff7000;
+  border-radius: 3px;
+}
+
+#job_search_detail_modal #min_pay:focus,
+#job_search_detail_modal #max_pay:focus {
+  width: 90px;
+  border: 3px solid #ff7000;
+  background-color: #fff7f1;
+}
+
+#job_search_detail_modal .want_pay_wrap div {
+  display: flex;
+  justify-content: space-around;
+}
+
+#job_search_detail_modal .kids_box {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+#job_search_detail_modal .kids_box div {
+  position: relative;
+  margin-bottom: 15px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  width: 33%;
+}
+
+#job_search_detail_modal .kids_box div label {
+  margin-left: 15px;
+}
+
+#job_search_detail_modal .modal_footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  background-color: #fff;
+  border-top: 1px solid #e3e3e3;
+}
+
+#job_search_detail_modal input[type="radio"] {
+  display: none;
+}
+
+.box-radio-input label {
+  display: flex;
+  align-items: center;
+}
+
+.box-radio-input .fa-circle {
+  color: #ccc;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.box-radio-input input[type="radio"]:checked + .fa-circle {
+  border: 3px solid #ff7700;
+  border-radius: 10px;
+  background: #ff7700;
+  color: #fff;
+}
+
+#job_search_detail_modal .reset {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  height: 55px;
+  background: none;
+  z-index: 15;
+}
+#job_search_detail_modal .fa-undo-alt {
+  padding-left: 25px;
+  color: rgb(186, 186, 186);
+}
+
+#job_search_detail_modal .modal_footer h2 {
+  margin: 0 0 0 5px;
+  font-size: 14.4px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #727272;
+}
+
+/*  job_search_detail_modal end ---------------------------------------------------------- */
+
+/*  location_modal ---------------------------------------------------------- */
+
+#location_modal {
+  background-color: #fff;
+  padding: 0;
+}
+
+#location_modal .location_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  background-color: #f2f2f2;
+}
+
+#location_modal .location_header h1 {
+  font-size: 25px;
+  font-weight: 400;
+  color: #353535;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+#location_modal .location_header .close {
+  padding: 12px;
+  opacity: 1;
+}
+
+#location_modal .location_header .reset {
+  border: 1px solid rgb(218, 218, 218);
+  margin: 0px;
+  padding: 0px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  width: 35px;
+  height: 35px;
+  background-color: rgb(248, 248, 248);
+  border-radius: 100%;
+}
+
+#location_modal .location_header i {
+  color: #000;
+}
+
+#location_modal #location_box {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#location_modal .location_group {
+  flex-basis: 33.3333%;
+  border-top: 1px solid #d9d9d9;
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+  height: auto;
+}
+
+#location_modal .location_group div {
+  width: 100%;
+  display: block;
+}
+
+#location_modal .location_group button {
+  display: block;
+  height: 45px;
+  width: 100%;
+  background-color: #fff;
+  color: #646464;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+#location .location_group button:hover {
+  height: 45px;
+  width: 100%;
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #646464;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.select_loaction {
+  color: #ff7000 !important;
+  background-color: #fff8f2 !important;
+}
+
+.select_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select_box {
+  flex-wrap: wrap;
+  padding: 9px;
+  min-height: 40px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #dbd3cd;
+  border-bottom: 1px solid #dbd3cd;
+}
+
+.result_box {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 15px;
+  border: 1px solid #ff7000;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.result_num {
+  padding: 0 8px;
+  margin-right: 5px;
+  color: #ff7000;
+  font-size: 1.1em;
+  font-weight: 700;
+  border-right: 1px solid #ff7000;
+}
+
+.result_text {
+  color: #ff7000;
+  font-size: 1em;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.result_cancle {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ff7000;
+}
+
+.result_cancle button {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/*선택 전까지 숨기기*/
+.hide_content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+/*선택 후 보여주기*/
+.show_content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/*  location_modal end ---------------------------------------------------------- */
+
+/* modal end ---------------------------------------------------------- */
+
+/*버튼 클릭시 적용될 클래스-------------------------------------*/
+.select_btn {
+  background-color: #ff7000 !important;
+  position: relative !important;
+}
+
+.select_text {
+  color: #ff7000 !important;
+}
+
+.select_btn_detail {
+  background-color: #ff7000 !important;
+  position: relative !important;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.select_text_detail {
+  color: #fff !important;
+}
+
+.select_act_type {
+  border: solid 1px #ff7000 !important;
+  color: #ff7000 !important;
+}
+
+.unselect_act_type {
+  display: none !important;
+}
+
+.select_act_btn {
+  background-color: #ff7928 !important;
+  color: #fff !important;
+  display: unset !important;
+}
+/*버튼 클릭시 적용될 클래스 end-------------------------------------*/

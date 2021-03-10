@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ConnectMapper">
+
+	<resultMap id="ConnectMap"
+		type="study.team.abuhae.model.Connect">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cntno" column="cntno" />
+		<result property="applydate" column="applydate" />
+		<result property="who" column="who" />
+		<result property="momno" column="momno" />
+		<result property="sitterno" column="sitterno" />
+		<result property="accept" column="accept" />
+		<result property="deny_type" column="deny_type" />
+	</resultMap>
+	
+	<resultMap id="ReviewMap"
+		type="study.team.abuhae.model.Review">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="revno" column="revno" />
+		<result property="who" column="who" />
+		<result property="rev_rate" column="rev_rate" />
+		<result property="reg_date" column="reg_date" />
+		<result property="contents" column="contents" />
+		<result property="momno" column="momno" />
+		<result property="sitterno" column="sitterno" />
+	</resultMap>
+
+	<!-- 인터뷰 지원하기를 눌렀을 때 -->
+	<insert id="applyInterview"
+		parameterType="study.team.abuhae.model.Connect"
+		useGeneratedKeys="true" keyProperty="cntno">
+		insert into connect (applydate,
+		who, momno, sitterno) values (now(), #{who}, #{momno}, #{sitterno})
+	</insert>
+
+	<!-- 내가 신청한 목록 ~~ 로그인한 사람 who가 M일 경우 ~~ 맘회원일 경우~~ -->
+	<select id="selectMomOutputApplyList"
+		parameterType="study.team.abuhae.model.Connect" resultMap="ConnectMap">
+		select m.memberno as memberno, si.sitterno as sitterno, conn.momno, conn.cntno,
+		name, job_opening,
+		FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		signed) -
+		CAST(REPLACE(birthdate,'-','') as signed)) / 10000 ) + 2 as birthdate, si.payment, applydate, phone, accept, deny_type,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = si.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = si.memberno) AS fileUrl
+		from connect conn
+		inner join mom_info mi on mi.momno = conn.momno
+		inner join sitter_info si on si.sitterno = conn.sitterno
+		inner join member m on m.memberno=si.memberno
+		where mi.momno=#{momno} and who='m';
+
+	</select>
+
+	<!-- 내가 신청한 목록 로그인한 사람 who가 S일 경우 ~~ 시터회원일 경우~~ -->
+	 <select id="selectSitterOutputApplyList"
+		parameterType="study.team.abuhae.model.Connect" resultMap="ConnectMap">
+		select m.memberno as memberno, mi.momno as momno, si.sitterno, conn.momno, conn.cntno, name, job_opening,
+		FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		signed) -
+		CAST(REPLACE(birthdate,'-','') as signed)) / 10000 ) + 2
+		AS birthdate, mi.payment, applydate, phone, accept, deny_type, conn.who,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = mi.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = mi.memberno) AS fileUrl
+		from connect conn
+		inner join mom_info mi on mi.momno = conn.momno
+		inner join sitter_info si on si.sitterno = conn.sitterno
+		inner join member m on m.memberno=mi.memberno
+		where conn.sitterno=#{sitterno} and conn.who='s';
+
+	</select> 
+
+	<!-- 내게 지원한 목록 로그인한 사람 who가 M일 경우~~~ 맘회원일 경우~~ -->
+	<select id="selectMomInputApplyList"
+		parameterType="study.team.abuhae.model.Connect" resultMap="ConnectMap">
+		select
+		m.memberno as memberno, si.sitterno as sitterno, conn.momno, conn.cntno, job_opening,
+		name, FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		signed) -
+		CAST(REPLACE(birthdate,'-','') as signed)) / 10000 ) + 2
+		AS birthdate, si.payment, applydate, phone, accept, deny_type,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = si.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = si.memberno) AS fileUrl
+		from connect conn
+		inner join mom_info mi on mi.momno = conn.momno
+		inner join sitter_info si on si.sitterno = conn.sitterno
+		inner join member m on m.memberno=si.memberno
+		where mi.momno=#{momno} and who='s';
+	</select>
+
+	<!-- 내게 지원한 목록 로그인한 사람 who가 S일 경우~~~ 시터회원일 경우~~ -->
+	<select id="selectSitterInputApplyList"
+		parameterType="study.team.abuhae.model.Connect" resultMap="ConnectMap">
+		select conn.cntno as cntno, m.memberno as memberno, conn.sitterno as sitterno, mi.momno as momno, conn.who, job_opening,
+		conn.sitterno as sitterno,name,FLOOR(
+		(CAST(REPLACE(current_date,'-','') AS
+		signed) -
+		CAST(REPLACE(birthdate,'-','') as signed)) / 10000 ) + 2
+		AS birthdate, mi.payment, applydate, phone, accept, deny_type,
+		(SELECT p.isProfile FROM profile_file p WHERE p.memberno = mi.memberno) AS isProfile, 
+		(SELECT p.fileUrl FROM profile_file p WHERE p.memberno = mi.memberno) AS fileUrl
+		from connect conn
+		inner join mom_info mi on mi.momno = conn.momno
+		inner join sitter_info si on si.sitterno = conn.sitterno
+		inner join member m on m.memberno=mi.memberno
+		where si.sitterno=#{sitterno} and who='m';
+	</select>
+	
+	<!-- 내게 지원한 인터뷰에 대한 응답 -->
+	<update id="EditAccept" parameterType="study.team.abuhae.model.Connect">
+		update connect set accept=#{accept}, deny_type=#{deny_type}
+		where momno=#{momno} and sitterno=#{sitterno}
+	</update>
+
+	<!-- accept가 'Y'일 경우 리뷰입력 기능 -->
+	<insert id="insertReview"
+	parameterType="study.team.abuhae.model.Review"
+	useGeneratedKeys="true" keyProperty="revno">
+		insert into review (who, rev_rate, reg_date, contents, momno, sitterno, cntno)
+		values (null, null, null, null, #{momno}, #{sitterno}, #{cntno});
+	</insert>
+	
+</mapper>
