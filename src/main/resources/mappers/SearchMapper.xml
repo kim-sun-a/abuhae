@@ -360,7 +360,7 @@
 		parameterType="study.team.abuhae.model.Mom_info" resultType="int">
 		SELECT
 		COUNT(*)
-		FROM Mom_info m
+		FROM mom_info m
 		INNER JOIN member mb ON
 		m.memberno=mb.memberno 
 		<!-- 활동 유형 && 상세 검색 && 주소 -->

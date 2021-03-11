@@ -69,12 +69,12 @@
                                             <p class="col-xs-8 col-md-5">${output.id }</p>
                                         </div>
                                         <div class="user_info_p user_phone">
-                                            <h5 class="col-xs-4 col-md-3">가입한 휴대폰 번호</h5>
+                                            <h5 class="col-xs-4 col-md-3">휴대폰 번호</h5>
                                             <p class="col-xs-5 col-md-3">${output.phone }</p>
                                             <div><button type="button" class="col-xs-3 col-md-2"><a data-toggle="modal" href="#upd_phonenumber">수정하기</a></button></div>
                                         </div>
                                         <div class="user_info_p user_email">
-                                            <h5 class="col-xs-4 col-md-3">가입한 이메일</h5>
+                                            <h5 class="col-xs-4 col-md-3">이메일</h5>
                                             <p class="col-xs-5 col-md-3">${output.email }</p>
                                             <div><button type="button" class="col-xs-3 col-md-2"><a data-toggle="modal" href="#upd_email">수정하기</a></button></div>
                                         </div>

@@ -66,6 +66,30 @@ jQuery(function($) {
           swal("맘회원으로 가입 후 이용해주세요.");
         }
       }); // fin. 찜버튼 기능
+      
+      $('#siren').on('click', function() {
+          let sitterno = $(this).data("sitterno");
+          
+          if (${fn:contains(login.type, 'S')}) {
+            
+              swal("시터는 시터회원을 신고할 수 없습니다.");
+              
+              return false;
+            } 
+          location.href='${pageContext.request.contextPath}/page_detail/sitter_page_detail/sitter_report.do?sitterno=${output.sitterno}';
+		}); // fin. 같은 타입 신고막기 
+		
+		$('#interview').on('click', function() {
+	          let sitterno = $(this).data("sitterno");
+	          
+	          if (${fn:contains(login.type, 'S')}) {
+	            
+	              swal("시터는 시터회원에게 지원할 수 없습니다.");
+	              
+	              return false;
+	            } 
+	          location.href='${pageContext.request.contextPath}/page_detail/sitter_interview.do?sitterno=${output.sitterno}';
+			}); // fin. 같은 타입 인터뷰 막기 
 	}); 
  </script>
  <!-- jquery 파일명 수정 -->
@@ -77,7 +101,7 @@ jQuery(function($) {
 		<div class="container">
 			<div class="col-xs-12"> <!-- xs-12로 모바일 맞춤 -->
 				<div class="pull-right">
-					<button type="button" class="btn btn-dark btn-xs" id="siren" onclick = "location.href='${pageContext.request.contextPath}/page_detail/sitter_page_detail/sitter_report.do?sitterno=${output.sitterno}';">
+					<button type="button" class="btn btn-dark btn-xs" id="siren">
 				 	<img src="${pageContext.request.contextPath}/assets/img/siren.png" width="13" height="15"/>
 				            신고
 				  	</button>
@@ -326,7 +350,7 @@ jQuery(function($) {
 													</div> <!-- fin. schedule_box -->
 												</div> <!-- fin. schedule_area -->
 											</div> <!-- fin. schedule_info_box -->
-											<div class="col-xs-12">
+											<div class="col-xs-12" style="text-align: center;">
 											<c:set var="theString" value="${output.days}" />
 											<c:if test="${fn:contains(theString, 'mon')==false}">
 											<div class="days_box_no">
@@ -1175,11 +1199,8 @@ jQuery(function($) {
 				<div class="fixed_box">
 					<div class="fixed_area">
 						<div class="fixed_area_age">
-							<div class="fixed_name">
-								${output.name}
-							</div>
 							<div class="fixed_age">
-								(${output.birthdate}세, <c:if test="${fn:contains(output.gender,'F')}">여</c:if><c:if test="${fn:contains(output.gender,'M')}">남</c:if>)
+								${output.name}&nbsp;(${output.birthdate}세, <c:if test="${fn:contains(output.gender,'F')}">여</c:if><c:if test="${fn:contains(output.gender,'M')}">남</c:if>)
 							</div>
 						</div>
 						<div class="fixed_money">
@@ -1198,7 +1219,7 @@ jQuery(function($) {
 							</button>
 						</div> <!-- fin. fixed_btn_jim -->					
 						<div class="interview_btn">
-							<button tabindex="0" type="button" class="btn-interview" onclick = "location.href='${pageContext.request.contextPath}/page_detail/sitter_interview.do?sitterno=${output.sitterno}';">
+							<button tabindex="0" type="button" class="btn-interview" id="interview">
 								<div>
 									<div class="btn_text_box">
 										<span><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-sm">인터뷰 신청하기</a></span>

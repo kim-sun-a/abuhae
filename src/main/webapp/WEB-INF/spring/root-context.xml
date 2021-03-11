@@ -21,9 +21,9 @@
 		<!-- 메일발송 서버 비밀번호 -->
 		<prop key="smtpPassword">hwmcppdromvfdjbr</prop>
 		<!-- 업로드 디렉토리 (sever.xml의 doBase 값과 일치) -->
-		<prop key="uploadDir">D:/upload</prop>
+		<prop key="uploadDir">/home/student/abuhae/upload</prop>
 		<!-- 업로드 디렉토리에 대한 WebPath (Server.xml의 path값과 일치해야 함) -->
-		<prop key="uploadPath">/upload</prop>
+		<prop key="uploadPath">/abuhae/upload</prop>
 	</util:properties>
 
 	<!-- webhelper 주입 설정 -->

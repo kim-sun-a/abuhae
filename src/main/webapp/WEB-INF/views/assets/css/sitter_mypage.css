@@ -57,6 +57,10 @@ a:hover {
   font-size: 1.5em;
 }
 
+.wrap_mps .group1_mps .mps_title .mps_title_cont {
+	width: 150px;
+}
+
 .wrap_mps .group1_mps .mps_title .mps_title_cont a {
   font-size: 0.8em;
   color: #696969;

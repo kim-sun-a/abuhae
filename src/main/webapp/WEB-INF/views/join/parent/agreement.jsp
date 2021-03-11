@@ -80,19 +80,19 @@
                 <!--서비스 운영정책 의무 동의-->
                 <div class="agree_box">
                     <div class="agree_check">
-                        <input type="checkbox" id="agree1" class="agree" value="agree1"><label for="agree1">서비스 운영정책 및 회원의 의무 동의<span>&nbsp;(필수)</span></label>
+                        <input name="check" type="checkbox" id="agree1" class="agree" value="agree1"><label for="agree1">서비스 운영정책 및 회원의 의무 동의<span>&nbsp;(필수)</span></label>
                     </div>
                 </div>
                 <!--서비스 이용약관, 개인정보 수집 이용 동의-->
                 <div class="agree_box">
                     <div class="agree_check">
-                        <input type="checkbox" id="agree2" class="agree" value="agree2"><label for="agree2">서비스 이용약관 동의<span>&nbsp;(필수)</span></label>
+                        <input name="check" type="checkbox" id="agree2" class="agree" value="agree2"><label for="agree2">서비스 이용약관 동의<span>&nbsp;(필수)</span></label>
                     </div>
                     <div class="agree_check">
-                        <input type="checkbox" id="agree3" class="agree" value="agree3"><label for="agree3">개인정보 수집 및 이용에 관한 동의<span>&nbsp;(필수)</span></label>
+                        <input name="check" type="checkbox" id="agree3" class="agree" value="agree3"><label for="agree3">개인정보 수집 및 이용에 관한 동의<span>&nbsp;(필수)</span></label>
                     </div>
                     <div class="agree_check">
-                        <input type="checkbox" id="agree4" class="agree" value="agree4"><label for="agree4">개인정보 제3자 제공에 관한 동의<span>&nbsp;(필수)</span></label>
+                        <input name="check" type="checkbox" id="agree4" class="agree" value="agree4"><label for="agree4">개인정보 제3자 제공에 관한 동의<span>&nbsp;(필수)</span></label>
                     </div>
                 </div>
                 <br>
@@ -130,6 +130,13 @@
                 $(".agree").prop('checked', $(this).prop('checked'));
                 var now = $(".next_btn").prop('disabled');
                 $(".next_btn").prop('disabled', !now);
+            });
+
+            $("input[name=check]").change(function(){
+                if($("input:checkbox[name=check]:checked").length == 4){
+                    var now = $(".next_btn").prop('disabled');
+                    $(".next_btn").prop('disabled', !now);
+                }
             });
         });
     </script>

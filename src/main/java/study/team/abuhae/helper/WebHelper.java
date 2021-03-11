@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.Thumbnails.Builder;
 import net.coobird.thumbnailator.geometry.Positions;
+import study.team.abuhae.model.ProfileFile;
 
 @Slf4j
 public class WebHelper {
@@ -283,9 +284,9 @@ public class WebHelper {
 	 * @throws NullPoinerException   업로드 된 파일이 없는 경우
 	 * @throws Exception             파일 저장에 실패한 경우	
 	 */
-	public UploadItem saveMultipartFile(MultipartFile multipartFile) throws
+	public ProfileFile saveMultipartFile(MultipartFile multipartFile) throws
 	NullPointerException, Exception {
-		UploadItem item = null;
+		ProfileFile item = null;
 		
 		/** 1) 업로드 파일 저장하기 */
 		// 파일의 원본 이름 추출
@@ -331,11 +332,11 @@ public class WebHelper {
 		String filePath = absPath.replace(this.uploadDir, "");
 		
 		// 리턴할 정보를 구성한다.
-		item = new UploadItem();
+		item = new ProfileFile();
 		item.setContentType(multipartFile.getContentType());
-		item.setFieldName(multipartFile.getName());
+		item.setFileName(multipartFile.getName());
 		item.setFileSize(multipartFile.getSize());
-		item.setOrginName(orginName);
+		item.setOriginName(orginName);
 		item.setFilePath(filePath);
 		
 		// WebHelper에 의해 생성된 업로드 경로는 서버상의 위치일 뿐 웹상에 노출될 수 있는 형태는 아니다.

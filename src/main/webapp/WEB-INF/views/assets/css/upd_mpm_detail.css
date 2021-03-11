@@ -7,7 +7,6 @@ html,
   box-sizing: border-box;
 
   font-size: 1em;
-  font-weight: bold;
 }
 h1,
 h2,
@@ -254,8 +253,14 @@ input[type=radio]+label {
 
 .wrap_like_sitter .grouop1_like_sitter .ls_tab_button li {
   list-style: none;
-  margin-right: 13px;
   min-height: 36px;
+  width: 51px;
+}
+
+.wrap_like_sitter .grouop1_like_sitter .ls_tab_button li:last-child {
+  list-style: none;
+  min-height: 36px;
+  width: 160px;
 }
 
 .wrap_like_sitter .grouop1_like_sitter .ls_tab_button li a span {
@@ -497,7 +502,7 @@ input[type=radio]+label {
 }
 
 .wrap_review .group1_review .rev_tab_panel .rev_tab_panel_con h4 {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
 }
 

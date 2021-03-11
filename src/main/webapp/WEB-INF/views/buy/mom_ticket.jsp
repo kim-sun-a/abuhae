@@ -103,11 +103,20 @@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <%@ taglib pr
 					tktype = $(this).data("tktype");
 					console.log(tktype);
 				});
+				
+				$('#buy_noapply').click(function(e) {
+					window.location = "${pageContext.request.contextPath}/login/login.do";
+				});	
+				
 
+				
 				$('#buy_apply').click(function(e) {
-					e.preventDefault();
-					window.location = "${pageContext.request.contextPath}/buy/receipt.do?tktype=" + tktype + "&memberno=" + ${login.memberno};
-				});		       
+					//e.preventDefault();
+					window.location = "${pageContext.request.contextPath}/buy/receipt.do?tktype=" + tktype + "&memberno= ${login.memberno}";
+				});	
+				
+				
+				
 			});
 		</script>
 		<script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
@@ -216,7 +225,13 @@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <%@ taglib pr
 			              </c:when>
 			            </c:choose>
 			          </c:if>
-					
+					  <c:if test="${login == null }">
+						<button type="button" class="buy_btn" id="buy_noapply">
+							 <p class="buy_btn_style">  
+							   로그인이 필요한 서비스입니다.
+							 </p>
+						   </button>
+					  </c:if>
 					<div class="mom_buy_desc_area">
 						<div class="mom_desc_title">1개월 무제한 이용권이란?</div>
 						<div class="desc_style">

@@ -67,6 +67,30 @@
 	            swal("시터회원으로 가입 후 이용해주세요.");
 	          }
 	        }); // fin. 찜버튼 기능
+	        
+	        $('#siren').on('click', function() {
+		          let momno = $(this).data("momno");
+		          
+		          if (${fn:contains(login.type, 'M')}) {
+		            
+		              swal("맘은 맘회원을 신고할 수 없습니다.");
+		              
+		              return false;
+		            } 
+		          location.href='${pageContext.request.contextPath}/page_detail/mom_page_detail/mom_report.do?momno=${output.momno}';
+			}); // fin. 같은 타입 신고막기 
+			
+			$('#interview').on('click', function() {
+		          let momno = $(this).data("momno");
+		          
+		          if (${fn:contains(login.type, 'M')}) {
+		            
+		              swal("맘은 맘회원에게 지원할 수 없습니다.");
+		              
+		              return false;
+		            } 
+		          location.href='${pageContext.request.contextPath}/page_detail/mom_interview.do?momno=${output.momno}';
+				}); // fin. 같은 타입 인터뷰 막기 
 		}); 
 	 </script>
 	 <!-- jquery 파일명 수정 -->
@@ -78,7 +102,7 @@
 		<div class="container" >
 			<div class="col-xs-12"> <!-- xs-12로 모바일 맞춤 -->
 				<div class="pull-right">
-					<button type="button" class="btn btn-dark btn-xs" id="siren" onclick = "location.href='${pageContext.request.contextPath}/page_detail/mom_page_detail/mom_report.do?momno=${output.momno}';">
+					<button type="button" class="btn btn-dark btn-xs" id="siren">
 				 	 <img src="${pageContext.request.contextPath}/assets/img/siren.png" width="13" height="15"/>
 				             신고
 				  	</button>
@@ -286,11 +310,11 @@
 											<span id="schedule_text"> 
 											${fn:split(output.startdate,'/')[0]}년 ${fn:split(output.startdate,'/')[1]}월 ${fn:split(output.startdate,'/')[2]}일 
 											 </span> 부터 일을 시작할 수 있어요.
+											 <br/>
 											 <c:if test="${fn:contains(output.schedule_ok,Y)}">
 											<span style="margin-left: 5px;">
 											* 이 일정은 맘시터에 맞춰서 얼마든지 
-											<br/>
-											<span style="margin-left: 13px;">
+											<span>
 											조정할 수 있어요.
 											</span>
 											</span>
@@ -301,7 +325,7 @@
 								</div>
 							</div>
 							<div>
-							<div class="col-xs-12">
+							<div class="col-xs-12" style="text-align: center;">
 							<c:set var="theString" value="${output.days}" />
 							<c:if test="${fn:contains(theString, 'mon')==false}">
 							<div class="days_box_no">
@@ -371,7 +395,7 @@
 							</div>
 							</div>
 							<div style="text-align: center; font-weight: bold; padding-top: 10px;">
-							<span style="color: #ff7000;  ">
+							<span style="color: #ff7000; font-weight: normal; ">
 								* 자세한 시간은 맘시터 회원과 매칭된 이후에 조율해요. 
 							</span>
 							</div>
@@ -1013,7 +1037,7 @@
 						</button>					
 					</div>
 					<div class="interview_btn">
-							<button tabindex="0" type="button" class="btn-interview" onclick = "location.href='${pageContext.request.contextPath}/page_detail/mom_interview.do?momno=${output.momno}';">
+							<button tabindex="0" type="button" class="btn-interview" id="interview">
 								<div>
 									<div class="btn_text_box">
 										<span><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-sm">인터뷰 신청하기</a></span>
@@ -1023,28 +1047,6 @@
 					</div> <!-- fin. interview_btn -->
 				</div>
 			</div> <!-- fin. fixed_box -->
-				<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<!-- .modal-dialog --> 
-					<div class="modal-dialog">
-						<!-- .modal-content -->
-						<div class="modal-content">
-							<div class="modal-body">
-								<p>
-									일자리에 지원하기 위해
-									<br/>
-									지원권을 구매해주세요
-								</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal" id="btn_ok" onclick = "location.href='${pageContext.request.contextPath}';">
-									지원권 구매하러 가기
-								</button>
-							</div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
 				<!-- /.modal -->	
 			
 	</body>

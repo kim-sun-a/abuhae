@@ -193,23 +193,5 @@
 		<!-- Javascript -->
 		<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
-
-        <script>
-            $(function() {
-              /** 탭 버튼 클릭 처리 */
-                $(".tab_button_item").click(function(e) {
-                    e.preventDefault();
-                    $(".tab_button_item").not(this).removeClass("fi_selected");
-                    $(this).addClass("fi_selected");
-
-                    $(".tab_button_item").not(this).find("a").removeClass("selected");
-                    $(this).find("a").addClass("selected");
-
-                    var target2 = $(this).find("a").attr("href");
-                    $(target2).removeClass("hide");
-                    $(".rev_tab_panel_con > div").not($(target2)).addClass("hide");
-                });  
-            });
-        </script>
 	</body>
 </html>

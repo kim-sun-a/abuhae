@@ -6,7 +6,7 @@ html,
   padding: 0;
 
   font-size: 1em;
-  font-weight: bold;
+
 }
 
 h1,
@@ -383,8 +383,14 @@ input[type=radio] {
 
 .wrap_like_mom .grouop1_like_mom .lm_tab_button li {
   list-style: none;
-  margin-right: 13px;
   min-height: 36px;
+  width: 51px;
+}
+
+.wrap_like_mom .grouop1_like_mom .lm_tab_button li:last-child {
+  list-style: none;
+  min-height: 36px;
+  width: 160px;
 }
 
 .wrap_like_mom .grouop1_like_mom .lm_tab_button li a span {
@@ -680,7 +686,7 @@ input[type=radio] {
 .wrap_review .group1_review .rev_tab_button .tab_button_item {
   width: 100%;
   height: 48px;
-  border-bottom: 3px solid rgb(237, 237, 237);
+  border-bottom: 3px solid #ff7000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -692,7 +698,7 @@ input[type=radio] {
 }
 
 .wrap_review .group1_review .rev_tab_button .tab_button_item_link {
-  color: rgb(148, 148, 148);
+  color: #ff7000;
   font-size: 1.1em;
   width: 100%;
 }
@@ -716,7 +722,6 @@ input[type=radio] {
 
 .wrap_review .group1_review .rev_tab_panel .rev_tab_panel_con h4 {
   font-size: 1.2em;
-  font-weight: bold;
 }
 
 .wrap_review .group1_review .rev_tab_panel .rev_tab_panel_con h5 {
@@ -868,6 +873,11 @@ button {
   font-size: 3.5em;
   margin-bottom: 10px;
 }
+
+.certify_cont2 p {
+	font-weight: normal;
+}
+
 /** end 인증 관리  ------------------------------------------------------------------*/
 
 /** 내 맘시터 채용 횟수  --------------------------------------------------------- ---*/
@@ -916,6 +926,10 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.total_count p {
+	font-weight: normal;
 }
 
 /** end 내 맘시터 채용 횟수  ---------------------------------------------------------*/

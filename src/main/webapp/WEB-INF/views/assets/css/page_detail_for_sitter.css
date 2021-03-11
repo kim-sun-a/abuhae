@@ -31,7 +31,7 @@
 				.name_siter {
 					border-radius: 17px;
 					border: 1px solid #e5e5e5;
-					font-size: 0.9em;
+					font-size: 0.8em;
 					color: #656565;
 					font-weight: 500;
 					text-align: center;
@@ -39,6 +39,10 @@
 					padding: 3px 16px;
 					margin-left: 13px;
 					font-weight: bolder;
+					width: 110px;
+				}
+				.review_ea {
+					width: 55px;
 				}
 				.response {
 					font-weight: bolder;
@@ -64,7 +68,7 @@
 					background-color: #e6e6e6;
 				}
 				.age, .number, .review_ea {
-					font-size: 0.9em;
+					font-size: 0.8em;
 					font-weight: bold;
 				}
 				
@@ -583,6 +587,7 @@
 					padding: 15px;
 					border-radius: 3px;
 					background-color: #fff;
+					font-size: 0.9em;
 				}
 				.age_line {
 					display: flex;
@@ -606,6 +611,7 @@
 				.possible_active_main {
 					padding: 15px 0px;
 					display: flex;
+					margin-right: 30px;
 				}
 				.active_ok {
 					margin-bottom: 30px;
@@ -759,7 +765,6 @@
 					display: flex;
 				}
 				.famille_date {
-					padding-right: 130px;
 					margin: 15px 0;
 					color: #000;
 					line-height: 1.64;
@@ -817,7 +822,9 @@
 					margin-bottom: 5px;
 				}
 				.fixed_box {
+					height: 60px;
 					display: flex;
+					justify-content: space-between;
 					padding: 10px 18px;
 					background-color: #fff;
 					align-items: stretch;
@@ -830,13 +837,17 @@
 					left: 0px;
 				}
 				.fixed_area {
+					position: relative;
+					width: 130px;
+					top: 4px;
 					display: flex;
 					flex-direction: column;
+					font-size: 0.8em;
+					width: 130px;
+					height: 65px;
 				}
 				.fixed_area_age {
-					align-items: baseline;
-					display: inline-flex;
-					
+					align-items: baseline;					
 				}
 				.fixed_name {
 					color: #5b5b5b;
@@ -846,7 +857,7 @@
 				.fixed_age {
 					font-weight: bold;
 					color: #5b5b5b;
-					font-size: 1.1em;
+					font-size: 1.3em;
 				}
 				.fixed_money {
 					font-size: 1em;
@@ -854,13 +865,11 @@
 					font-weight: bold;
 				}
 				.fixed_btn {
-
-					display: inline-flex;
-					align-items: center;
+					display: flex;
+					left: 100px;
 				}
 				.fixed_btn_jim {
 					position: relative;
-					left: 55px;
 					text-align: center;
 				}
 				.btn-jim {
@@ -886,13 +895,12 @@
 				}
 				.interview_btn {
 					position: relative;
-					left: 45px;
 					padding-left: 15px;
 					color: rgba(0, 0, 0, 0.87);
 					background-color: rgb(255, 255, 255);
 					box-sizing: border-box;
 					border-radius: 2px;
-					height: 50px;
+					height: 40px;
 					min-width: 88px;
 					display: inline-block;
 				}
@@ -904,7 +912,6 @@
 					background-color: #ff7000;
 					text-align: center;
 					border-radius: 2px;
-					height: 50px;
 					z-index: 1;
 					position: relative;
 					outline: none;
@@ -914,7 +921,6 @@
 					width: 100%;
 				}
 				.btn_text_box {
-					height: 50px;
 					border-radius: 2px;
 					top: 0;
 				}
@@ -954,10 +960,10 @@
 					
 				}
 				.btn-sm {
-					height: 50px;
+					height: 40px;
 					padding-top: 10px;
 					font-weight: bold;
-					font-size: 1.15em;
+					font-size: 0.9em;
 				}
 				.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
 					background-color: #ff7000;
@@ -1083,8 +1089,8 @@
 				background: none;
 			}
 			.days_box_no {
-			width: 47px;
-			height: 45px;
+			width: 42px;
+			height: 42px;
 			background-color: #ccc;
 			color: #fff;
 			padding: 3px 4px;
@@ -1097,8 +1103,8 @@
 			padding: 3px 4px;
 		}
 		.days_box_ok {
-			width: 47px;
-			height: 45px;
+			width: 42px;
+			height: 42px;
 			background-color: #ff7000;
 			color: #fff;
 			padding: 3px 4px;
@@ -1135,6 +1141,7 @@
 			background-color: #e9f2f1;
 			padding: 15px;
 			border-radius: 8px;
+			font-size: 0.9em;
 		}
 		#schedule_text {
 			padding-top: 6px;

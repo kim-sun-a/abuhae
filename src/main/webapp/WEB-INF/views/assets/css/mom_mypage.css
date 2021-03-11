@@ -55,6 +55,10 @@ a:hover {
   font-size: 1.5em;
 }
 
+.wrap_mpm .group1_mpm .mpm_title .mpm_title_cont {
+	width: 150px;
+}
+
 .wrap_mpm .group1_mpm .mpm_title .mpm_title_cont a {
   font-size: 0.8em;
   color: #696969;

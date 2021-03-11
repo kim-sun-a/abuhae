@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import study.team.abuhae.helper.UploadItem;
 import study.team.abuhae.helper.WebHelper;
 import study.team.abuhae.model.Mom_info;
 import study.team.abuhae.model.ProfileFile;
@@ -19,8 +18,6 @@ import study.team.abuhae.service.SitterMypageService;
 import study.team.abuhae.service.UploadService;
 
 import java.io.File;
-import java.util.Locale;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +37,7 @@ public class UploadController {
 	String contextPath;
 	
 	/** 업로드 폼에 대한 action 페이지 */
-	@RequestMapping(value = "upload/upload_ok.do", method = RequestMethod.POST)
+	@RequestMapping(value = "mypage/upload_ok.do", method = RequestMethod.POST)
 	public ModelAndView uploadOk(Model model,  HttpSession session, 
 			@RequestParam(required = false) MultipartFile photo,
 			@RequestParam(value = "memberno", defaultValue = "0") int memberno,
@@ -117,7 +114,7 @@ public class UploadController {
 		}
 	}
 	
-	@RequestMapping(value = "upload/upload_edit.do", method = RequestMethod.POST)
+	@RequestMapping(value = "mypage/upload_edit.do", method = RequestMethod.POST)
 	public ModelAndView uploadEdit(Model model, HttpSession session, 
 			@RequestParam(required = false) MultipartFile photo,
 			@RequestParam(value = "memberno", defaultValue = "0") int memberno,
@@ -195,7 +192,7 @@ public class UploadController {
 		}
 	}
 	
-	@RequestMapping(value = "upload/upload_certi_ok.do", method = RequestMethod.POST)
+	@RequestMapping(value = "mypage/upload_certi_ok.do", method = RequestMethod.POST)
 	public ModelAndView uploadCertiOk(Model model,  HttpSession session, 
 			@RequestParam(required = false) MultipartFile photo,
 			@RequestParam(value = "check_resi", defaultValue = "") String check_resi,
@@ -260,7 +257,7 @@ public class UploadController {
 	}
 	
 	/** 인증 재업로드 */
-	@RequestMapping(value = "upload/upload_certi_eidt.do", method = RequestMethod.POST)
+	@RequestMapping(value = "mypage/upload_certi_eidt.do", method = RequestMethod.POST)
 	public ModelAndView uploadCertiEdit(Model model,  HttpSession session, 
 			@RequestParam(required = false) MultipartFile photo,
 			@RequestParam(value = "check_resi", defaultValue = "") String check_resi,

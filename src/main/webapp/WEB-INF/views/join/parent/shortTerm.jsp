@@ -9,7 +9,7 @@
     </div>
     <hr>
     
-    </div>
+
     <!--일정은 시터에게 맞출 수 잇어요-->
     <div class="jojung_box">
         <span class="jojung_check"></span>

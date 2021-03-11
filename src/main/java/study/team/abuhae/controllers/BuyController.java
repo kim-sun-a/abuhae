@@ -6,6 +6,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import study.team.abuhae.helper.WebHelper;
 import study.team.abuhae.model.Coupon;
 import study.team.abuhae.model.Member;
 import study.team.abuhae.model.Mom_info;
@@ -23,6 +25,10 @@ public class BuyController {
 
 	@Autowired
 	BuyService buyService;
+	@Autowired
+	WebHelper webHelper;
+	@Value("#{servletContext.contextPath}")
+	String contextPath;
 
 	// 이용권 페이지
 	@RequestMapping(value = "/buy/buy.do", method = RequestMethod.GET)
@@ -54,6 +60,11 @@ public class BuyController {
 		// 로그인 세션 객체를 받아와서 Mom_info의 memberno 조회
 		Mom_info input = new Mom_info();
 		input.setMemberno(memberno);
+		
+		if (memberno == 0) {
+			String url = contextPath+"/login/login";
+			webHelper.redirect(url, "로그인이 필요한 서비스입니다.");
+		}
 
 		/** 쿠폰 목록 조회하기 */
 		// 조회 결과를 저장할 객체 선언

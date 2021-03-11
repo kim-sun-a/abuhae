@@ -53,11 +53,6 @@
 		height: 1px;
 		border-top: 1px solid #ccc;
 	}
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-	
 	.btn-dark {
 		z-index: 1;
 	    background-color: #000;
@@ -251,6 +246,7 @@
 		position: relative;
 		padding: 15px;
 		border-radius: 3px;
+		margin-bottom: 25px;
 		background-color: #fff;
 	}
 	.active {
@@ -585,6 +581,7 @@
 		padding: 15px;
 		border-radius: 3px;
 		background-color: #fff;
+		font-size: 0.9em;
 	}
 	.age_line {
 		display: flex;
@@ -608,6 +605,7 @@
 	.possible_active_main {
 		padding: 15px 0px;
 		display: flex;
+		margin-right: 30px;
 	}
 	.active_ok {
 		margin-bottom: 30px;
@@ -819,7 +817,7 @@
 	}
 	.fixed_box {
 		display: flex;
-		min-height: 70px;
+		justify-content: space-between;
 		flex-direction: row;
 		-webkit-box-pack: justify;
 		-webkit-box-align: center;
@@ -828,10 +826,15 @@
 		background-color: #fff;
 		position: fixed;
 		z-index: 15;
+		width: 100%;
+		height: 90px;
 		bottom: 0px;
 		padding: 10px 15px;
 		left: 0px;
 	}
+	.fixed_btn {
+		display: flex;
+	}	
 		
 	.fixed_area {
 		display: flex;
@@ -856,15 +859,8 @@
 		color: #000;
 		font-weight: bold;
 	}
-	.fixed_btn {
-		
-		display: inline-flex;
-		align-items: center;
-	}
 	.fixed_btn_jim {
 		position: relative;
-		left: 55px;
-		text-align: center;
 	}
 	.btn-jim {
 		border: 10px;
@@ -888,14 +884,13 @@
 		margin-top: -8px;
 	}
 	.interview_btn {
-		position: relative;
-		left: 45px;
 		padding-left: 15px;
 		color: rgba(0, 0, 0, 0.87);
 		background-color: rgb(255, 255, 255);
 		box-sizing: border-box;
 		border-radius: 2px;
 		height: 50px;
+		bottom: 20px;
 		min-width: 88px;
 		display: inline-block;
 	}
@@ -1369,8 +1364,8 @@
 		padding: 0 70px;
 	}
 	.days_box_no {
-		width: 47px;
-		height: 45px;
+		width: 42px;
+		height: 42px;
 		background-color: #ccc;
 		color: #fff;
 		padding: 3px 4px;
@@ -1384,8 +1379,8 @@
 		margin-bottom: 10px;
 	}
 	.days_box_ok {
-		width: 47px;
-		height: 45px;
+		width: 42px;
+		height: 42px;
 		background-color: #ff7000;
 		color: #fff;
 		padding: 3px 4px;
@@ -1433,11 +1428,9 @@
 	.swal-button {
 		background-color: #ff7000;
 	}
-	.active_area_profil {
-		margin-top: 10px;
-	}
 	.active_text_line {
-		font-size: 0.98em;
+		font-size: 0.8em;
+		font-weight: normal;
 	}
 	.modal-body > p {
 		text-align: center;

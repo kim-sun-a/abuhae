@@ -12,7 +12,7 @@
 	<insert id="insertMember"
 		parameterType="study.team.abuhae.model.Member" useGeneratedKeys="true"
 		keyProperty="memberno">
-		INSERT INTO Member (id, type, password, name, email,
+		INSERT INTO member (id, type, password, name, email,
 		phone, 
 		birthdate, gender, job_opening, signup_date, subscribe)
 		VALUES (#{id},
@@ -29,7 +29,7 @@
 	<insert id="insertMom"
 		parameterType="study.team.abuhae.model.Mom_info"
 		useGeneratedKeys="true" keyProperty="momno">
-		INSERT INTO Mom_info (want_act1, want_act2, want_act3,
+		INSERT INTO mom_info (want_act1, want_act2, want_act3,
 		want_age, kids_num, kids_age, kids_age2, kids_nai, kids_nai2,
 		payment, payment_ok, si, gu, dong,
 		schedule,
@@ -48,7 +48,7 @@
 	<insert id="insertSitter"
 		parameterType="study.team.abuhae.model.Sitter_info"
 		useGeneratedKeys="true" keyProperty="sitterno">
-		INSERT INTO Sitter_info
+		INSERT INTO sitter_info
 		(sitter_type,
 		want_act1, want_act2, want_act3, want_age, payment, si, gu, dong,
 		schedule, introduce, cctv, openingdate, memberno)

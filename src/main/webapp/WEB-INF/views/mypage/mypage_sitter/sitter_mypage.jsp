@@ -353,11 +353,11 @@
         				memberno: memberno,
         				job_opening: "N",
         			}, function() {
-        				var conf = confirm("프로필을 비공개하시겠습니까?");
+        				var conf = alert("프로필이 비공개되었습니다.");
         				
-        				if(conf) {
-        					location.replace("${pageContext.request.contextPath}/mypage/mypage_sitter/sitter_mypage.do?sitterno="+${login.sitterno});
-        				} 
+        				
+        				return location.replace("${pageContext.request.contextPath}/mypage/mypage_sitter/sitter_mypage.do?sitterno="+${login.sitterno});
+        				
         			});
         		} else {
         			$.post("${pageContext.request.contextPath}/mypage/update_sopening_date", {
@@ -368,11 +368,10 @@
         				memberno: memberno,
         				job_opening: "Y",
         			}, function() {
-						var conf = confirm("프로필을 공개하시겠습니까?");
+						var conf = alert("프로필을 공개하시겠습니까?");
         				
-        				if(conf) {
-        					location.replace("${pageContext.request.contextPath}/mypage/mypage_sitter/sitter_mypage.do?sitterno="+${login.sitterno});
-        				} 
+        				
+        				return location.replace("${pageContext.request.contextPath}/mypage/mypage_sitter/sitter_mypage.do?sitterno="+${login.sitterno});
         			});
         		}
             });

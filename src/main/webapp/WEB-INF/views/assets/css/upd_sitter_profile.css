@@ -135,21 +135,20 @@ button {
 }
 
 .wrap_img .example_img a button {
-  width: 100%;
+  width: 250px;
   height: 48px;
   padding: 0 25px;
   border: 1px solid #dac68c;
   border-radius: 36px;
   background-color: #fcf2d4;
   margin-top: 50px;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 /** mocal */
 .way_upd_img_cont {
   display: flex;
   flex-direction: column;
-  padding: 0 20%;
 }
 
 .way_upd_img_cont div {

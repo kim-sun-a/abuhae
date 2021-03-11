@@ -316,6 +316,7 @@ a:hover {
         }
         .article_title {
             padding: 0;
+            margin-left: 40px;
         }
         .article_title p {
             margin: 0;

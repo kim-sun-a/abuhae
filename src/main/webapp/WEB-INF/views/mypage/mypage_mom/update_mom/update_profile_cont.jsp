@@ -24,7 +24,14 @@
     <!-- Javascript -->
     <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script> <!-- jquery 파일명 수정 -->
     <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+        <!--Google CDN 서버로부터 jQuery 참조 -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery Ajax Form plugin CDN -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+    <!-- jQuery Ajax Setup -->
+    <script src="${pageContext.request.contextPath}/assets/ajax/ajax_helper.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!-- css 참조 -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/upd_mom_appl.css">
     <style type="text/css">
@@ -199,11 +206,11 @@
                 <div class="row">
                     <c:choose>
                     	<c:when test="${profile == null }">
-                    		<form method="post" action="${pageContext.request.contextPath}/upload/upload_ok.do?memberno=${login.memberno}"
+                    		<form method="post" action="${pageContext.request.contextPath}/mypage/upload_ok.do?memberno=${login.memberno}"
 		                    enctype="multipart/form-data">
 		                        <div class="col-xs-12">
 		                            <h5 class="upd_img_tl">1. 내 사진 (선택사항)</h5>
-		                            <div class="upload_prof">
+		                            <div clvsass="upload_prof">
 		                                <div class="user_img">
 		                                	<input type="hidden" name= "momno" value="${login.momno }">
 		                                    <input type="file" id="new_profile_img" name="photo" accept="image/*">
@@ -225,7 +232,7 @@
 		                    </form>
                     	</c:when>
                     	<c:otherwise>
-                    		<form method="post" action="${pageContext.request.contextPath}/upload/upload_edit.do?memberno=${login.memberno}"
+                    		<form method="post" action="${pageContext.request.contextPath}/mypage/upload_edit.do?memberno=${login.memberno}"
 		                    enctype="multipart/form-data">
 		                        <div class="col-xs-12">
 		                            <h5 class="upd_img_tl">1. 내 사진 (선택사항)</h5>
@@ -685,43 +692,43 @@
             <!-- end content1 -->
 
 
-            <!-- modal -->
-            <div id="child_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-                aria-hidden="true">
-                <!-- mocal-dialog -->
-                <div class="modal-dialog">
-                    <!-- modal-content -->
-                    <div class="modal-content">
-                        <!--제목-->
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                                style="padding: 10px 0;">
-                                <i class="fas fa-times"></i>
-                            </button>
-                            <h4 class="modal-title" id="modalLabel"
-                                style="font-size: 1.2em; font-weight: bold; padding: 10px 0; color: #000;">
-                                아래 시급 기준을 확인해주세요.
-                            </h4>
-                        </div>
+          <!-- modal -->
+          <div id="child_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+              aria-hidden="true">
+              <!-- mocal-dialog -->
+              <div class="modal-dialog">
+                  <!-- modal-content -->
+                  <div class="modal-content">
+                      <!--제목-->
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                              style="padding: 10px 0;">
+                              <i class="fas fa-times"></i>
+                          </button>
+                          <h4 class="modal-title" id="modalLabel"
+                              style="font-size: 1.2em; font-weight: bold; padding: 10px 0; color: #000;">
+                              아래 시급 기준을 확인해주세요.
+                          </h4>
+                      </div>
 
-                        <!-- 내용 -->
-                        <div class="modal-body">
-                            <div style="margin-bottom: 20px;">
-                                <h5 style="font-weight: bold; margin-bottom: 10px;">돌봄 아이 시급 1명일 경우</h5>
-                                <p style="color: #838383; font-size: 0.9em;">최저시급 8,720원 이상 필수</p>
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <h5 style="font-weight: bold; margin-bottom: 10px;">돌봄 아이 시급 2명일 경우</h5>
-                                <p style="color: #838383; font-size: 0.9em;">최저시급 8,720 x 1.5배인 13,000원 이상 필수</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- //modal-content end -->
-                </div>
-                <!-- //modal-dailog end-->
-            </div>
+                      <!-- 내용 -->
+                      <div class="modal-body">
+                          <div style="margin-bottom: 20px;">
+                              <h5 style="font-weight: bold; margin-bottom: 10px;">돌봄 아이 시급 1명일 경우</h5>
+                              <p style="color: #838383; font-size: 0.9em;">최저시급 8,720원 이상 필수</p>
+                          </div>
+                          <div style="margin-bottom: 20px;">
+                              <h5 style="font-weight: bold; margin-bottom: 10px;">돌봄 아이 시급 2명일 경우</h5>
+                              <p style="color: #838383; font-size: 0.9em;">최저시급 8,720 x 1.5배인 13,000원 이상 필수</p>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- //modal-content end -->
+              </div>
+              <!-- //modal-dailog end-->
+          </div>
 
-        </div>
+
 
         <hr>
 
@@ -1430,19 +1437,9 @@
             </div>
             <!-- // modal end -->
         </div>
-
-</div>
-
+	</div>
 
 
-    <!--Google CDN 서버로부터 jQuery 참조 -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- jQuery Ajax Form plugin CDN -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
-    <!-- jQuery Ajax Setup -->
-    <script src="${pageContext.request.contextPath}/assets/ajax/ajax_helper.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
     <script type="text/javascript">
         function addCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1611,23 +1608,8 @@
                     }
                 });
             });
-            //정기적으로의 날짜 선택
-            $('#datepicker').flatpickr({
-                dateFormat: "Y/m/d",
-                minDate: "today",
-                maxDate: new Date().fp_incr(30), //지금으로부터 30일 이내
-                defaultDate: new Date().fp_incr(6) //지금으로부터 6일이 기본
-            });
-            //특정날의 달력
-            $(".calrendar_block").flatpickr({
-                inline: true,
-                dateFormat: "Y/m/d",
-                minDate: "today",
-                maxDate: new Date().fp_incr(30), //지금으로부터 30일 이내
-                mode: "multiple", //여러개 선택 가능
-                defaultDate: new Date().fp_incr(6) //지금으로부터 6일이 기본
-            });
-
+            
+            /*
             const wantday = [];
             //요일 선택시 
             $(document).on('click', '.day_btn', function () {
@@ -1643,6 +1625,7 @@
                 }
 
             });
+            */
             //일정 조정 선택
             $(document).on('click', '.jojung_box', function () {
                 $(this).toggleClass("box_check");
@@ -1667,7 +1650,7 @@
                     //시작 날짜
                     var startdate = $(".date_box").val();
                     //요일
-                    var day = wantday;
+                    var day = result1;
                     
 
                     var schedule = {

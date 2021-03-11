@@ -110,7 +110,7 @@
                 <!-- content1 -->
 					<c:choose>
 						<c:when test="${output == null }">
-							<form method="post" action="${pageContext.request.contextPath}/upload/upload_ok.do?memberno=${login.memberno}"
+							<form method="post" action="${pageContext.request.contextPath}/mypage/upload_ok.do?memberno=${login.memberno}"
 								enctype="multipart/form-data">
 								<div>
 									<h5 class="upd_img_tl">1. 내 사진 (선택사항) ${totalCount}</h5>
@@ -225,7 +225,7 @@
 						</c:when>
 					
 						<c:otherwise>
-							<form method="post" action="${pageContext.request.contextPath}/upload/upload_edit.do?memberno=${login.memberno}"
+							<form method="post" action="${pageContext.request.contextPath}/mypage/upload_edit.do?memberno=${login.memberno}"
 								enctype="multipart/form-data">
 								<div>
 									<h5 class="upd_img_tl">1. 내 사진 (선택사항)</h5>
@@ -901,7 +901,7 @@
 									<div class="wage_box">
 										<input type="checkbox" id="avg_wage">
 										<label for="avg_wage">
-											<div class="check_avg"></div> 평균시급 적용
+											<div class="check_avg"></div> <p class="select_wage">평균시급 적용</p>
 										</label>
 									</div>
 								</div>

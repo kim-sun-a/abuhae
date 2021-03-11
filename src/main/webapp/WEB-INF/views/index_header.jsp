@@ -126,7 +126,7 @@
       location.replace("${pageContext.request.contextPath}/abu-service/introduce.do");
     });
     $("#buy_btn").click(function (e) {
-      location.replace("${pageContext.request.contextPath}/buy/buy.do");
+      location.replace("${pageContext.request.contextPath}/buy/mom_ticket.do");
     });
     $("#notice_btn").click(function (e) {
       location.replace("${pageContext.request.contextPath}/customer/notice_site.do");

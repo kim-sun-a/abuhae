@@ -74,7 +74,7 @@
 	<insert id="insertMember"
 		parameterType="study.team.abuhae.model.Member" useGeneratedKeys="true"
 		keyProperty="memberno">
-		INSERT INTO Member (type, id, password, name, email,
+		INSERT INTO member (type, id, password, name, email,
 		phone, birthdate, gender, job_opening, subscribe, signup_date)
 		VALUES (#{type}, #{id}, md5(#{password}), #{name}, #{email}, #{phone},
 		#{birthdate},#{gender}, #{job_opening}, #{subscribe}, now());
@@ -85,7 +85,7 @@
 	<insert id="insertMom"
 		parameterType="study.team.abuhae.model.Mom_info"
 		useGeneratedKeys="true" keyProperty="momno">
-		INSERT INTO Mom_info (want_act1, want_act2, want_act3,
+		INSERT INTO mom_info (want_act1, want_act2, want_act3,
 		want_age, kids_num, kids_age, kids_age2, kids_nai, kids_nai2,
 		payment, payment_ok, si, gu, dong,
 		schedule,
@@ -105,7 +105,7 @@
 	<insert id="insertSitter"
 		parameterType="study.team.abuhae.model.Sitter_info"
 		useGeneratedKeys="true" keyProperty="sitterno">
-		INSERT INTO Sitter_info
+		INSERT INTO sitter_info
 		(sitter_type,
 		want_act1, want_act2,want_act3, want_age, si, gu, dong, 
 		schedule, payment, cctv, isprofile, introduce, openingdate, memberno)

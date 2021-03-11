@@ -194,7 +194,7 @@
                             <div class="col-xs-12 certi_resi_con_in">
                                <c:choose>
                                		<c:when test="${certify == null}">
-                               			 <form method="post" action="${pageContext.request.contextPath}/upload/upload_certi_ok.do?sitterno=${login.sitterno}"
+                               			 <form method="post" action="${pageContext.request.contextPath}/mypage/upload_certi_ok.do?sitterno=${login.sitterno}"
 				                    	enctype="multipart/form-data">
 		                                    <!-- 첫번째 내용 -->
 		                                    <div class="certi_resi_one">
@@ -296,7 +296,7 @@
 		                                </form>
                                		</c:when>
                                		<c:otherwise>
-                               			 <form method="post" action="${pageContext.request.contextPath}/upload/upload_certi_eidt.do?sitterno=${login.sitterno}"
+                               			 <form method="post" action="${pageContext.request.contextPath}/mypage/upload_certi_eidt.do?sitterno=${login.sitterno}"
 				                    	enctype="multipart/form-data">
 		                                    <!-- 첫번째 내용 -->
 		                                    <div class="certi_resi_one">
